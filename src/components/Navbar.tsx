@@ -43,7 +43,7 @@ export const Navbar2 = (props: Navbar2Props) => {
       <div className="mx-auto size-full lg:grid lg:grid-cols-[0.375fr_1fr_0.375fr] lg:items-center lg:justify-between lg:gap-4">
         <div className="flex min-h-16 items-center justify-between px-[5%] md:min-h-18 lg:min-h-full lg:px-0">
           <a href={logo.url}>
-            <img src={logo.src} alt={logo.alt} />
+            <img src={logo.src} alt={logo.alt} className="h-10 w-auto" />
           </a>
           <div className="flex items-center gap-4 lg:hidden">
             <div>
