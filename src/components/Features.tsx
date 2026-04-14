@@ -77,7 +77,7 @@ const FeatureCard = ({ isActive, setIsActive, ...feature }: FeatureWithState) =>
   const CardContent = motion.div;
   return (
     <motion.div
-      className="flex flex-col justify-start overflow-hidden lg:h-[90vh] lg:min-w-20 lg:flex-row lg:border-r lg:border-border-primary"
+      className="flex flex-col justify-start overflow-hidden bg-white lg:h-[90vh] lg:min-w-20 lg:flex-row lg:border-r lg:border-border-primary"
       onClick={setIsActive}
       initial={false}
       animate={{

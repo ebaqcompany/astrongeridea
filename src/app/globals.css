@@ -176,13 +176,18 @@ h4, h5, h6 {
 
 /* ===== ALL BUTTONS ROUNDED (except link-style buttons) ===== */
 
-button, [role="button"], a[class*="Button"], a[class*="button"] {
+button:not(.gap-1):not([class*="gap-1"]),
+[role="button"],
+a[class*="Button"],
+a[class*="button"] {
   border-radius: 9999px !important;
 }
 
-/* Link-variant buttons: no pill shape, no border, inline with icon */
-[data-button-variant="link"],
-a[class*="link"] {
+/* Link-variant buttons (Relume uses gap-1, p-0, h-auto for these) */
+button.gap-1,
+button[class*="gap-1"],
+button[class*="p-0"],
+button[class*="h-auto"] {
   border-radius: 0 !important;
   border: none !important;
   background: none !important;
@@ -190,6 +195,7 @@ a[class*="link"] {
   align-items: center !important;
   gap: 0.25rem !important;
   white-space: nowrap !important;
+  padding: 0 !important;
 }
 
 /* Primary: gradient fill, fully rounded, white text */
