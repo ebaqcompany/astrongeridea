@@ -141,6 +141,17 @@ body {
 
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-heading);
+  font-weight: 400;
+}
+
+/* Eyebrows/taglines — red, light monospaced, uppercase */
+p.font-semibold {
+  font-family: var(--font-mono) !important;
+  font-weight: 300 !important;
+  color: var(--color-primary) !important;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-size: 0.8rem;
 }
 
 /* Display — larger than H1, only for hero headlines */

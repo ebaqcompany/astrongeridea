@@ -22,9 +22,20 @@
 |------|-------|-------------|
 | **Ubuntu** | All headlines (h1–h6), display text, section titles | `--font-heading` |
 | **Open Sans** | Body text, paragraphs, labels, nav, buttons, captions | `--font-body` |
-| **IBM Plex Mono** | Stats numbers, pricing amounts, data figures | `--font-mono` |
+| **IBM Plex Mono** | Stats numbers, pricing amounts, data figures, eyebrows/taglines | `--font-mono` |
 
-Applied globally via `globals.css` — all `h1-h6` tags automatically use Ubuntu, body uses Open Sans. No other fonts.
+Applied globally via `globals.css` — all `h1-h6` tags automatically use Ubuntu (weight 400/regular), body uses Open Sans. No other fonts.
+
+### Headline Weight
+- ALL headlines (h1-h6): `font-weight: 400` (regular) — NOT bold
+- Display (hero only): `.text-display` class — 3.75rem → 5rem responsive, weight 400
+
+### Eyebrows/Taglines
+- Font: IBM Plex Mono, weight 300 (light)
+- Color: Primary red (#E04834)
+- Text transform: uppercase
+- Letter spacing: 0.05em
+- Size: 0.8rem
 
 ### Colors
 | Token | Value | Usage |
