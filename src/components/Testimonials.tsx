@@ -1,4 +1,8 @@
+"use client";
+
 import { BiSolidStar } from "react-icons/bi";
+import useEmblaCarousel from "embla-carousel-react";
+import AutoScroll from "embla-carousel-auto-scroll";
 
 type ImageProps = {
   src: string;
@@ -28,12 +32,9 @@ export const Testimonial21 = (props: Testimonial21Props) => {
     ...props,
   };
 
-  const renderTestimonials = () => (
-    <div className="flex">
-      {testimonials.map((testimonial, index) => (
-        <TestimonialCard key={index} testimonial={testimonial} />
-      ))}
-    </div>
+  const [emblaRef] = useEmblaCarousel(
+    { loop: true, dragFree: true, align: "start" },
+    [AutoScroll({ speed: 0.5, stopOnInteraction: false, stopOnMouseEnter: true })]
   );
 
   return (
@@ -42,16 +43,19 @@ export const Testimonial21 = (props: Testimonial21Props) => {
         <h1 className="mb-5 text-5xl font-bold md:mb-6 md:text-7xl lg:text-8xl">{heading}</h1>
         <p className="md:text-md">{description}</p>
       </div>
-      <div className="flex animate-loop-testimonials">
-        {renderTestimonials()}
-        {renderTestimonials()}
+      <div className="cursor-grab active:cursor-grabbing" ref={emblaRef}>
+        <div className="flex">
+          {testimonials.map((testimonial, index) => (
+            <TestimonialCard key={index} testimonial={testimonial} />
+          ))}
+        </div>
       </div>
     </section>
   );
 };
 
 const TestimonialCard = ({ testimonial }: { testimonial: Testimonial }) => (
-  <div className="mr-8 flex w-[25rem] min-w-[25rem] flex-col items-start justify-between border border-border-primary p-6 md:p-8">
+  <div className="mr-8 flex w-[25rem] min-w-[25rem] flex-none flex-col items-start justify-between border border-border-primary p-6 md:p-8">
     <div className="mb-5 flex md:mb-6">
       {Array(testimonial.numberOfStars)
         .fill(null)
