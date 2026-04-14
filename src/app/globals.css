@@ -143,6 +143,24 @@ h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-heading);
 }
 
+/* Tighter letter-spacing & line-height for big headlines */
+h1 {
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+}
+h2 {
+  letter-spacing: -0.025em;
+  line-height: 1.15;
+}
+h3 {
+  letter-spacing: -0.015em;
+  line-height: 1.2;
+}
+h4, h5, h6 {
+  letter-spacing: normal;
+  line-height: 1.3;
+}
+
 /* ===== BRAND GRADIENT ===== */
 
 .brand-gradient {
@@ -201,9 +219,18 @@ a:hover {
 
 /* Social media icons turn red on hover */
 footer a:hover svg,
-.section-dark a:hover svg {
+.section-dark a:hover svg,
+a:hover svg {
   color: var(--color-primary) !important;
   transition: color 0.2s ease;
+}
+
+/* ===== NAVBAR DROPDOWN CHEVRON ===== */
+
+/* Navbar dropdown chevron icon - red */
+nav svg, section#relume svg.size-4,
+section#relume button svg {
+  color: var(--color-primary);
 }
 
 /* ===== SECTION BACKGROUNDS (alternating) ===== */
@@ -243,7 +270,7 @@ footer a:hover svg,
   }
 }
 
-/* ===== KEYFRAMES ===== */
+/* ===== ACCORDION (Radix UI) ===== */
 
 @keyframes accordion-down {
   from { height: 0px; }
@@ -252,6 +279,15 @@ footer a:hover svg,
 @keyframes accordion-up {
   from { height: var(--radix-accordion-content-height); }
   to { height: 0px; }
+}
+
+[data-state="open"] > [role="region"],
+[data-radix-collection-item][data-state="open"] [data-radix-accordion-content] {
+  animation: accordion-down 0.2s ease-out;
+}
+[data-state="closed"] > [role="region"],
+[data-radix-collection-item][data-state="closed"] [data-radix-accordion-content] {
+  animation: accordion-up 0.2s ease-out;
 }
 @keyframes loop-horizontally {
   from { transform: translateX(0); }
