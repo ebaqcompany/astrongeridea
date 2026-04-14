@@ -1,7 +1,7 @@
 @import "tailwindcss";
 
 @theme {
-  /* Relume font sizes (overrides defaults) */
+  /* Relume font sizes */
   --text-xs: 0.75rem;
   --text-xs--line-height: 1.5;
   --text-sm: 0.875rem;
@@ -40,27 +40,65 @@
   --breakpoint-xl: 1280px;
   --breakpoint-xxl: 1440px;
 
+  /* Relume max-width */
+  --max-w-xxs: 20rem;
+  --max-w-xs: 25rem;
+  --max-w-sm: 30rem;
+  --max-w-md: 35rem;
+  --max-w-lg: 48rem;
+  --max-w-xl: 64rem;
+  --max-w-xxl: 80rem;
+  --max-w-full: 100%;
+
+  /* Relume shadows */
+  --shadow-xxsmall: 0px 1px 2px rgba(0, 0, 0, 0.05);
+  --shadow-xsmall: 0px 1px 3px rgba(0, 0, 0, 0.1), 0px 1px 2px rgba(0, 0, 0, 0.06);
+  --shadow-small: 0px 4px 8px -2px rgba(0, 0, 0, 0.1), 0px 2px 4px -2px rgba(0, 0, 0, 0.06);
+  --shadow-medium: 0px 12px 16px -4px rgba(0, 0, 0, 0.08), 0px 4px 6px -2px rgba(0, 0, 0, 0.03);
+  --shadow-large: 0px 20px 24px -4px rgba(0, 0, 0, 0.08), 0px 8px 8px -4px rgba(0, 0, 0, 0.03);
+  --shadow-xlarge: 0px 24px 48px -12px rgba(0, 0, 0, 0.18);
+  --shadow-xxlarge: 0px 32px 64px -12px rgba(0, 0, 0, 0.14);
+
   /* Relume colors */
+  --color-brand-black: #000000;
+  --color-brand-white: #ffffff;
+  --color-background: #ffffff;
   --color-background-primary: #ffffff;
   --color-background-secondary: #eeeeee;
   --color-background-tertiary: #666666;
   --color-background-alternative: #000000;
+  --color-background-success: #ecfdf3;
+  --color-background-error: #fef3f2;
   --color-border: #000000;
   --color-border-primary: #000000;
   --color-border-secondary: #aaaaaa;
+  --color-border-tertiary: #444444;
   --color-border-alternative: #ffffff;
+  --color-border-success: #027a48;
+  --color-border-error: #b42318;
+  --color-text: #000000;
   --color-text-primary: #000000;
   --color-text-secondary: #aaaaaa;
   --color-text-alternative: #ffffff;
+  --color-text-success: #027a48;
+  --color-text-error: #b42318;
+  --color-link: #000000;
+  --color-link-primary: #000000;
+  --color-link-secondary: #666666;
+  --color-link-alternative: #ffffff;
+  --color-neutral: #666666;
   --color-neutral-white: #ffffff;
   --color-neutral-black: #000000;
   --color-neutral-lightest: #eeeeee;
   --color-neutral-lighter: #cccccc;
   --color-neutral-light: #aaaaaa;
-  --color-neutral: #666666;
   --color-neutral-dark: #444444;
   --color-neutral-darker: #222222;
   --color-neutral-darkest: #111111;
+  --color-system-success-green: #027a48;
+  --color-system-success-green-light: #ecfdf3;
+  --color-system-error-red: #b42318;
+  --color-system-error-red-light: #fef3f2;
 
   /* Relume spacing extras */
   --spacing-18: 4.5rem;
@@ -69,10 +107,32 @@
   /* Relume animations */
   --animate-accordion-down: accordion-down 0.2s ease-out;
   --animate-accordion-up: accordion-up 0.2s ease-out;
-  --animate-loop-testimonials: loop-testimonials 30s linear infinite;
   --animate-loop-horizontally: loop-horizontally 20s linear infinite;
+  --animate-loop-testimonials: loop-testimonials 30s linear infinite;
+  --animate-loop-vertically: loop-vertically 30s linear infinite;
+  --animate-loop-vertically-top: loop-vertically-top 50s linear infinite;
+  --animate-loop-vertically-bottom: loop-vertically-bottom 50s linear infinite;
+  --animate-marquee-horizontally: marquee-top 30s linear infinite;
+  --animate-marquee-top: marquee-top 50s linear infinite;
+  --animate-marquee-right: marquee-right 25s linear infinite;
+  --animate-marquee-bottom: marquee-bottom 50s linear infinite;
+  --animate-marquee-left: marquee-left 25s linear infinite;
+  --animate-tabs: tabs 0.6s cubic-bezier(0.4, 0, 0.2, 1) forwards;
 }
 
+/* Relume container */
+@utility container {
+  margin-inline: auto;
+  width: 100%;
+  @media (width >= 992px) {
+    max-width: 992px;
+  }
+  @media (width >= 1280px) {
+    max-width: 1280px;
+  }
+}
+
+/* Relume keyframes */
 @keyframes accordion-down {
   from { height: 0px; }
   to { height: var(--radix-accordion-content-height); }
@@ -83,12 +143,61 @@
   to { height: 0px; }
 }
 
+@keyframes loop-horizontally {
+  from { transform: translateX(0); }
+  to { transform: translateX(-100%); }
+}
+
 @keyframes loop-testimonials {
   from { transform: translateX(0); }
   to { transform: translateX(-135rem); }
 }
 
-@keyframes loop-horizontally {
+@keyframes loop-vertically {
+  from { transform: translateY(0); }
+  to { transform: translateY(-50%); }
+}
+
+@keyframes loop-vertically-top {
+  from { transform: translateY(0); }
+  to { transform: translateY(-50%); }
+}
+
+@keyframes loop-vertically-bottom {
+  from { transform: translateY(-50%); }
+  to { transform: translateY(0); }
+}
+
+@keyframes marquee-top {
   from { transform: translateX(0); }
-  to { transform: translateX(-100%); }
+  to { transform: translateX(-50%); }
+}
+
+@keyframes marquee-right {
+  from { transform: translateX(0); }
+  to { transform: translateX(100%); }
+}
+
+@keyframes marquee-bottom {
+  from { transform: translateX(-50%); }
+  to { transform: translateX(0%); }
+}
+
+@keyframes marquee-left {
+  from { transform: translateX(100%); }
+  to { transform: translateX(0); }
+}
+
+@keyframes tabs {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+/* Relume utility classes */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }

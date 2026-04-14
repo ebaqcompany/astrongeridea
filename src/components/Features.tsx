@@ -74,7 +74,7 @@ export const Layout351 = (props: Layout351Props) => {
 
 const FeatureCard = ({ isActive, setIsActive, ...feature }: FeatureWithState) => {
   const isMobile = useMediaQuery("(max-width: 991px)");
-  const CardContent = isMobile ? motion.div : "div";
+  const CardContent = motion.div;
   return (
     <motion.div
       className="flex flex-col justify-start overflow-hidden lg:h-[90vh] lg:min-w-20 lg:flex-row lg:border-r lg:border-border-primary"
