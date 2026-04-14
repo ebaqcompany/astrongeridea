@@ -124,8 +124,8 @@ export const Footer12Defaults: Props = {
   },
   heading: "Let's talk.",
   description:
-    "Partnering with startups, scale-ups, agencies, and product organizations to design exceptional digital products, scalable UX/UI systems, and results-driven teams.",
-  buttons: [{ title: "hello@astrongeridea.design" }],
+    "Partnering with startups, scale-ups, agencies, and product organizations to design exceptional digital products, scalable UX/UI systems, and results-driven teams.\n\nhello@astrongeridea.design",
+  buttons: [{ title: "Let's Talk" }],
   columnLinks: [
     {
       links: [
