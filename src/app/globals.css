@@ -281,18 +281,19 @@ section#relume button svg {
   .section-cta button:hover {
     background: rgba(255,255,255,0.9) !important;
   }
-  /* Secondary button on CTA: white border, white text */
+  /* Secondary button on CTA: 1px white border, no fill */
   .section-cta [data-button-variant="secondary"],
   .section-cta .button-secondary {
-    background: transparent !important;
+    background: none !important;
     color: white !important;
-    border: 1px solid rgba(255,255,255,0.6) !important;
+    border: 1px solid white !important;
   }
   .section-cta [data-button-variant="secondary"]:hover,
   .section-cta .button-secondary:hover {
-    background: rgba(255,255,255,0.15) !important;
-    border-color: white !important;
+    background: none !important;
     color: white !important;
+    border: 1px solid white !important;
+    opacity: 0.8;
   }
 }
 
