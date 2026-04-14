@@ -146,7 +146,7 @@ export const Layout495Defaults: Props = {
   description:
     "The trigger is always the same: something changed and the current approach is no longer sufficient.",
   buttons: [
-    { title: "Schedule a Discovery Call", variant: "secondary" },
+    { title: "Schedule a Discovery Call" },
     {
       title: "See Engagement Options",
       variant: "link",
