@@ -87,7 +87,7 @@ export const Footer12 = (props: Footer12Props) => {
           </div>
           <div className="rb-6 col-span-1 flex flex-col items-start justify-between pb-6 sm:flex-row sm:items-center md:pb-8 lg:col-span-2">
             <a href={logo.url}>
-              <img src={logo.src} alt={logo.alt} className="mb-6 inline-block sm:mb-0" />
+              <img src={logo.src} alt={logo.alt} className="h-10 w-auto mb-6 inline-block sm:mb-0" />
             </a>
             <div className="ml-3 flex">
               {footerImages.map((image, index) => (

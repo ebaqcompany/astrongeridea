@@ -17,21 +17,80 @@ import { Footer12 } from "@/components/Footer";
 export default function Home() {
   return (
     <>
-      <Navbar2 />
-      <Header3 />
-      <Stats8 />
-      <Timeline9 />
-      <Layout351 />
-      <Cta7 />
-      <Layout409 />
-      <Cta7 />
-      <Layout232 />
-      <Layout495 />
-      <Cta7 />
-      <Pricing13 />
-      <Testimonial21 />
-      <Faq1 />
-      <Footer12 />
+      {/* Navbar — white */}
+      <div className="section-white">
+        <Navbar2 />
+      </div>
+
+      {/* Hero — white */}
+      <div className="section-white">
+        <Header3 />
+      </div>
+
+      {/* Stats — gray */}
+      <div className="section-gray">
+        <Stats8 />
+      </div>
+
+      {/* Timeline — white */}
+      <div className="section-white">
+        <Timeline9 />
+      </div>
+
+      {/* Features — gray */}
+      <div className="section-gray">
+        <Layout351 />
+      </div>
+
+      {/* CTA — white */}
+      <div className="section-white">
+        <Cta7 />
+      </div>
+
+      {/* Case Studies — gray */}
+      <div className="section-gray">
+        <Layout409 />
+      </div>
+
+      {/* CTA — white */}
+      <div className="section-white">
+        <Cta7 />
+      </div>
+
+      {/* Benefits — gray */}
+      <div className="section-gray">
+        <Layout232 />
+      </div>
+
+      {/* Audience — white */}
+      <div className="section-white">
+        <Layout495 />
+      </div>
+
+      {/* CTA — gray */}
+      <div className="section-gray">
+        <Cta7 />
+      </div>
+
+      {/* Pricing — white */}
+      <div className="section-white">
+        <Pricing13 />
+      </div>
+
+      {/* Testimonials — gray */}
+      <div className="section-gray">
+        <Testimonial21 />
+      </div>
+
+      {/* FAQ — white */}
+      <div className="section-white">
+        <Faq1 />
+      </div>
+
+      {/* Footer — dark */}
+      <div className="section-dark">
+        <Footer12 />
+      </div>
     </>
   );
 }

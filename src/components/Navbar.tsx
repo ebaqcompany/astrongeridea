@@ -40,7 +40,7 @@ export const Navbar2 = (props: Navbar2Props) => {
       id="relume"
       className="z-[999] flex w-full items-center border-b border-border-primary bg-background-primary lg:min-h-18 lg:px-[5%]"
     >
-      <div className="mx-auto size-full lg:grid lg:grid-cols-[0.375fr_1fr_0.375fr] lg:items-center lg:justify-between lg:gap-4">
+      <div className="mx-auto size-full max-w-[1280px] lg:grid lg:grid-cols-[0.375fr_1fr_0.375fr] lg:items-center lg:justify-between lg:gap-4">
         <div className="flex min-h-16 items-center justify-between px-[5%] md:min-h-18 lg:min-h-full lg:px-0">
           <a href={logo.url}>
             <img src={logo.src} alt={logo.alt} className="h-10 w-auto" />
