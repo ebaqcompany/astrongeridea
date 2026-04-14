@@ -1,1 +1,94 @@
 @import "tailwindcss";
+
+@theme {
+  /* Relume font sizes (overrides defaults) */
+  --text-xs: 0.75rem;
+  --text-xs--line-height: 1.5;
+  --text-sm: 0.875rem;
+  --text-sm--line-height: 1.5;
+  --text-base: 1rem;
+  --text-base--line-height: 1.5;
+  --text-md: 1.125rem;
+  --text-md--line-height: 1.5;
+  --text-lg: 1.25rem;
+  --text-lg--line-height: 1.5;
+  --text-xl: 1.25rem;
+  --text-xl--line-height: 1.4;
+  --text-2xl: 1.5rem;
+  --text-2xl--line-height: 1.4;
+  --text-3xl: 1.75rem;
+  --text-3xl--line-height: 1.4;
+  --text-4xl: 2rem;
+  --text-4xl--line-height: 1.3;
+  --text-5xl: 2.25rem;
+  --text-5xl--line-height: 1.2;
+  --text-6xl: 2.5rem;
+  --text-6xl--line-height: 1.2;
+  --text-7xl: 2.75rem;
+  --text-7xl--line-height: 1.2;
+  --text-8xl: 3rem;
+  --text-8xl--line-height: 1.2;
+  --text-9xl: 3.25rem;
+  --text-9xl--line-height: 1.2;
+  --text-10xl: 3.5rem;
+  --text-10xl--line-height: 1.2;
+
+  /* Relume breakpoints */
+  --breakpoint-sm: 480px;
+  --breakpoint-md: 768px;
+  --breakpoint-lg: 992px;
+  --breakpoint-xl: 1280px;
+  --breakpoint-xxl: 1440px;
+
+  /* Relume colors */
+  --color-background-primary: #ffffff;
+  --color-background-secondary: #eeeeee;
+  --color-background-tertiary: #666666;
+  --color-background-alternative: #000000;
+  --color-border: #000000;
+  --color-border-primary: #000000;
+  --color-border-secondary: #aaaaaa;
+  --color-border-alternative: #ffffff;
+  --color-text-primary: #000000;
+  --color-text-secondary: #aaaaaa;
+  --color-text-alternative: #ffffff;
+  --color-neutral-white: #ffffff;
+  --color-neutral-black: #000000;
+  --color-neutral-lightest: #eeeeee;
+  --color-neutral-lighter: #cccccc;
+  --color-neutral-light: #aaaaaa;
+  --color-neutral: #666666;
+  --color-neutral-dark: #444444;
+  --color-neutral-darker: #222222;
+  --color-neutral-darkest: #111111;
+
+  /* Relume spacing extras */
+  --spacing-18: 4.5rem;
+  --spacing-30: 7.5rem;
+
+  /* Relume animations */
+  --animate-accordion-down: accordion-down 0.2s ease-out;
+  --animate-accordion-up: accordion-up 0.2s ease-out;
+  --animate-loop-testimonials: loop-testimonials 30s linear infinite;
+  --animate-loop-horizontally: loop-horizontally 20s linear infinite;
+}
+
+@keyframes accordion-down {
+  from { height: 0px; }
+  to { height: var(--radix-accordion-content-height); }
+}
+
+@keyframes accordion-up {
+  from { height: var(--radix-accordion-content-height); }
+  to { height: 0px; }
+}
+
+@keyframes loop-testimonials {
+  from { transform: translateX(0); }
+  to { transform: translateX(-135rem); }
+}
+
+@keyframes loop-horizontally {
+  from { transform: translateX(0); }
+  to { transform: translateX(-100%); }
+}
