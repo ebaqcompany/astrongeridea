@@ -174,10 +174,22 @@ h4, h5, h6 {
   background-clip: text;
 }
 
-/* ===== ALL BUTTONS ROUNDED ===== */
+/* ===== ALL BUTTONS ROUNDED (except link-style buttons) ===== */
 
 button, [role="button"], a[class*="Button"], a[class*="button"] {
   border-radius: 9999px !important;
+}
+
+/* Link-variant buttons: no pill shape, no border, inline with icon */
+[data-button-variant="link"],
+a[class*="link"] {
+  border-radius: 0 !important;
+  border: none !important;
+  background: none !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 0.25rem !important;
+  white-space: nowrap !important;
 }
 
 /* Primary: gradient fill, fully rounded, white text */
