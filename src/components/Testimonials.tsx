@@ -34,8 +34,11 @@ export const Testimonial21 = (props: Testimonial21Props) => {
 
   const [emblaRef] = useEmblaCarousel(
     { loop: true, dragFree: true, align: "start" },
-    [AutoScroll({ speed: 0.5, stopOnInteraction: false, stopOnMouseEnter: true })]
+    [AutoScroll({ speed: 0.5, direction: "forward", stopOnInteraction: false, stopOnMouseEnter: true })]
   );
+
+  // Duplicate testimonials so there are enough to fill the viewport for seamless looping
+  const loopedTestimonials = [...testimonials, ...testimonials];
 
   return (
     <section id="relume" className="overflow-hidden py-16 md:py-24 lg:py-28">
@@ -45,7 +48,7 @@ export const Testimonial21 = (props: Testimonial21Props) => {
       </div>
       <div className="cursor-grab active:cursor-grabbing" ref={emblaRef}>
         <div className="flex">
-          {testimonials.map((testimonial, index) => (
+          {loopedTestimonials.map((testimonial, index) => (
             <TestimonialCard key={index} testimonial={testimonial} />
           ))}
         </div>
