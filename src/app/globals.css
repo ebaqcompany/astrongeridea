@@ -243,12 +243,15 @@ a:hover svg {
   transition: color 0.2s ease;
 }
 
-/* ===== NAVBAR DROPDOWN CHEVRON ===== */
+/* ===== SVG ICONS ===== */
 
-/* Navbar dropdown chevron icon - red */
-nav svg, section#relume svg.size-4,
-section#relume button svg {
-  color: var(--color-primary);
+/* Link-style button chevrons: inherit color, red on hover */
+button svg {
+  color: inherit;
+  transition: color 0.2s ease;
+}
+button:hover svg {
+  color: var(--color-primary) !important;
 }
 
 /* ===== SECTION BACKGROUNDS (alternating) ===== */
