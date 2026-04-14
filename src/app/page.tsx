@@ -27,8 +27,8 @@ export default function Home() {
         <Header3 />
       </div>
 
-      {/* Stats — gray */}
-      <div className="section-gray">
+      {/* Stats — gradient red */}
+      <div className="section-cta">
         <Stats8 />
       </div>
 

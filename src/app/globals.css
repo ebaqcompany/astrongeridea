@@ -280,6 +280,9 @@ section#relume button svg {
   .section-cta p, .section-cta a, .section-cta span {
     color: white !important;
   }
+  .section-cta .border-border-primary {
+    border-color: rgba(255,255,255,0.4) !important;
+  }
   /* Primary button on CTA: white fill, dark text */
   .section-cta [data-button-variant="primary"],
   .section-cta button.bg-background-alternative,
