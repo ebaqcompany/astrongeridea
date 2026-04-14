@@ -52,7 +52,7 @@ export const Pricing13 = (props: Pricing13Props) => {
   );
 };
 const PricingPlan = ({ plan }: { plan: PricingPlan }) => (
-  <div className="flex h-full flex-col justify-between border border-border-primary px-6 py-8 md:p-8">
+  <div className="flex h-full flex-col justify-between border border-border-primary px-6 py-8 md:p-8 bg-white rounded-3xl">
     <div>
       <div className="flex items-start justify-between">
         <div>
@@ -63,9 +63,9 @@ const PricingPlan = ({ plan }: { plan: PricingPlan }) => (
           <p>{plan.description}</p>
         </div>
         <div className="text-right">
-          <h1 className="text-6xl font-bold md:text-9xl lg:text-10xl font-mono">
-            {plan.price}
-            <span className="text-2xl font-bold md:text-3xl md:leading-[1.3] lg:text-4xl">/mo</span>
+          <h1 className="text-6xl font-bold md:text-9xl lg:text-10xl">
+            <span className="font-mono">{plan.price}</span>
+            <span className="text-2xl font-bold md:text-3xl md:leading-[1.3] lg:text-4xl font-sans">/mo</span>
           </h1>
           <p className="mt-2 font-medium">{plan.discount}</p>
         </div>

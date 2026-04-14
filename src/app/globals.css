@@ -227,6 +227,11 @@ button.bg-background-alternative:hover,
   background: var(--color-primary) !important;
   color: white !important;
 }
+[data-button-variant="secondary"]:hover,
+.button-secondary:hover {
+  background: var(--color-primary) !important;
+  color: white !important;
+}
 
 /* ===== LINKS & SOCIAL ICONS HOVER ===== */
 
