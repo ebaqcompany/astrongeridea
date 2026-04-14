@@ -63,7 +63,7 @@ const PricingPlan = ({ plan }: { plan: PricingPlan }) => (
           <p>{plan.description}</p>
         </div>
         <div className="text-right">
-          <h1 className="text-6xl font-bold md:text-9xl lg:text-10xl">
+          <h1 className="text-6xl font-bold md:text-9xl lg:text-10xl font-mono">
             {plan.price}
             <span className="text-2xl font-bold md:text-3xl md:leading-[1.3] lg:text-4xl">/mo</span>
           </h1>
