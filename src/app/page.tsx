@@ -42,18 +42,18 @@ export default function Home() {
         <Layout351 />
       </div>
 
-      {/* CTA — white */}
-      <div className="section-white">
+      {/* CTA — gradient red */}
+      <div className="section-cta">
         <Cta7 />
       </div>
 
-      {/* Case Studies — gray */}
-      <div className="section-gray">
+      {/* Case Studies — white */}
+      <div className="section-white">
         <Layout409 />
       </div>
 
-      {/* CTA — white */}
-      <div className="section-white">
+      {/* CTA — gradient red */}
+      <div className="section-cta">
         <Cta7 />
       </div>
 
@@ -67,23 +67,23 @@ export default function Home() {
         <Layout495 />
       </div>
 
-      {/* CTA — gray */}
-      <div className="section-gray">
+      {/* CTA — gradient red */}
+      <div className="section-cta">
         <Cta7 />
       </div>
 
-      {/* Pricing — white */}
-      <div className="section-white">
+      {/* Pricing — gray */}
+      <div className="section-gray">
         <Pricing13 />
       </div>
 
-      {/* Testimonials — gray */}
-      <div className="section-gray">
+      {/* Testimonials — white */}
+      <div className="section-white">
         <Testimonial21 />
       </div>
 
-      {/* FAQ — white */}
-      <div className="section-white">
+      {/* FAQ — gray */}
+      <div className="section-gray">
         <Faq1 />
       </div>
 

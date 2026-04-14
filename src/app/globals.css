@@ -235,26 +235,65 @@ section#relume button svg {
 
 /* ===== SECTION BACKGROUNDS (alternating) ===== */
 
-.section-white {
-  background-color: var(--color-surface-white);
-}
+@layer base {
+  .section-white {
+    background-color: var(--color-surface-white);
+  }
 
-.section-gray {
-  background-color: var(--color-surface-gray);
-}
+  .section-gray {
+    background-color: var(--color-surface-gray);
+  }
 
-.section-dark {
-  background-color: var(--color-surface-dark);
-  color: var(--color-text-alternative);
-}
-.section-dark h1, .section-dark h2, .section-dark h3,
-.section-dark h4, .section-dark h5, .section-dark h6,
-.section-dark p, .section-dark a, .section-dark span,
-.section-dark li, .section-dark blockquote {
-  color: var(--color-text-alternative);
-}
-.section-dark .border-border-primary {
-  border-color: #333333;
+  .section-dark {
+    background-color: var(--color-surface-dark);
+    color: var(--color-text-alternative);
+  }
+  .section-dark h1, .section-dark h2, .section-dark h3,
+  .section-dark h4, .section-dark h5, .section-dark h6,
+  .section-dark p, .section-dark a, .section-dark span,
+  .section-dark li, .section-dark blockquote {
+    color: var(--color-text-alternative);
+  }
+  .section-dark .border-border-primary {
+    border-color: #333333;
+  }
+
+  /* CTA sections — gradient red background, white text, inverted buttons */
+  .section-cta {
+    background: linear-gradient(160deg, #FF5744, #C0392B) !important;
+    color: white !important;
+  }
+  .section-cta h1, .section-cta h2, .section-cta h3,
+  .section-cta h4, .section-cta h5, .section-cta h6,
+  .section-cta p, .section-cta a, .section-cta span {
+    color: white !important;
+  }
+  /* Primary button on CTA: white fill, dark text */
+  .section-cta [data-button-variant="primary"],
+  .section-cta button.bg-background-alternative,
+  .section-cta .button-primary,
+  .section-cta button {
+    background: white !important;
+    color: var(--color-primary-dark) !important;
+    border: none !important;
+  }
+  .section-cta [data-button-variant="primary"]:hover,
+  .section-cta button:hover {
+    background: rgba(255,255,255,0.9) !important;
+  }
+  /* Secondary button on CTA: white border, white text */
+  .section-cta [data-button-variant="secondary"],
+  .section-cta .button-secondary {
+    background: transparent !important;
+    color: white !important;
+    border: 1px solid rgba(255,255,255,0.6) !important;
+  }
+  .section-cta [data-button-variant="secondary"]:hover,
+  .section-cta .button-secondary:hover {
+    background: rgba(255,255,255,0.15) !important;
+    border-color: white !important;
+    color: white !important;
+  }
 }
 
 /* ===== CONTAINER ===== */
