@@ -13,6 +13,7 @@ type ImageProps = {
 };
 
 type Props = {
+  tagline: string;
   heading: string;
   description: string;
   buttons: ButtonProps[];
@@ -24,7 +25,7 @@ export type Header3Props = React.ComponentPropsWithoutRef<"section"> & Partial<P
 
 export const Header3 = (props: Header3Props) => {
   const [isIframeLoaded, setIsIframeLoaded] = useState(false);
-  const { heading, description, buttons, video, image } = {
+  const { tagline, heading, description, buttons, video, image } = {
     ...Header3Defaults,
     ...props,
   };
@@ -33,6 +34,7 @@ export const Header3 = (props: Header3Props) => {
       <div className="container">
         <div className="grid grid-cols-1 gap-x-20 gap-y-12 md:gap-y-16 lg:grid-cols-2 lg:items-center">
           <div>
+            <p className="mb-3 font-semibold md:mb-4">{tagline}</p>
             <h1 className="mb-5 text-6xl font-bold md:mb-6 md:text-9xl lg:text-10xl">{heading}</h1>
             <p className="md:text-md">{description}</p>
             <div className="mt-6 flex flex-wrap gap-4 md:mt-8">
@@ -72,13 +74,14 @@ export const Header3 = (props: Header3Props) => {
 };
 
 export const Header3Defaults: Props = {
-  heading: "Medium length hero heading goes here",
+  tagline: "For founders, product leaders, and their teams",
+  heading: "Build The Right Product.",
   description:
-    "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut commodo diam libero vitae erat.",
-  buttons: [{ title: "Button" }, { title: "Button", variant: "secondary" }],
+    "A Stronger Idea Design is a product design consultancy that maps the market ecosystem before anything is designed, so every decision is built on validated ground.",
+  buttons: [{ title: "Start a conversation" }, { title: "See Case Studies", variant: "secondary" }],
   video: "https://www.youtube.com/embed/8DKLYsikxTs?si=Ch9W0KrDWWUiCMMW",
   image: {
     src: "https://d22po4pjz3o32e.cloudfront.net/placeholder-video-thumbnail.svg",
-    alt: "Relume placeholder image",
+    alt: "A Stronger Idea Design work showcase",
   },
 };
