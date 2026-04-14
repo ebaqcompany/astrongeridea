@@ -140,19 +140,19 @@ const FeatureSectionContent = ({
 );
 
 export const Layout409Defaults: Props = {
-  tagline: "Tagline",
-  heading: "Short heading goes here",
-  description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+  tagline: "THE WORK",
+  heading: "The methodology applied to real products at scale.",
+  description: "Complex problems. Structured approaches. Measurable results.",
   featureSections: [
     {
-      tagline: "Tagline",
-      heading: "Medium length section heading goes here",
+      tagline: "CIVIC TECHNOLOGY",
+      heading: "A municipal parking platform serving the entire population of Detroit.",
       description:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut commodo diam libero vitae erat.",
+        "Five distinct user types. Real-time operational requirements. City-level stakes. 200K+ monthly transactions. 4.6 App Store rating.",
       buttons: [
-        { title: "Button", variant: "secondary" },
+        { title: "Read Case Study", variant: "secondary" },
         {
-          title: "Button",
+          title: "View Details",
           variant: "link",
           size: "link",
           iconRight: <RxChevronRight />,
@@ -160,18 +160,18 @@ export const Layout409Defaults: Props = {
       ],
       image: {
         src: "https://d22po4pjz3o32e.cloudfront.net/placeholder-image.svg",
-        alt: "Relume placeholder image 1",
+        alt: "Flowbird civic technology case study",
       },
     },
     {
-      tagline: "Tagline",
-      heading: "Medium length section heading goes here",
+      tagline: "FINANCIAL TECHNOLOGY",
+      heading: "Estate planning platform in the $124T generational wealth transfer market.",
       description:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut commodo diam libero vitae erat.",
+        "Where workflow errors have legal consequences and every design decision carries operational weight. 35% task completion improvement. 50% reduction in user errors.",
       buttons: [
-        { title: "Button", variant: "secondary" },
+        { title: "Read Case Study", variant: "secondary" },
         {
-          title: "Button",
+          title: "View Details",
           variant: "link",
           size: "link",
           iconRight: <RxChevronRight />,
@@ -179,18 +179,18 @@ export const Layout409Defaults: Props = {
       ],
       image: {
         src: "https://d22po4pjz3o32e.cloudfront.net/placeholder-image.svg",
-        alt: "Relume placeholder image 2",
+        alt: "EstateGuru financial technology case study",
       },
     },
     {
-      tagline: "Tagline",
-      heading: "Medium length section heading goes here",
+      tagline: "INSTITUTIONAL FINANCE",
+      heading: "Fund administration infrastructure serving $150M to $20B AUM.",
       description:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut commodo diam libero vitae erat.",
+        "Where design decisions carry compliance risk and the consequences of getting it wrong are measurable. 150+ funds onboarded. $20B maximum AUM per fund.",
       buttons: [
-        { title: "Button", variant: "secondary" },
+        { title: "Read Case Study", variant: "secondary" },
         {
-          title: "Button",
+          title: "View Details",
           variant: "link",
           size: "link",
           iconRight: <RxChevronRight />,
@@ -198,26 +198,7 @@ export const Layout409Defaults: Props = {
       ],
       image: {
         src: "https://d22po4pjz3o32e.cloudfront.net/placeholder-image.svg",
-        alt: "Relume placeholder image 3",
-      },
-    },
-    {
-      tagline: "Tagline",
-      heading: "Medium length section heading goes here",
-      description:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut commodo diam libero vitae erat.",
-      buttons: [
-        { title: "Button", variant: "secondary" },
-        {
-          title: "Button",
-          variant: "link",
-          size: "link",
-          iconRight: <RxChevronRight />,
-        },
-      ],
-      image: {
-        src: "https://d22po4pjz3o32e.cloudfront.net/placeholder-image.svg",
-        alt: "Relume placeholder image 4",
+        alt: "Euvic institutional finance case study",
       },
     },
   ],

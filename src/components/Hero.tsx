@@ -35,7 +35,7 @@ export const Header3 = (props: Header3Props) => {
         <div className="grid grid-cols-1 gap-x-20 gap-y-12 md:gap-y-16 lg:grid-cols-2 lg:items-center">
           <div>
             <p className="mb-3 font-semibold md:mb-4">{tagline}</p>
-            <h1 className="mb-5 text-6xl font-bold md:mb-6 md:text-9xl lg:text-10xl">{heading}</h1>
+            <h1 className="mb-5 text-display md:mb-6">{heading}</h1>
             <p className="md:text-md">{description}</p>
             <div className="mt-6 flex flex-wrap gap-4 md:mt-8">
               {buttons.map((button, index) => (

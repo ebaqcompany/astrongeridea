@@ -152,14 +152,14 @@ const TimelineContent = ({
 );
 
 export const Timeline9Defaults: Props = {
-  tagline: "Tagline",
-  heading: "Medium length section heading goes here",
+  tagline: "THE METHOD",
+  heading: "Design from the market inward, not the feature outward.",
   description:
-    "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut commodo diam libero vitae erat.",
+    "Market Inward sequences every decision from the outermost layer in. The market defines the opportunity. The ecosystem defines what it requires. The product delivers it.",
   buttons: [
-    { title: "Button", variant: "secondary" },
+    { title: "See Our Method", variant: "secondary" },
     {
-      title: "Button",
+      title: "Start a Conversation",
       variant: "link",
       size: "link",
       iconRight: <RxChevronRight />,
@@ -167,14 +167,14 @@ export const Timeline9Defaults: Props = {
   ],
   timelineItems: [
     {
-      heading: "Date",
-      title: "Short heading here",
+      heading: "01",
+      title: "Market and Ecosystem First",
       description:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut commodo diam libero vitae erat. Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+        "Map the full context before anything is designed. Every user type. Every constraint. Every adjacent system. What the market actually requires — before a single resource is committed to execution.",
       buttons: [
-        { title: "Button", variant: "secondary" },
+        { title: "Learn More", variant: "secondary" },
         {
-          title: "Button",
+          title: "See Case Studies",
           variant: "link",
           size: "link",
           iconRight: <RxChevronRight />,
@@ -182,14 +182,14 @@ export const Timeline9Defaults: Props = {
       ],
     },
     {
-      heading: "Date",
-      title: "Short heading here",
+      heading: "02",
+      title: "Workflows Before Features",
       description:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut commodo diam libero vitae erat. Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+        "Design how users move through the product before designing what they see. The layer most processes skip. The layer where most problems live. Workflows designed in ecosystem context hold together at scale.",
       buttons: [
-        { title: "Button", variant: "secondary" },
+        { title: "Learn More", variant: "secondary" },
         {
-          title: "Button",
+          title: "See Case Studies",
           variant: "link",
           size: "link",
           iconRight: <RxChevronRight />,
@@ -197,29 +197,14 @@ export const Timeline9Defaults: Props = {
       ],
     },
     {
-      heading: "Date",
-      title: "Short heading here",
+      heading: "03",
+      title: "Product and System Last",
       description:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut commodo diam libero vitae erat. Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+        "Features built on a foundation that makes them coherent. From the first decision to the final iteration. Not assembled from assumptions. Designed from validated ground.",
       buttons: [
-        { title: "Button", variant: "secondary" },
+        { title: "Learn More", variant: "secondary" },
         {
-          title: "Button",
-          variant: "link",
-          size: "link",
-          iconRight: <RxChevronRight />,
-        },
-      ],
-    },
-    {
-      heading: "Date",
-      title: "Short heading here",
-      description:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut commodo diam libero vitae erat. Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-      buttons: [
-        { title: "Button", variant: "secondary" },
-        {
-          title: "Button",
+          title: "See Case Studies",
           variant: "link",
           size: "link",
           iconRight: <RxChevronRight />,

@@ -121,57 +121,57 @@ const FeatureCard = ({ isActive, setIsActive, ...feature }: FeatureWithState) =>
 };
 
 export const Layout351Defaults: Props = {
-  tagline: "Tagline",
-  heading: "Medium length section heading goes here",
-  description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+  tagline: "HOW WE HELP",
+  heading: "Four disciplines.\nOne methodology.",
+  description: "Every engagement applies Market Inward to a specific layer of the product system.",
 
   features: [
     {
       columnText: "01",
-      verticalText: "Feature one",
-      horizontalText: "Feature one",
-      heading: "Short heading goes here",
+      verticalText: "Product Strategy",
+      horizontalText: "Product Strategy",
+      heading: "Know what to build before you build it.",
       description:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut commodo diam libero vitae erat.",
+        "Ecosystem mapping, validated insight, and a strategic foundation before a single screen is drawn.",
       image: {
         src: "https://d22po4pjz3o32e.cloudfront.net/placeholder-image-landscape.svg",
-        alt: "Relume placeholder image 1",
+        alt: "Product Strategy",
       },
     },
     {
       columnText: "02",
-      verticalText: "Feature two",
-      horizontalText: "Feature two",
-      heading: "Short heading goes here",
+      verticalText: "Product UX Design",
+      horizontalText: "Product UX Design",
+      heading: "Design for the workflow, not just the screen.",
       description:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut commodo diam libero vitae erat.",
+        "User experience designed from workflow architecture outward. Coherent at the system level.",
       image: {
         src: "https://d22po4pjz3o32e.cloudfront.net/placeholder-image-landscape.svg",
-        alt: "Relume placeholder image 2",
+        alt: "Product UX Design",
       },
     },
     {
       columnText: "03",
-      verticalText: "Feature three",
-      horizontalText: "Feature three",
-      heading: "Short heading goes here",
+      verticalText: "Product Systems",
+      horizontalText: "Product Systems",
+      heading: "The design system follows the product system.",
       description:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut commodo diam libero vitae erat.",
+        "Design architecture that scales with the product. Not a component library layered over entropy.",
       image: {
         src: "https://d22po4pjz3o32e.cloudfront.net/placeholder-image-landscape.svg",
-        alt: "Relume placeholder image 3",
+        alt: "Product Systems",
       },
     },
     {
       columnText: "04",
-      verticalText: "Feature four",
-      horizontalText: "Feature four",
-      heading: "Short heading goes here",
+      verticalText: "AI Product Design",
+      horizontalText: "AI Product Design",
+      heading: "AI amplifies the methodology. It doesn't replace it.",
       description:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut commodo diam libero vitae erat.",
+        "When products incorporate AI, systems thinking becomes more important, not less.",
       image: {
         src: "https://d22po4pjz3o32e.cloudfront.net/placeholder-image-landscape.svg",
-        alt: "Relume placeholder image 4",
+        alt: "AI Product Design",
       },
     },
   ],

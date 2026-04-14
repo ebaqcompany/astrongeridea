@@ -50,15 +50,15 @@ export const Layout232Defaults: Props = {
     {
       image: {
         src: "https://d22po4pjz3o32e.cloudfront.net/placeholder-image-landscape.svg",
-        alt: "Relume placeholder image 1",
+        alt: "A Structured Methodology",
       },
-      heading: "Long heading is what you see here in this feature section",
+      heading: "A Structured Methodology",
       description:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla.",
+        "The ASID Framework is a proprietary approach to product design built around three layers: ecosystem, workflow systems, and feature systems. Every engagement follows it.",
       buttons: [
-        { title: "Button", variant: "secondary" },
+        { title: "Case Study", variant: "secondary" },
         {
-          title: "Button",
+          title: "Learn More",
           variant: "link",
           size: "link",
           iconRight: <RxChevronRight />,
@@ -68,15 +68,15 @@ export const Layout232Defaults: Props = {
     {
       image: {
         src: "https://d22po4pjz3o32e.cloudfront.net/placeholder-image-landscape.svg",
-        alt: "Relume placeholder image 2",
+        alt: "Proven at Scale",
       },
-      heading: "Long heading is what you see here in this feature section",
+      heading: "Proven at Scale",
       description:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla.",
+        "25 years across fintech, enterprise SaaS, civic technology, and mobility. Products serving millions of users. Platforms managing billions in assets.",
       buttons: [
-        { title: "Button", variant: "secondary" },
+        { title: "Case Study", variant: "secondary" },
         {
-          title: "Button",
+          title: "Learn More",
           variant: "link",
           size: "link",
           iconRight: <RxChevronRight />,
@@ -86,15 +86,15 @@ export const Layout232Defaults: Props = {
     {
       image: {
         src: "https://d22po4pjz3o32e.cloudfront.net/placeholder-image-landscape.svg",
-        alt: "Relume placeholder image 3",
+        alt: "End-to-End Delivery",
       },
-      heading: "Long heading is what you see here in this feature section",
+      heading: "End-to-End Delivery",
       description:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla.",
+        "Discovery and strategy through design systems, engineering handoff, and launch. No handoffs between vendors. No gap between what was designed and what ships.",
       buttons: [
-        { title: "Button", variant: "secondary" },
+        { title: "Learn More", variant: "secondary" },
         {
-          title: "Button",
+          title: "Details",
           variant: "link",
           size: "link",
           iconRight: <RxChevronRight />,
@@ -104,15 +104,15 @@ export const Layout232Defaults: Props = {
     {
       image: {
         src: "https://d22po4pjz3o32e.cloudfront.net/placeholder-image-landscape.svg",
-        alt: "Relume placeholder image 4",
+        alt: "Senior Expertise, Day One",
       },
-      heading: "Long heading is what you see here in this feature section",
+      heading: "Senior Expertise, Day One",
       description:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla.",
+        "You work directly with me. Every engagement gets 25 years of product design leadership applied to your specific problem — not delegated to a team that needs onboarding.",
       buttons: [
-        { title: "Button", variant: "secondary" },
+        { title: "Case Study", variant: "secondary" },
         {
-          title: "Button",
+          title: "Learn More",
           variant: "link",
           size: "link",
           iconRight: <RxChevronRight />,
@@ -122,15 +122,15 @@ export const Layout232Defaults: Props = {
     {
       image: {
         src: "https://d22po4pjz3o32e.cloudfront.net/placeholder-image-landscape.svg",
-        alt: "Relume placeholder image 5",
+        alt: "Flexible Engagements",
       },
-      heading: "Long heading is what you see here in this feature section",
+      heading: "Flexible Engagements",
       description:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla.",
+        "Discovery Sprint, project-based, monthly retainer, or fractional leadership. Start where your biggest risk is. Scale as the work proves value.",
       buttons: [
-        { title: "Button", variant: "secondary" },
+        { title: "Case Study", variant: "secondary" },
         {
-          title: "Button",
+          title: "Learn More",
           variant: "link",
           size: "link",
           iconRight: <RxChevronRight />,
@@ -140,15 +140,15 @@ export const Layout232Defaults: Props = {
     {
       image: {
         src: "https://d22po4pjz3o32e.cloudfront.net/placeholder-image-landscape.svg",
-        alt: "Relume placeholder image 6",
+        alt: "AI-Enhanced Efficiency",
       },
-      heading: "Long heading is what you see here in this feature section",
+      heading: "AI-Enhanced Efficiency",
       description:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla.",
+        "AI is integrated at three specific stages of the ASID methodology: research synthesis, insight clustering, and component generation. The thinking is human. The time between input and insight is compressed.",
       buttons: [
-        { title: "Button", variant: "secondary" },
+        { title: "Case Study", variant: "secondary" },
         {
-          title: "Button",
+          title: "Learn More",
           variant: "link",
           size: "link",
           iconRight: <RxChevronRight />,

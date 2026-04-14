@@ -37,10 +37,10 @@ export const Stats8 = (props: Stats8Props) => {
 };
 
 export const Stats8Defaults: Props = {
-  heading: "Long heading is what you see here in this feature section",
+  heading: "You invested in your product.\nSomething still isn't working.",
   stats: [
-    { percentage: "30%", heading: "Short heading goes here" },
-    { percentage: "30%", heading: "Short heading goes here" },
-    { percentage: "30%", heading: "Short heading goes here" },
+    { percentage: "31%", heading: "of software projects are cancelled before completion due to requirements failures, not technical ones." },
+    { percentage: "53%", heading: "cost nearly double their original estimate for the same reason." },
+    { percentage: "$20B", heading: "AUM on platforms designed" },
   ],
 };

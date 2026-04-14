@@ -38,7 +38,7 @@ export const Cta7 = (props: Cta7Props) => {
 };
 
 export const Cta7Defaults: Props = {
-  heading: "Medium length heading goes here",
-  description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-  buttons: [{ title: "Button" }],
+  heading: "The first conversation is a diagnosis, not a pitch.",
+  description: "Bring your product challenge. We'll tell you what we see.",
+  buttons: [{ title: "Schedule a Discovery Call" }],
 };

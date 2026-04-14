@@ -141,14 +141,14 @@ export const Layout495 = (props: Layout495Props) => {
 };
 
 export const Layout495Defaults: Props = {
-  tagline: "Tagline",
-  heading: "Medium length section heading goes here",
+  tagline: "WHO WE HELP",
+  heading: "We work with companies at the inflection point.",
   description:
-    "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut commodo diam libero vitae erat.",
+    "The trigger is always the same: something changed and the current approach is no longer sufficient.",
   buttons: [
-    { title: "Button", variant: "secondary" },
+    { title: "Schedule a Discovery Call", variant: "secondary" },
     {
-      title: "Button",
+      title: "See Engagement Options",
       variant: "link",
       size: "link",
       iconRight: <RxChevronRight />,
@@ -158,43 +158,40 @@ export const Layout495Defaults: Props = {
     {
       icon: {
         src: "https://d22po4pjz3o32e.cloudfront.net/relume-icon.svg",
-        alt: "Relume icon 1",
+        alt: "Startups icon",
       },
-      heading: "Short heading goes here",
+      heading: "Startups & Scale-ups",
       description:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut commodo diam libero vitae erat.",
+        "You have a product hypothesis and runway to build. Before you commit, make sure you're building the right thing in the right sequence.",
       image: {
         src: "https://d22po4pjz3o32e.cloudfront.net/placeholder-image.svg",
-        alt: "Relume placeholder image 1",
+        alt: "Startups and scale-ups",
       },
     },
     {
       icon: {
         src: "https://d22po4pjz3o32e.cloudfront.net/relume-icon.svg",
-        alt: "Relume icon 2",
+        alt: "Product organizations icon",
       },
-      heading: "Short heading goes here",
+      heading: "Product Organizations",
       description:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut commodo diam libero vitae erat.",
-      video: {
-        image: {
-          src: "https://d22po4pjz3o32e.cloudfront.net/placeholder-video-thumbnail.svg",
-          alt: "Relume placeholder image 2",
-        },
-        url: "https://www.youtube.com/embed/8DKLYsikxTs?si=Ch9W0KrDWWUiCMMW",
+        "Your product is growing but coherence is degrading. More design investment isn't fixing it. The sequence needs to change.",
+      image: {
+        src: "https://d22po4pjz3o32e.cloudfront.net/placeholder-image.svg",
+        alt: "Product organizations",
       },
     },
     {
       icon: {
         src: "https://d22po4pjz3o32e.cloudfront.net/relume-icon.svg",
-        alt: "Relume icon 3",
+        alt: "Agencies icon",
       },
-      heading: "Short heading goes here",
+      heading: "Agencies & Partners",
       description:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut commodo diam libero vitae erat.",
+        "You have a client project that needs strategic product depth your team can't provide in-house.",
       image: {
         src: "https://d22po4pjz3o32e.cloudfront.net/placeholder-image.svg",
-        alt: "Relume placeholder image 3",
+        alt: "Agencies and delivery partners",
       },
     },
   ],
