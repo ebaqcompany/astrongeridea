@@ -34,7 +34,7 @@ export const Testimonial21 = (props: Testimonial21Props) => {
 
   const [emblaRef] = useEmblaCarousel(
     { loop: true, dragFree: true, align: "start" },
-    [AutoScroll({ speed: 0.5, direction: "forward", stopOnInteraction: false, stopOnMouseEnter: true })]
+    [AutoScroll({ speed: 1.2, direction: "forward", stopOnInteraction: false, stopOnMouseEnter: true })]
   );
 
   // Duplicate testimonials so there are enough to fill the viewport for seamless looping

@@ -104,7 +104,6 @@ export const Faq1Defaults: Props = {
   footerHeading: "Still have questions?",
   footerDescription: "Let's talk about your project. No pressure. No obligation. Just clarity.",
   button: {
-    title: "Contact",
-    variant: "secondary",
+    title: "Let's Talk",
   },
 };
