@@ -159,7 +159,7 @@ p.font-semibold {
   font-family: var(--font-heading);
   font-size: 3.75rem;
   line-height: 1.05;
-  letter-spacing: -0.035em;
+  letter-spacing: -0.05em;
   font-weight: 400;
 }
 @media (min-width: 768px) {
@@ -175,18 +175,22 @@ p.font-semibold {
 
 /* Tighter letter-spacing & line-height for big headlines */
 h1 {
-  letter-spacing: -0.03em;
+  letter-spacing: -0.04em;
   line-height: 1.1;
 }
 h2 {
-  letter-spacing: -0.025em;
+  letter-spacing: -0.035em;
   line-height: 1.15;
 }
 h3 {
-  letter-spacing: -0.015em;
+  letter-spacing: -0.025em;
   line-height: 1.2;
 }
-h4, h5, h6 {
+h4 {
+  letter-spacing: -0.015em;
+  line-height: 1.3;
+}
+h5, h6 {
   letter-spacing: normal;
   line-height: 1.3;
 }
