@@ -86,13 +86,13 @@ const FeatureCard = ({ isActive, setIsActive, ...feature }: FeatureWithState) =>
       transition={{ duration: 0.3, ease: "easeInOut" }}
     >
       <div className="relative flex h-16 w-full min-w-full cursor-pointer items-center justify-center border-t border-border-primary py-8 md:h-20 lg:h-[90vh] lg:w-20 lg:min-w-20 lg:flex-col lg:justify-between lg:border-none">
-        <p className="absolute left-6 whitespace-nowrap text-xl font-bold md:left-10 md:text-2xl lg:relative lg:left-0">
+        <p className="absolute left-6 whitespace-nowrap text-xl font-bold md:left-10 md:text-2xl lg:relative lg:left-0 text-[#E04834]">
           {feature.columnText}
         </p>
-        <h2 className="hidden [writing-mode:vertical-rl] lg:mx-auto lg:block lg:rotate-180 lg:text-2xl lg:font-bold">
+        <h2 className="hidden [writing-mode:vertical-rl] lg:mx-auto lg:block lg:rotate-180 lg:text-2xl lg:font-bold text-[#E04834]">
           {feature.verticalText}
         </h2>
-        <p className="text-xl font-bold md:text-2xl lg:hidden">{feature.horizontalText}</p>
+        <p className="text-xl font-bold md:text-2xl lg:hidden text-[#E04834]">{feature.horizontalText}</p>
       </div>
       <CardContent
         className="w-full overflow-hidden lg:h-full lg:w-auto lg:min-w-[200vw] lg:overflow-auto"
