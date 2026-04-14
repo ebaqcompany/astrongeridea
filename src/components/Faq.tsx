@@ -61,38 +61,48 @@ export const Faq1 = (props: Faq1Props) => {
 };
 
 export const Faq1Defaults: Props = {
-  heading: "FAQs",
+  heading: "Frequently Asked Questions",
   description:
-    "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique.",
+    "Common questions about working with A Stronger Idea Design.",
   questions: [
     {
-      title: "Question text goes here",
+      title: "How is ASID different from a traditional design agency?",
       answer:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut commodo diam libero vitae erat. Aenean faucibus nibh et justo cursus id rutrum lorem imperdiet. Nunc ut sem vitae risus tristique posuere.",
+        "A Stronger Idea Design operates as a senior product and UX partner, not a production-only design agency. We focus on strategy, systems, and execution that scale, helping teams make better decisions rather than just delivering screens.",
     },
     {
-      title: "Question text goes here",
+      title: "What is your design process?",
       answer:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut commodo diam libero vitae erat. Aenean faucibus nibh et justo cursus id rutrum lorem imperdiet. Nunc ut sem vitae risus tristique posuere.",
+        "Our process starts with discovery and validation, then moves into design, iteration, and execution, and potentially into continued measurement and analytics. We adapt our approach to each engagement, but every project is grounded in user research, clear goals, and measurable outcomes.",
     },
     {
-      title: "Question text goes here",
+      title: "How long do projects typically take?",
       answer:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut commodo diam libero vitae erat. Aenean faucibus nibh et justo cursus id rutrum lorem imperdiet. Nunc ut sem vitae risus tristique posuere.",
+        "Project timelines vary based on scope and complexity, but most engagements range from a few weeks to several months. We define clear milestones early so teams know what to expect and can plan confidently.",
     },
     {
-      title: "Question text goes here",
+      title: "Do you work with startups, established businesses, or agencies?",
       answer:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut commodo diam libero vitae erat. Aenean faucibus nibh et justo cursus id rutrum lorem imperdiet. Nunc ut sem vitae risus tristique posuere.",
+        "We work with startups, growing product teams, established businesses, and agencies. Our work is especially effective for organizations navigating growth, complexity, or change and needing senior design leadership without building a full in-house team.",
     },
     {
-      title: "Question text goes here",
+      title: "Can you integrate with our existing team and tools?",
       answer:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut commodo diam libero vitae erat. Aenean faucibus nibh et justo cursus id rutrum lorem imperdiet. Nunc ut sem vitae risus tristique posuere.",
+        "Yes. We regularly embed with existing product, engineering, and marketing teams and work within established tools and workflows. Our goal is to strengthen how your team operates, not disrupt it.",
+    },
+    {
+      title: "What is design operations and why does it matter?",
+      answer:
+        "Design operations focuses on the systems, processes, and standards that help design teams work efficiently at scale. Strong design operations reduce friction, improve consistency, and allow teams to deliver high-quality work faster as products and organizations grow.",
+    },
+    {
+      title: "How quickly can we get started?",
+      answer:
+        "In many cases, we can begin within a few weeks depending on availability and scope. After an initial conversation, we outline next steps clearly so teams can move forward without unnecessary delay.",
     },
   ],
   footerHeading: "Still have questions?",
-  footerDescription: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+  footerDescription: "Let's talk about your project. No pressure. No obligation. Just clarity.",
   button: {
     title: "Contact",
     variant: "secondary",

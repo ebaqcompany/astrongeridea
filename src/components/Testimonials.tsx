@@ -79,67 +79,43 @@ const TestimonialCard = ({ testimonial }: { testimonial: Testimonial }) => (
 );
 
 export const Testimonial21Defaults: Props = {
-  heading: "Customer testimonials",
-  description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+  heading: "Partner Approved",
+  description: "What our clients say about working with A Stronger Idea Design.",
   testimonials: [
     {
       quote:
-        '"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare."',
+        '"A Stronger Idea Design was highly attentive to detail with our mission and not just our design, demonstrated excellent project scoping skills, and was end-user oriented."',
       avatar: {
         src: "https://d22po4pjz3o32e.cloudfront.net/placeholder-image.svg",
-        alt: "Testimonial avatar 1",
+        alt: "Jonathan Chichoni Warenne",
       },
-      name: "Name Surname",
-      position: "Position",
-      companyName: "Company name",
+      name: "Jonathan Chichoni Warenne",
+      position: "CEO",
+      companyName: "EstateGuru",
       numberOfStars: 5,
     },
     {
       quote:
-        '"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare."',
+        '"Eric brought a rare mix of big-picture thinking and meticulous detail. The design leadership work helped streamline complexity, and the collaborative style made them a trusted partner across the board."',
       avatar: {
         src: "https://d22po4pjz3o32e.cloudfront.net/placeholder-image.svg",
-        alt: "Testimonial avatar 2",
+        alt: "Greg Bebenek",
       },
-      name: "Name Surname",
-      position: "Position",
-      companyName: "Company name",
+      name: "Greg Bebenek",
+      position: "Chief Technology Officer",
+      companyName: "Euvic",
       numberOfStars: 5,
     },
     {
       quote:
-        '"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare."',
+        '"The expertise and leadership from A Stronger Idea Design have been instrumental in transforming how we approach UX at Flowbird. Their impact has gone beyond design—it has positively influenced our entire product development lifecycle."',
       avatar: {
         src: "https://d22po4pjz3o32e.cloudfront.net/placeholder-image.svg",
-        alt: "Testimonial avatar 3",
+        alt: "Marek Juda",
       },
-      name: "Name Surname",
-      position: "Position",
-      companyName: "Company name",
-      numberOfStars: 5,
-    },
-    {
-      quote:
-        '"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare."',
-      avatar: {
-        src: "https://d22po4pjz3o32e.cloudfront.net/placeholder-image.svg",
-        alt: "Testimonial avatar 4",
-      },
-      name: "Name Surname",
-      position: "Position",
-      companyName: "Company name",
-      numberOfStars: 5,
-    },
-    {
-      quote:
-        '"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare."',
-      avatar: {
-        src: "https://d22po4pjz3o32e.cloudfront.net/placeholder-image.svg",
-        alt: "Testimonial avatar 5",
-      },
-      name: "Name Surname",
-      position: "Position",
-      companyName: "Company name",
+      name: "Marek Juda",
+      position: "Digital Chief Operating Officer",
+      companyName: "Flowbird",
       numberOfStars: 5,
     },
   ],

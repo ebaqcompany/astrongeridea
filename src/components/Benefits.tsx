@@ -56,9 +56,8 @@ export const Layout232Defaults: Props = {
       description:
         "The ASID Framework is a proprietary approach to product design built around three layers: ecosystem, workflow systems, and feature systems. Every engagement follows it.",
       buttons: [
-        { title: "Case Study", variant: "secondary" },
         {
-          title: "Learn More",
+          title: "Case Study",
           variant: "link",
           size: "link",
           iconRight: <RxChevronRight />,
@@ -74,9 +73,8 @@ export const Layout232Defaults: Props = {
       description:
         "25 years across fintech, enterprise SaaS, civic technology, and mobility. Products serving millions of users. Platforms managing billions in assets.",
       buttons: [
-        { title: "Case Study", variant: "secondary" },
         {
-          title: "Learn More",
+          title: "Case Study",
           variant: "link",
           size: "link",
           iconRight: <RxChevronRight />,
@@ -92,9 +90,8 @@ export const Layout232Defaults: Props = {
       description:
         "Discovery and strategy through design systems, engineering handoff, and launch. No handoffs between vendors. No gap between what was designed and what ships.",
       buttons: [
-        { title: "Learn More", variant: "secondary" },
         {
-          title: "Details",
+          title: "Case Study",
           variant: "link",
           size: "link",
           iconRight: <RxChevronRight />,
@@ -110,9 +107,8 @@ export const Layout232Defaults: Props = {
       description:
         "You work directly with me. Every engagement gets 25 years of product design leadership applied to your specific problem — not delegated to a team that needs onboarding.",
       buttons: [
-        { title: "Case Study", variant: "secondary" },
         {
-          title: "Learn More",
+          title: "Case Study",
           variant: "link",
           size: "link",
           iconRight: <RxChevronRight />,
@@ -128,9 +124,8 @@ export const Layout232Defaults: Props = {
       description:
         "Discovery Sprint, project-based, monthly retainer, or fractional leadership. Start where your biggest risk is. Scale as the work proves value.",
       buttons: [
-        { title: "Case Study", variant: "secondary" },
         {
-          title: "Learn More",
+          title: "Case Study",
           variant: "link",
           size: "link",
           iconRight: <RxChevronRight />,
@@ -146,9 +141,8 @@ export const Layout232Defaults: Props = {
       description:
         "AI is integrated at three specific stages of the ASID methodology: research synthesis, insight clustering, and component generation. The thinking is human. The time between input and insight is compressed.",
       buttons: [
-        { title: "Case Study", variant: "secondary" },
         {
-          title: "Learn More",
+          title: "Case Study",
           variant: "link",
           size: "link",
           iconRight: <RxChevronRight />,

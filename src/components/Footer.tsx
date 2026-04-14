@@ -122,38 +122,33 @@ export const Footer12Defaults: Props = {
     src: "/logo-light.svg",
     alt: "A Stronger Idea Design",
   },
-  heading: "Medium length footer heading goes here",
+  heading: "Let's talk.",
   description:
-    "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique.",
-  buttons: [{ title: "Button" }],
+    "Partnering with startups, scale-ups, agencies, and product organizations to design exceptional digital products, scalable UX/UI systems, and results-driven teams.",
+  buttons: [{ title: "hello@astrongeridea.design" }],
   columnLinks: [
     {
       links: [
-        { title: "Link One", url: "#" },
-        { title: "Link Two", url: "#" },
-        { title: "Link Three", url: "#" },
-        { title: "Link Four", url: "#" },
-        { title: "Link Five", url: "#" },
+        { title: "Home", url: "/" },
+        { title: "Services", url: "#" },
+        { title: "Work", url: "#" },
+        { title: "Process", url: "#" },
+        { title: "About", url: "#" },
       ],
     },
     {
       links: [
-        { title: "Link Six", url: "#" },
-        { title: "Link Seven", url: "#" },
-        { title: "Link Eight", url: "#" },
-        { title: "Link Nine", url: "#" },
-        { title: "Link Ten", url: "#" },
+        { title: "Contact", url: "#" },
+        { title: "Insights", url: "#" },
+        { title: "Capabilities Deck", url: "#" },
       ],
     },
   ],
   socialMediaLinks: [
-    { url: "#", icon: <BiLogoFacebookCircle className="size-6" /> },
-    { url: "#", icon: <BiLogoInstagram className="size-6" /> },
-    { url: "#", icon: <FaXTwitter className="size-6 p-0.5" /> },
     { url: "#", icon: <BiLogoLinkedinSquare className="size-6" /> },
-    { url: "#", icon: <BiLogoYoutube className="size-6" /> },
+    { url: "#", icon: <FaXTwitter className="size-6 p-0.5" /> },
   ],
-  footerText: "© 2024 A Stronger Idea Design. All rights reserved.",
+  footerText: "Copyright \u00A9 A Stronger Idea, LLC 2025 All rights reserved",
   footerImages: [
     {
       src: "https://d22po4pjz3o32e.cloudfront.net/placeholder-image-small.svg",
