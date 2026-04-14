@@ -119,13 +119,13 @@ export const Footer12 = (props: Footer12Props) => {
 export const Footer12Defaults: Props = {
   logo: {
     url: "/",
-    src: "/logo.svg",
+    src: "/logo-light.svg",
     alt: "A Stronger Idea Design",
   },
   heading: "Medium length footer heading goes here",
   description:
     "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique.",
-  buttons: [{ title: "Button" }, { title: "Button", variant: "secondary" }],
+  buttons: [{ title: "Button" }],
   columnLinks: [
     {
       links: [

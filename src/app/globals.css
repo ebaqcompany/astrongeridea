@@ -17,7 +17,7 @@
   /* Section backgrounds */
   --color-surface-white: #ffffff;
   --color-surface-gray: #f0f0f0;
-  --color-surface-dark: #111111;
+  --color-surface-dark: #1B2126;
 
   /* Relume font sizes */
   --text-xs: 0.75rem;
@@ -84,7 +84,7 @@
   --color-background-primary: #ffffff;
   --color-background-secondary: #f0f0f0;
   --color-background-tertiary: #666666;
-  --color-background-alternative: #111111;
+  --color-background-alternative: #1B2126;
   --color-background-success: #ecfdf3;
   --color-background-error: #fef3f2;
   --color-border: #e0e0e0;
@@ -156,7 +156,11 @@ h1, h2, h3, h4, h5, h6 {
   background-clip: text;
 }
 
-/* ===== BUTTONS ===== */
+/* ===== ALL BUTTONS ROUNDED ===== */
+
+button, [role="button"], a[class*="Button"], a[class*="button"] {
+  border-radius: 9999px !important;
+}
 
 /* Primary: gradient fill, fully rounded, white text */
 [data-button-variant="primary"],
@@ -164,7 +168,6 @@ button.bg-background-alternative,
 .button-primary {
   background: linear-gradient(160deg, #FF5744, #C0392B) !important;
   color: white !important;
-  border-radius: 9999px !important;
   border: none !important;
   transition: opacity 0.2s ease, transform 0.15s ease;
 }
@@ -181,13 +184,26 @@ button.bg-background-alternative:hover,
   background: transparent !important;
   color: var(--color-primary) !important;
   border: 1px solid var(--color-primary) !important;
-  border-radius: 9999px !important;
   transition: background-color 0.2s ease, color 0.2s ease;
 }
 [data-button-variant="secondary"]:hover,
 .button-secondary:hover {
   background: var(--color-primary) !important;
   color: white !important;
+}
+
+/* ===== LINKS & SOCIAL ICONS HOVER ===== */
+
+a:hover {
+  color: var(--color-primary) !important;
+  transition: color 0.2s ease;
+}
+
+/* Social media icons turn red on hover */
+footer a:hover svg,
+.section-dark a:hover svg {
+  color: var(--color-primary) !important;
+  transition: color 0.2s ease;
 }
 
 /* ===== SECTION BACKGROUNDS (alternating) ===== */
