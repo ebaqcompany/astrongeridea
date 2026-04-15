@@ -74,7 +74,7 @@ export const Header3 = (props: Header3Props) => {
 };
 
 export const Header3Defaults: Props = {
-  tagline: "For founders, product leaders, and their teams",
+  tagline: "For Founders & Teams",
   heading: "Build The Right Product.",
   description:
     "A Stronger Idea Design is a product design consultancy that maps the market ecosystem before anything is designed, so every decision is built on validated ground.",
