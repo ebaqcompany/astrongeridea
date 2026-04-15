@@ -271,6 +271,20 @@ button.bg-background-alternative:hover,
   color: white !important;
 }
 
+/* ===== ACCORDION TRIGGER — chevron to far right ===== */
+
+[data-radix-collection-item] > button,
+button[data-state] {
+  display: flex !important;
+  justify-content: space-between !important;
+  width: 100% !important;
+}
+[data-radix-collection-item] > button > svg,
+button[data-state] > svg {
+  flex-shrink: 0 !important;
+  margin-left: auto !important;
+}
+
 /* ===== LINKS & SOCIAL ICONS HOVER ===== */
 
 a:hover {
