@@ -159,7 +159,7 @@ export const Layout409Defaults: Props = {
         },
       ],
       image: {
-        src: "https://d22po4pjz3o32e.cloudfront.net/placeholder-image.svg",
+        src: "/assets/poster-case-study-flowbird.jpg",
         alt: "Flowbird civic technology case study",
       },
     },
@@ -178,7 +178,7 @@ export const Layout409Defaults: Props = {
         },
       ],
       image: {
-        src: "https://d22po4pjz3o32e.cloudfront.net/placeholder-image.svg",
+        src: "/assets/poster-case-study-estateguru.jpg",
         alt: "EstateGuru financial technology case study",
       },
     },
@@ -197,7 +197,7 @@ export const Layout409Defaults: Props = {
         },
       ],
       image: {
-        src: "https://d22po4pjz3o32e.cloudfront.net/placeholder-image.svg",
+        src: "/assets/poster-case-study-euvic.jpg",
         alt: "Euvic institutional finance case study",
       },
     },

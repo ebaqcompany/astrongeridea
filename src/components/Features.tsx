@@ -134,7 +134,7 @@ export const Layout351Defaults: Props = {
       description:
         "Ecosystem mapping, validated insight, and a strategic foundation before a single screen is drawn.",
       image: {
-        src: "https://d22po4pjz3o32e.cloudfront.net/placeholder-image-landscape.svg",
+        src: "/assets/poster-research-user-testing.jpg",
         alt: "Product Strategy",
       },
     },
@@ -146,7 +146,7 @@ export const Layout351Defaults: Props = {
       description:
         "User experience designed from workflow architecture outward. Coherent at the system level.",
       image: {
-        src: "https://d22po4pjz3o32e.cloudfront.net/placeholder-image-landscape.svg",
+        src: "/assets/poster-uiux.jpg",
         alt: "Product UX Design",
       },
     },
@@ -158,7 +158,7 @@ export const Layout351Defaults: Props = {
       description:
         "Design architecture that scales with the product. Not a component library layered over entropy.",
       image: {
-        src: "https://d22po4pjz3o32e.cloudfront.net/placeholder-image-landscape.svg",
+        src: "/assets/poster-team-design-ops.jpg",
         alt: "Product Systems",
       },
     },
@@ -170,7 +170,7 @@ export const Layout351Defaults: Props = {
       description:
         "When products incorporate AI, systems thinking becomes more important, not less.",
       image: {
-        src: "https://d22po4pjz3o32e.cloudfront.net/placeholder-image-landscape.svg",
+        src: "/assets/poster-marketing-ecommerce.jpg",
         alt: "AI Product Design",
       },
     },

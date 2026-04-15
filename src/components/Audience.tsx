@@ -164,7 +164,7 @@ export const Layout495Defaults: Props = {
       description:
         "You have a product hypothesis and runway to build. Before you commit, make sure you're building the right thing in the right sequence.",
       image: {
-        src: "https://d22po4pjz3o32e.cloudfront.net/placeholder-image.svg",
+        src: "/assets/case-studies-all.avif",
         alt: "Startups and scale-ups",
       },
     },
@@ -177,7 +177,7 @@ export const Layout495Defaults: Props = {
       description:
         "Your product is growing but coherence is degrading. More design investment isn't fixing it. The sequence needs to change.",
       image: {
-        src: "https://d22po4pjz3o32e.cloudfront.net/placeholder-image.svg",
+        src: "/assets/case-study-estateguru.avif",
         alt: "Product organizations",
       },
     },
@@ -190,7 +190,7 @@ export const Layout495Defaults: Props = {
       description:
         "You have a client project that needs strategic product depth your team can't provide in-house.",
       image: {
-        src: "https://d22po4pjz3o32e.cloudfront.net/placeholder-image.svg",
+        src: "/assets/poster-case-study-euvic.jpg",
         alt: "Agencies and delivery partners",
       },
     },

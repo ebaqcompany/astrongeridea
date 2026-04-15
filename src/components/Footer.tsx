@@ -151,24 +151,24 @@ export const Footer12Defaults: Props = {
   footerText: "Copyright \u00A9 A Stronger Idea, LLC 2025 All rights reserved",
   footerImages: [
     {
-      src: "https://d22po4pjz3o32e.cloudfront.net/placeholder-image-small.svg",
-      alt: "Relume placeholder image",
+      src: "/assets/testimonial-jonathan-warenne.avif",
+      alt: "Jonathan Chichoni Warenne",
     },
     {
-      src: "https://d22po4pjz3o32e.cloudfront.net/placeholder-image-small.svg",
-      alt: "Relume placeholder image",
+      src: "/assets/testimonial-greg-bebenek.avif",
+      alt: "Greg Bebenek",
     },
     {
-      src: "https://d22po4pjz3o32e.cloudfront.net/placeholder-image-small.svg",
-      alt: "Relume placeholder image",
+      src: "/assets/testimonial-marek-juda.avif",
+      alt: "Marek Juda",
     },
     {
-      src: "https://d22po4pjz3o32e.cloudfront.net/placeholder-image-small.svg",
-      alt: "Relume placeholder image",
+      src: "/assets/logo-flowbird.avif",
+      alt: "Flowbird",
     },
     {
-      src: "https://d22po4pjz3o32e.cloudfront.net/placeholder-image-small.svg",
-      alt: "Relume placeholder image",
+      src: "/assets/logo-estateguru.avif",
+      alt: "EstateGuru",
     },
   ],
 };

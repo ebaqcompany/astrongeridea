@@ -49,7 +49,7 @@ export const Layout232Defaults: Props = {
   sections: [
     {
       image: {
-        src: "https://d22po4pjz3o32e.cloudfront.net/placeholder-image-landscape.svg",
+        src: "/assets/poster-research-user-testing.jpg",
         alt: "A Structured Methodology",
       },
       heading: "A Structured Methodology",
@@ -66,7 +66,7 @@ export const Layout232Defaults: Props = {
     },
     {
       image: {
-        src: "https://d22po4pjz3o32e.cloudfront.net/placeholder-image-landscape.svg",
+        src: "/assets/case-study-estateguru.avif",
         alt: "Proven at Scale",
       },
       heading: "Proven at Scale",
@@ -83,7 +83,7 @@ export const Layout232Defaults: Props = {
     },
     {
       image: {
-        src: "https://d22po4pjz3o32e.cloudfront.net/placeholder-image-landscape.svg",
+        src: "/assets/poster-case-study-flowbird.jpg",
         alt: "End-to-End Delivery",
       },
       heading: "End-to-End Delivery",
@@ -100,7 +100,7 @@ export const Layout232Defaults: Props = {
     },
     {
       image: {
-        src: "https://d22po4pjz3o32e.cloudfront.net/placeholder-image-landscape.svg",
+        src: "/assets/poster-uiux.jpg",
         alt: "Senior Expertise, Day One",
       },
       heading: "Senior Expertise, Day One",
@@ -117,7 +117,7 @@ export const Layout232Defaults: Props = {
     },
     {
       image: {
-        src: "https://d22po4pjz3o32e.cloudfront.net/placeholder-image-landscape.svg",
+        src: "/assets/poster-team-design-ops.jpg",
         alt: "Flexible Engagements",
       },
       heading: "Flexible Engagements",
@@ -134,7 +134,7 @@ export const Layout232Defaults: Props = {
     },
     {
       image: {
-        src: "https://d22po4pjz3o32e.cloudfront.net/placeholder-image-landscape.svg",
+        src: "/assets/poster-marketing-ecommerce.jpg",
         alt: "AI-Enhanced Efficiency",
       },
       heading: "AI-Enhanced Efficiency",

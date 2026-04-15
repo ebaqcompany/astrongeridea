@@ -93,7 +93,7 @@ export const Testimonial21Defaults: Props = {
       quote:
         '"A Stronger Idea Design was highly attentive to detail with our mission and not just our design, demonstrated excellent project scoping skills, and was end-user oriented."',
       avatar: {
-        src: "https://d22po4pjz3o32e.cloudfront.net/placeholder-image.svg",
+        src: "/assets/testimonial-jonathan-warenne.avif",
         alt: "Jonathan Chichoni Warenne",
       },
       name: "Jonathan Chichoni Warenne",
@@ -105,7 +105,7 @@ export const Testimonial21Defaults: Props = {
       quote:
         '"Eric brought a rare mix of big-picture thinking and meticulous detail. The design leadership work helped streamline complexity, and the collaborative style made them a trusted partner across the board."',
       avatar: {
-        src: "https://d22po4pjz3o32e.cloudfront.net/placeholder-image.svg",
+        src: "/assets/testimonial-greg-bebenek.avif",
         alt: "Greg Bebenek",
       },
       name: "Greg Bebenek",
@@ -117,7 +117,7 @@ export const Testimonial21Defaults: Props = {
       quote:
         '"The expertise and leadership from A Stronger Idea Design have been instrumental in transforming how we approach UX at Flowbird. Their impact has gone beyond design—it has positively influenced our entire product development lifecycle."',
       avatar: {
-        src: "https://d22po4pjz3o32e.cloudfront.net/placeholder-image.svg",
+        src: "/assets/testimonial-marek-juda.avif",
         alt: "Marek Juda",
       },
       name: "Marek Juda",
