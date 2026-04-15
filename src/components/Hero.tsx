@@ -1,16 +1,7 @@
 "use client";
 
-import { useState } from "react";
-import { Button, Dialog, DialogContent, DialogTrigger } from "@relume_io/relume-ui";
+import { Button } from "@relume_io/relume-ui";
 import type { ButtonProps } from "@relume_io/relume-ui";
-import { FaCirclePlay } from "react-icons/fa6";
-import { CgSpinner } from "react-icons/cg";
-import clsx from "clsx";
-
-type ImageProps = {
-  src: string;
-  alt?: string;
-};
 
 type Props = {
   tagline: string;
@@ -18,14 +9,12 @@ type Props = {
   description: string;
   buttons: ButtonProps[];
   video: string;
-  image: ImageProps;
 };
 
 export type Header3Props = React.ComponentPropsWithoutRef<"section"> & Partial<Props>;
 
 export const Header3 = (props: Header3Props) => {
-  const [isIframeLoaded, setIsIframeLoaded] = useState(false);
-  const { tagline, heading, description, buttons, video, image } = {
+  const { tagline, heading, description, buttons, video } = {
     ...Header3Defaults,
     ...props,
   };
@@ -45,28 +34,17 @@ export const Header3 = (props: Header3Props) => {
               ))}
             </div>
           </div>
-          <Dialog>
-            <DialogTrigger asChild>
-              <button className="relative flex w-full items-center justify-center" style={{borderRadius: 0, background: 'transparent', border: 'none'}}>
-                <img src={image.src} alt={image.alt} className="size-full object-cover" />
-                <span className="absolute inset-0 z-10 bg-black/50" />
-                <FaCirclePlay className="absolute z-20 size-16 text-white inset-0 m-auto" />
-              </button>
-            </DialogTrigger>
-            <DialogContent>
-              {!isIframeLoaded && <CgSpinner className="mx-auto size-16 animate-spin text-white" />}
-              <iframe
-                className={clsx("z-0 mx-auto aspect-video size-full md:w-[738px] lg:w-[940px]", {
-                  visible: isIframeLoaded,
-                  hidden: !isIframeLoaded,
-                })}
-                src={video}
-                allow="autoplay; encrypted-media; picture-in-picture"
-                allowFullScreen
-                onLoad={() => setIsIframeLoaded(true)}
-              ></iframe>
-            </DialogContent>
-          </Dialog>
+          <div className="relative w-full overflow-hidden rounded-lg">
+            <video
+              className="size-full object-cover"
+              autoPlay
+              muted
+              loop
+              playsInline
+            >
+              <source src={video} type="video/mp4" />
+            </video>
+          </div>
         </div>
       </div>
     </section>
@@ -79,9 +57,5 @@ export const Header3Defaults: Props = {
   description:
     "A Stronger Idea Design is a product design consultancy that maps the market ecosystem before anything is designed, so every decision is built on validated ground.",
   buttons: [{ title: "Start a conversation" }, { title: "See Case Studies", variant: "secondary" }],
-  video: "https://www.youtube.com/embed/8DKLYsikxTs?si=Ch9W0KrDWWUiCMMW",
-  image: {
-    src: "https://d22po4pjz3o32e.cloudfront.net/placeholder-video-thumbnail.svg",
-    alt: "A Stronger Idea Design work showcase",
-  },
+  video: "/hero-video.mp4",
 };
