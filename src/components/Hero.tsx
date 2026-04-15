@@ -47,7 +47,7 @@ export const Header3 = (props: Header3Props) => {
           </div>
           <Dialog>
             <DialogTrigger asChild>
-              <button className="relative flex w-full items-center justify-center">
+              <button className="relative flex w-full items-center justify-center !rounded-none !bg-none !border-none">
                 <img src={image.src} alt={image.alt} className="size-full object-cover" />
                 <span className="absolute inset-0 z-10 bg-black/50" />
                 <FaCirclePlay className="absolute z-20 size-16 text-white" />
