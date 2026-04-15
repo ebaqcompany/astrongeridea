@@ -144,7 +144,7 @@ h1, h2, h3, h4, h5, h6 {
   font-weight: 400;
 }
 
-/* Eyebrows/taglines — red, light monospaced, uppercase */
+/* Eyebrows/taglines — red, light monospaced, uppercase pill */
 p.font-semibold {
   font-family: var(--font-mono) !important;
   font-weight: 300 !important;
@@ -154,6 +154,8 @@ p.font-semibold {
   font-size: 0.75rem;
   background: rgba(224, 72, 52, 0.08);
   display: inline-block;
+  width: fit-content;
+  max-width: fit-content;
   padding: 0.25rem 0.75rem;
   border-radius: 9999px;
 }

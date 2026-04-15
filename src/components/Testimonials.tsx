@@ -76,7 +76,7 @@ const TestimonialCard = ({ testimonial }: { testimonial: Testimonial }) => (
         />
       </div>
       <div>
-        <p className="font-semibold">{testimonial.name}</p>
+        <p className="font-medium">{testimonial.name}</p>
         <p>
           <span>{testimonial.position}</span>, <span>{testimonial.companyName}</span>
         </p>

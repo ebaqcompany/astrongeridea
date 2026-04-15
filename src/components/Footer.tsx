@@ -77,7 +77,7 @@ export const Footer12 = (props: Footer12Props) => {
               {columnLinks.map((column, index) => (
                 <ul key={index}>
                   {column.links.map((link, linkIndex) => (
-                    <li key={linkIndex} className="py-2 text-sm font-semibold">
+                    <li key={linkIndex} className="py-2 text-sm font-medium">
                       <a href={link.url}>{link.title}</a>
                     </li>
                   ))}
