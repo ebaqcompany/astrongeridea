@@ -271,13 +271,16 @@ button.bg-background-alternative:hover,
   color: white !important;
 }
 
-/* ===== ACCORDION TRIGGER — chevron to far right ===== */
+/* ===== ACCORDION TRIGGER — spacing + chevron to far right ===== */
 
 [data-radix-collection-item] > button,
 button[data-state] {
   display: flex !important;
   justify-content: space-between !important;
   width: 100% !important;
+  padding-top: 1rem !important;
+  padding-bottom: 1rem !important;
+  line-height: 1.5 !important;
 }
 [data-radix-collection-item] > button > svg,
 button[data-state] > svg {
