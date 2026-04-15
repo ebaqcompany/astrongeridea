@@ -288,6 +288,11 @@ button[data-state] > svg {
   margin-left: auto !important;
 }
 
+/* Accordion answer content — padding below before the border */
+[data-radix-collection-item] [role="region"] {
+  padding-bottom: 1.25rem !important;
+}
+
 /* ===== LINKS & SOCIAL ICONS HOVER ===== */
 
 a:hover {
