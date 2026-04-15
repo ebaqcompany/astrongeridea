@@ -16,6 +16,7 @@ type Feature = {
   heading: string;
   description: string;
   image: ImageProps;
+  video?: string;
 };
 
 type FeatureWithState = Feature & {
@@ -108,11 +109,23 @@ const FeatureCard = ({ isActive, setIsActive, ...feature }: FeatureWithState) =>
           </h3>
           <p className="md:text-md">{feature.description}</p>
           <div className="rt-8 mt-8 h-80 md:mt-10 md:h-[25rem] lg:mt-12">
-            <img
-              src={feature.image.src}
-              alt={feature.image.alt}
-              className="size-full object-cover"
-            />
+            {feature.video ? (
+              <video
+                className="size-full object-cover rounded-lg"
+                autoPlay
+                muted
+                loop
+                playsInline
+              >
+                <source src={feature.video} type="video/mp4" />
+              </video>
+            ) : (
+              <img
+                src={feature.image.src}
+                alt={feature.image.alt}
+                className="size-full object-cover"
+              />
+            )}
           </div>
         </div>
       </CardContent>
@@ -137,6 +150,7 @@ export const Layout351Defaults: Props = {
         src: "/assets/poster-research-user-testing.jpg",
         alt: "Product Strategy",
       },
+      video: "/assets/video-research-user-testing.mp4",
     },
     {
       columnText: "02",
@@ -149,6 +163,7 @@ export const Layout351Defaults: Props = {
         src: "/assets/poster-uiux.jpg",
         alt: "Product UX Design",
       },
+      video: "/assets/video-uiux.mp4",
     },
     {
       columnText: "03",
@@ -161,6 +176,7 @@ export const Layout351Defaults: Props = {
         src: "/assets/poster-team-design-ops.jpg",
         alt: "Product Systems",
       },
+      video: "/assets/video-team-design-ops.mp4",
     },
     {
       columnText: "04",
@@ -173,6 +189,7 @@ export const Layout351Defaults: Props = {
         src: "/assets/poster-marketing-ecommerce.jpg",
         alt: "AI Product Design",
       },
+      video: "/assets/video-marketing-ecommerce.mp4",
     },
   ],
 };
