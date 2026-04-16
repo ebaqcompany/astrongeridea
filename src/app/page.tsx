@@ -37,6 +37,18 @@ export default function Home() {
         <Timeline9 />
       </div>
 
+      {/* CTA after method — gray */}
+      <div className="section-gray">
+        <Cta7
+          heading="The first conversation is a diagnosis, not a pitch."
+          description=""
+          buttons={[
+            { title: "Schedule a discovery call" },
+            { title: "See engagement options", variant: "secondary" },
+          ]}
+        />
+      </div>
+
       {/* Features — gray */}
       <div className="section-gray">
         <Layout351 />
