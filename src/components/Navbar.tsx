@@ -213,9 +213,15 @@ export const Navbar2Defaults: Props = {
         { title: "Agencies & Delivery Partners", url: "/who/agencies" },
       ],
     },
-    { title: "Case Studies", url: "/case-studies" },
-    { title: "Insights", url: "/insights" },
-    { title: "About", url: "/about" },
+    {
+      title: "Portfolio",
+      url: "#",
+      subMenuLinks: [
+        { title: "Case Studies", url: "/case-studies" },
+        { title: "Insights", url: "/insights" },
+        { title: "About", url: "/about" },
+      ],
+    },
   ],
   buttons: [
     {
