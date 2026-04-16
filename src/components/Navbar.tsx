@@ -193,6 +193,12 @@ export const Navbar2Defaults: Props = {
         { title: "Product UX Design", url: "/how/product-ux-design" },
         { title: "Product Systems", url: "/how/product-systems" },
         { title: "AI Product Design", url: "/how/ai-product-design" },
+      ],
+    },
+    {
+      title: "Pricing",
+      url: "#",
+      subMenuLinks: [
         { title: "Discovery Sprint", url: "/how/discovery-sprint" },
         { title: "Project Engagements", url: "/how/project-engagements" },
         { title: "Fractional Design Leadership", url: "/how/fractional-design-leadership" },
