@@ -54,40 +54,6 @@ export default function ServicePage({ params }: { params: Promise<{ slug: string
         </section>
       </div>
 
-      {/* Challenges */}
-      {data.challenges.length > 0 && (
-        <div className="section-white">
-          <section className="px-[5%] py-16 md:py-24 lg:py-28">
-            <div className="container">
-              <div className="grid grid-cols-1 gap-12 md:gap-16">
-                {data.challenges.map((challenge, index) => (
-                  <div
-                    key={index}
-                    className="grid grid-cols-1 gap-8 border-t border-border-primary pt-8 md:grid-cols-[auto_1fr] md:gap-12 md:pt-12"
-                  >
-                    <p className="font-mono text-5xl font-light text-[#E04834] md:text-6xl">
-                      {challenge.number}.
-                    </p>
-                    <div>
-                      <h3 className="mb-4 text-2xl md:text-3xl">
-                        {challenge.title}
-                      </h3>
-                      <p className="mb-4 text-neutral">{challenge.problem}</p>
-                      <p className="mb-2 font-semibold">Our solution</p>
-                      <p className="mb-4">{challenge.solution}</p>
-                      <p className="text-sm text-neutral">
-                        <span className="font-medium">Relevant for: </span>
-                        {challenge.relevantFor}
-                      </p>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </section>
-        </div>
-      )}
-
       {/* Case Study */}
       <div className="section-gray">
         <section className="px-[5%] py-16 md:py-24 lg:py-28">

@@ -3,15 +3,6 @@ export type ServiceCard = {
   description: string;
 };
 
-export type ServiceChallenge = {
-  number: string;
-  title: string;
-  subtitle: string;
-  problem: string;
-  solution: string;
-  relevantFor: string;
-};
-
 export type CaseStudy = {
   tags: string[];
   eyebrow: string;
@@ -29,7 +20,6 @@ export type ServicePageData = {
   description: string;
   cardsHeading: string;
   cards: ServiceCard[];
-  challenges: ServiceChallenge[];
   caseStudy: CaseStudy;
 };
 
@@ -64,74 +54,6 @@ export const servicePages: Record<string, ServicePageData> = {
         heading: "Roadmap",
         description:
           "Sequenced by market dependency, not feature excitement.",
-      },
-    ],
-    challenges: [
-      {
-        number: "1",
-        title: "Validate the right ideas, fast",
-        subtitle: "Validate the right ideas",
-        problem:
-          "Rushing to launch without validation leads to wasted runway, bloated features, and products users do not actually need.",
-        solution:
-          "A focused Discovery Sprint using workshops, research, rapid prototyping, and AI-assisted testing to validate ideas early, prioritize with confidence, and reduce costly rework.",
-        relevantFor:
-          "Pre-seed to Series A startups, new product teams, and agencies scoping complex work.",
-      },
-      {
-        number: "2",
-        title: "Scaling design without scaling costs",
-        subtitle: "Scale design efficiently",
-        problem:
-          "Building in-house design teams is slow, costly, and can add $200K+ per hire.",
-        solution:
-          "Instant access to senior design leadership and execution through flexible, scalable engagement models.",
-        relevantFor:
-          "Series A–C startups, growing companies, and agencies with fluctuating workloads.",
-      },
-      {
-        number: "3",
-        title: "Proving design ROI to stakeholders",
-        subtitle: "Prove design ROI",
-        problem:
-          "Design gets undervalued when its impact isn't tied to business results—and budgets suffer.",
-        solution:
-          "We define success metrics upfront and design directly toward KPIs like conversion, task completion, retention, and revenue.",
-        relevantFor:
-          "Teams needing to justify design spend, agencies proving value, and startups reporting to investors.",
-      },
-      {
-        number: "4",
-        title: "Maintaining consistency at scale",
-        subtitle: "Maintain consistency",
-        problem:
-          "Growing companies face fragmented experiences, inconsistent design, and confused users.",
-        solution:
-          "We create scalable systems with clear governance, resulting in faster development, design consistency, quicker onboarding, less design debt.",
-        relevantFor:
-          "Multi-product businesses, enterprise-focused agencies, and scaling startups.",
-      },
-      {
-        number: "5",
-        title: "Designing in regulated environments",
-        subtitle: "Design for compliance",
-        problem:
-          "Accessibility, privacy, and compliance requirements are often addressed too late, increasing legal risk and creating expensive rework.",
-        solution:
-          "We integrate accessibility and compliance considerations into product design from the start, supporting standards like ADA, WCAG, and GDPR without compromising usability or velocity.",
-        relevantFor:
-          "Enterprise teams, regulated industries, scaling startups, and agencies serving compliance-heavy clients.",
-      },
-      {
-        number: "6",
-        title: "Bridge creative vision with feasibility",
-        subtitle: "Align vision and feasibility",
-        problem:
-          "Design development can lack clarity on what's feasible, what's priority, and what are viable alternatives.",
-        solution:
-          "We craft developer-ready and AI-leveraged designs with clear specs and handoff process, resulting in fewer surprises and smoother collaboration.",
-        relevantFor:
-          "Agencies, distributed teams, and startups with limited dev resources.",
       },
     ],
     caseStudy: {
@@ -178,7 +100,6 @@ export const servicePages: Record<string, ServicePageData> = {
         description: "Developer-ready documentation that eliminates ambiguity.",
       },
     ],
-    challenges: [],
     caseStudy: {
       tags: ["Fintech", "Dashboard", "UX Design"],
       eyebrow: "EstateGuru: Fintech",
@@ -223,7 +144,6 @@ export const servicePages: Record<string, ServicePageData> = {
         description: "A plan to adopt the system without stopping delivery.",
       },
     ],
-    challenges: [],
     caseStudy: {
       tags: ["Enterprise", "Design System", "Financial"],
       eyebrow: "Euvic / Alter Domus: Institutional Finance",
@@ -268,7 +188,6 @@ export const servicePages: Record<string, ServicePageData> = {
         description: "AI features that feel native to the product, not bolted on.",
       },
     ],
-    challenges: [],
     caseStudy: {
       tags: ["Urban mobility", "Product design", "Design system"],
       eyebrow: "Flowbird: Civic Technology",
