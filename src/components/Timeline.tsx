@@ -42,7 +42,7 @@ export const Timeline9 = (props: Timeline9Props) => {
       <div className="container">
         <div className="flex flex-col items-center">
           <div className="mb-12 text-center md:mb-18 lg:mb-20">
-            <div className="relative z-10 w-full max-w-xxl">
+            <div className="relative z-10 w-full max-w-[56rem]">
               <p className="mb-3 font-semibold md:mb-4">{tagline}</p>
               <h2 className="mb-5 text-5xl font-bold md:mb-6 md:text-7xl lg:text-8xl">{heading}</h2>
               <p className="md:text-md">{description}</p>
@@ -171,45 +171,21 @@ export const Timeline9Defaults: Props = {
       title: "Market and Ecosystem First",
       description:
         "Map the full context before anything is designed. Every user type. Every constraint. Every adjacent system. What the market actually requires — before a single resource is committed to execution.",
-      buttons: [
-        { title: "Learn More", variant: "secondary" },
-        {
-          title: "See Case Studies",
-          variant: "link",
-          size: "link",
-          iconRight: <RxChevronRight />,
-        },
-      ],
+      buttons: [],
     },
     {
       heading: "02",
       title: "Workflows Before Features",
       description:
         "Design how users move through the product before designing what they see. The layer most processes skip. The layer where most problems live. Workflows designed in ecosystem context hold together at scale.",
-      buttons: [
-        { title: "Learn More", variant: "secondary" },
-        {
-          title: "See Case Studies",
-          variant: "link",
-          size: "link",
-          iconRight: <RxChevronRight />,
-        },
-      ],
+      buttons: [],
     },
     {
       heading: "03",
       title: "Product and System Last",
       description:
         "Features built on a foundation that makes them coherent. From the first decision to the final iteration. Not assembled from assumptions. Designed from validated ground.",
-      buttons: [
-        { title: "Learn More", variant: "secondary" },
-        {
-          title: "See Case Studies",
-          variant: "link",
-          size: "link",
-          iconRight: <RxChevronRight />,
-        },
-      ],
+      buttons: [],
     },
   ],
 };
