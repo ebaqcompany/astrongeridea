@@ -2,6 +2,7 @@
 
 import { use } from "react";
 import { Navbar2 } from "@/components/Navbar";
+import { Header62 } from "@/components/ServiceHero";
 import { Cta7 } from "@/components/Cta";
 import { Footer12 } from "@/components/Footer";
 import { Button } from "@relume_io/relume-ui";
@@ -24,13 +25,11 @@ export default function ServicePage({ params }: { params: Promise<{ slug: string
 
       {/* Hero */}
       <div className="section-white">
-        <section className="px-[5%] py-16 md:py-24 lg:py-28">
-          <div className="container max-w-xl">
-            <p className="mb-3 font-semibold md:mb-4">{data.eyebrow}</p>
-            <h1 className="mb-5 text-display md:mb-6">{data.heading}</h1>
-            <p className="md:text-md">{data.description}</p>
-          </div>
-        </section>
+        <Header62
+          tagline={data.eyebrow}
+          heading={data.heading}
+          description={data.description}
+        />
       </div>
 
       {/* What it produces — cards */}
