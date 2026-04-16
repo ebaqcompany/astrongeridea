@@ -219,9 +219,9 @@ export const Navbar2Defaults: Props = {
       subMenuLinks: [
         { title: "Case Studies", url: "/case-studies" },
         { title: "Insights", url: "/insights" },
-        { title: "About", url: "/about" },
       ],
     },
+    { title: "About", url: "/about" },
   ],
   buttons: [
     {
