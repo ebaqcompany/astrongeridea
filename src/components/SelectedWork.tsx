@@ -98,20 +98,7 @@ const project = {
     size: "link" as const,
     iconRight: <RxChevronRight />,
   },
-  tags: [
-    {
-      label: "Tag one",
-      url: "#",
-    },
-    {
-      label: "Tag two",
-      url: "#",
-    },
-    {
-      label: "Tag three",
-      url: "#",
-    },
-  ],
+  tags: [],
 };
 
 export const Portfolio11Defaults: Props = {
