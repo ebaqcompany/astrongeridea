@@ -37,8 +37,8 @@ export default function Home() {
         <Timeline9 />
       </div>
 
-      {/* CTA after method — gray */}
-      <div className="section-gray">
+      {/* CTA after method — dark */}
+      <div className="section-dark">
         <Cta7
           heading="The first conversation is a diagnosis, not a pitch."
           description=""
