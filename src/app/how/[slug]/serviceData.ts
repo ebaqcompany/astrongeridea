@@ -14,6 +14,13 @@ export type CaseStudy = {
   image: string;
 };
 
+export type ChallengeItem = {
+  heading: string;
+  tags: string[];
+  description: string;
+  image?: { src: string; alt?: string };
+};
+
 export type ServicePageData = {
   slug: string;
   eyebrow: string;
@@ -21,6 +28,10 @@ export type ServicePageData = {
   description: string;
   cardsHeading: string;
   cards: ServiceCard[];
+  challengesTagline?: string;
+  challengesHeading?: string;
+  challengesDescription?: string;
+  challenges?: ChallengeItem[];
   caseStudy: CaseStudy;
 };
 
@@ -55,6 +66,53 @@ export const servicePages: Record<string, ServicePageData> = {
         heading: "Roadmap",
         description:
           "Sequenced by market dependency, not feature excitement.",
+      },
+    ],
+    challengesTagline: "Common Challenges",
+    challengesHeading: "Problems we solve",
+    challengesDescription: "",
+    challenges: [
+      {
+        heading: "Validate the right ideas, fast",
+        tags: ["Startups", "New Products"],
+        description:
+          "Rushing to launch without validation leads to wasted runway, bloated features, and products users do not actually need. We run a focused Discovery Sprint to validate ideas early and reduce costly rework.",
+        image: { src: "/assets/poster-research-user-testing.jpg", alt: "Validate ideas" },
+      },
+      {
+        heading: "Scaling design without scaling costs",
+        tags: ["Series A–C", "Agencies"],
+        description:
+          "Building in-house design teams is slow, costly, and can add $200K+ per hire. We provide instant access to senior design leadership through flexible, scalable engagement models.",
+        image: { src: "/assets/poster-uiux.jpg", alt: "Scale design" },
+      },
+      {
+        heading: "Proving design ROI to stakeholders",
+        tags: ["Enterprise", "Investors"],
+        description:
+          "Design gets undervalued when its impact isn't tied to business results. We define success metrics upfront and design directly toward KPIs like conversion, retention, and revenue.",
+        image: { src: "/assets/poster-team-design-ops.jpg", alt: "Prove ROI" },
+      },
+      {
+        heading: "Maintaining consistency at scale",
+        tags: ["Multi-product", "Scaling"],
+        description:
+          "Growing companies face fragmented experiences and confused users. We create scalable systems with clear governance, resulting in faster development and less design debt.",
+        image: { src: "/assets/poster-marketing-ecommerce.jpg", alt: "Consistency at scale" },
+      },
+      {
+        heading: "Designing in regulated environments",
+        tags: ["Enterprise", "Compliance"],
+        description:
+          "Accessibility, privacy, and compliance requirements addressed too late increase legal risk. We integrate ADA, WCAG, and GDPR considerations from the start.",
+        image: { src: "/assets/poster-case-study-estateguru.jpg", alt: "Regulated environments" },
+      },
+      {
+        heading: "Bridge creative vision with feasibility",
+        tags: ["Agencies", "Dev Teams"],
+        description:
+          "Design development can lack clarity on what's feasible and what's priority. We craft developer-ready, AI-leveraged designs with clear specs and handoff process.",
+        image: { src: "/assets/poster-case-study-euvic.jpg", alt: "Vision and feasibility" },
       },
     ],
     caseStudy: {

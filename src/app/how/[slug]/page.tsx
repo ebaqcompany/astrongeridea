@@ -4,9 +4,11 @@ import { use } from "react";
 import { Navbar2 } from "@/components/Navbar";
 import { Header62 } from "@/components/ServiceHero";
 import { Layout1 } from "@/components/CaseStudyCard";
+import { Portfolio23 } from "@/components/Challenges";
 import { Portfolio11 } from "@/components/SelectedWork";
 import { Cta7 } from "@/components/Cta";
 import { Footer12 } from "@/components/Footer";
+import { RxChevronRight } from "react-icons/rx";
 import { servicePages } from "./serviceData";
 
 export default function ServicePage({ params }: { params: Promise<{ slug: string }> }) {
@@ -54,6 +56,34 @@ export default function ServicePage({ params }: { params: Promise<{ slug: string
           </div>
         </section>
       </div>
+
+      {/* Challenges */}
+      {data.challenges && data.challenges.length > 0 && (
+        <div className="section-white">
+          <Portfolio23
+            tagline={data.challengesTagline || "Common Challenges"}
+            title={data.challengesHeading || "Problems we solve"}
+            description={data.challengesDescription || ""}
+            projects={data.challenges.map((c) => ({
+              heading: c.heading,
+              tags: c.tags || [],
+              description: c.description,
+              buttons: [
+                {
+                  title: "Learn More",
+                  variant: "link" as const,
+                  size: "link" as const,
+                  iconRight: <RxChevronRight />,
+                },
+              ],
+              image: c.image || {
+                src: "/assets/poster-research-user-testing.jpg",
+                alt: c.heading,
+              },
+            }))}
+          />
+        </div>
+      )}
 
       {/* Case Study */}
       <div className="section-white">
