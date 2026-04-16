@@ -11,6 +11,7 @@ export type CaseStudy = {
   stats: { value: string; label: string }[];
   buttonText: string;
   buttonHref: string;
+  image: string;
 };
 
 export type ServicePageData = {
@@ -68,6 +69,7 @@ export const servicePages: Record<string, ServicePageData> = {
       ],
       buttonText: "View case study",
       buttonHref: "/case-studies/flowbird-park-detroit",
+      image: "/assets/poster-case-study-flowbird.jpg",
     },
   },
 
@@ -112,6 +114,7 @@ export const servicePages: Record<string, ServicePageData> = {
       ],
       buttonText: "View case study",
       buttonHref: "/case-studies/estate-guru-dashboard",
+      image: "/assets/poster-case-study-estateguru.jpg",
     },
   },
 
@@ -156,6 +159,7 @@ export const servicePages: Record<string, ServicePageData> = {
       ],
       buttonText: "View case study",
       buttonHref: "/case-studies/euvic-alterdomus",
+      image: "/assets/poster-case-study-euvic.jpg",
     },
   },
 
@@ -200,6 +204,7 @@ export const servicePages: Record<string, ServicePageData> = {
       ],
       buttonText: "View case study",
       buttonHref: "/case-studies/flowbird-park-detroit",
+      image: "/assets/poster-case-study-flowbird.jpg",
     },
   },
 };

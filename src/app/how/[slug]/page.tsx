@@ -3,9 +3,10 @@
 import { use } from "react";
 import { Navbar2 } from "@/components/Navbar";
 import { Header62 } from "@/components/ServiceHero";
+import { Layout1 } from "@/components/CaseStudyCard";
+import { Portfolio11 } from "@/components/SelectedWork";
 import { Cta7 } from "@/components/Cta";
 import { Footer12 } from "@/components/Footer";
-import { Button } from "@relume_io/relume-ui";
 import { servicePages } from "./serviceData";
 
 export default function ServicePage({ params }: { params: Promise<{ slug: string }> }) {
@@ -55,42 +56,14 @@ export default function ServicePage({ params }: { params: Promise<{ slug: string
       </div>
 
       {/* Case Study */}
-      <div className="section-gray">
-        <section className="px-[5%] py-16 md:py-24 lg:py-28">
-          <div className="container">
-            <div className="grid grid-cols-1 gap-12 md:grid-cols-2 md:items-center">
-              <div>
-                <div className="mb-4 flex flex-wrap gap-2">
-                  {data.caseStudy.tags.map((tag, i) => (
-                    <span
-                      key={i}
-                      className="rounded-full border border-border-primary px-3 py-1 text-xs"
-                    >
-                      {tag}
-                    </span>
-                  ))}
-                </div>
-                <p className="mb-2 font-semibold">{data.caseStudy.eyebrow}</p>
-                <h2 className="mb-5 text-4xl md:mb-6 md:text-5xl lg:text-6xl">
-                  {data.caseStudy.heading}
-                </h2>
-                <p className="mb-8 md:text-md">{data.caseStudy.description}</p>
-                <div className="mb-8 flex gap-8">
-                  {data.caseStudy.stats.map((stat, i) => (
-                    <div key={i}>
-                      <p className="font-mono text-4xl font-light text-[#E04834]">
-                        {stat.value}
-                      </p>
-                      <p className="text-sm text-neutral">{stat.label}</p>
-                    </div>
-                  ))}
-                </div>
-                <Button>{data.caseStudy.buttonText}</Button>
-              </div>
-              <div className="aspect-video rounded-lg bg-neutral-lightest" />
-            </div>
-          </div>
-        </section>
+      <div className="section-white">
+        <Layout1
+          tagline={data.caseStudy.eyebrow}
+          heading={data.caseStudy.heading}
+          description={data.caseStudy.description}
+          buttons={[{ title: data.caseStudy.buttonText }]}
+          image={{ src: data.caseStudy.image || "/assets/poster-case-study-flowbird.jpg", alt: data.caseStudy.heading }}
+        />
       </div>
 
       {/* CTA */}
@@ -98,16 +71,9 @@ export default function ServicePage({ params }: { params: Promise<{ slug: string
         <Cta7 />
       </div>
 
-      {/* Selected Work — placeholder */}
-      <div className="section-white">
-        <section className="px-[5%] py-16 md:py-24 lg:py-28">
-          <div className="container">
-            <h2 className="mb-12 text-4xl md:text-5xl lg:text-6xl">Selected work</h2>
-            <p className="text-neutral">
-              Relume component will be added here.
-            </p>
-          </div>
-        </section>
+      {/* Selected Work */}
+      <div className="section-gray">
+        <Portfolio11 />
       </div>
 
       {/* Footer */}
