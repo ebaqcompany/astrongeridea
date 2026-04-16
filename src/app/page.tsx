@@ -55,7 +55,7 @@ export default function Home() {
       </div>
 
       {/* CTA — gradient red */}
-      <div className="section-cta">
+      <div className="section-dark">
         <Cta7 />
       </div>
 
@@ -65,7 +65,7 @@ export default function Home() {
       </div>
 
       {/* CTA — gradient red */}
-      <div className="section-cta">
+      <div className="section-dark">
         <Cta7 />
       </div>
 
@@ -80,7 +80,7 @@ export default function Home() {
       </div>
 
       {/* CTA — gradient red */}
-      <div className="section-cta">
+      <div className="section-dark">
         <Cta7 />
       </div>
 
