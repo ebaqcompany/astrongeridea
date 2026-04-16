@@ -119,18 +119,28 @@ export const Footer12Defaults: Props = {
   columnLinks: [
     {
       links: [
-        { title: "Home", url: "/" },
-        { title: "Services", url: "#" },
-        { title: "Work", url: "#" },
-        { title: "Process", url: "#" },
-        { title: "About", url: "#" },
+        { title: "Method", url: "/method/market-inward" },
+        { title: "How It Works", url: "#" },
       ],
     },
     {
       links: [
+        { title: "Product Strategy", url: "/how/product-strategy" },
+        { title: "Product UX Design", url: "/how/product-ux-design" },
+        { title: "Product Systems", url: "/how/product-systems" },
+        { title: "AI Product Design", url: "/how/ai-product-design" },
+        { title: "Discovery Sprint", url: "/how/discovery-sprint" },
+        { title: "Project Engagements", url: "/how/project-engagements" },
+        { title: "Fractional Design Leadership", url: "/how/fractional-design-leadership" },
+      ],
+    },
+    {
+      links: [
+        { title: "Clients", url: "#" },
+        { title: "Case Studies", url: "/case-studies" },
+        { title: "Insights", url: "/insights" },
+        { title: "About", url: "/about" },
         { title: "Contact", url: "#" },
-        { title: "Insights", url: "#" },
-        { title: "Capabilities Deck", url: "#" },
       ],
     },
   ],
