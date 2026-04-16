@@ -186,7 +186,7 @@ export const Navbar2Defaults: Props = {
   navLinks: [
     { title: "Method", url: "/method/market-inward" },
     {
-      title: "How We Work",
+      title: "Services",
       url: "#",
       subMenuLinks: [
         { title: "Product Strategy", url: "/how/product-strategy" },
@@ -205,7 +205,7 @@ export const Navbar2Defaults: Props = {
       ],
     },
     {
-      title: "Who We Help",
+      title: "Clients",
       url: "#",
       subMenuLinks: [
         { title: "Startups & Scale-ups", url: "/who/startups" },
