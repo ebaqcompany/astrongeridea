@@ -42,7 +42,7 @@ export const Timeline9 = (props: Timeline9Props) => {
       <div className="container">
         <div className="flex flex-col items-center">
           <div className="mb-12 text-center md:mb-18 lg:mb-20">
-            <div className="relative z-10 w-full max-w-lg">
+            <div className="relative z-10 w-full max-w-xl">
               <p className="mb-3 font-semibold md:mb-4">{tagline}</p>
               <h2 className="mb-5 text-5xl font-bold md:mb-6 md:text-7xl lg:text-8xl">{heading}</h2>
               <p className="md:text-md">{description}</p>
