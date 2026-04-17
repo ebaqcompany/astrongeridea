@@ -53,12 +53,13 @@ export const Layout351 = (props: Layout350Props) => {
               onValueChange={scrollToSection}
               className="sticky top-24 z-10 hidden md:block"
             >
-              <TabsList className="flex w-full gap-x-1 border border-border-primary bg-background-primary p-1">
+              <TabsList className="flex w-full gap-x-1 bg-transparent p-1">
                 {sections.map((section) => (
                   <TabsTrigger
                     key={section.id}
                     value={section.id}
-                    className="whitespace-nowrap px-5 py-2 underline data-[state=active]:border data-[state=active]:border-border-primary data-[state=inactive]:border-transparent data-[state=active]:bg-transparent data-[state=active]:text-neutral-black"
+                    className="whitespace-nowrap px-5 py-2 rounded-full text-neutral data-[state=active]:bg-white data-[state=active]:text-neutral-black data-[state=inactive]:border data-[state=inactive]:border-border-primary data-[state=inactive]:bg-transparent"
+                    style={{ textDecoration: 'none' }}
                   >
                     {section.anchorTrigger}
                   </TabsTrigger>

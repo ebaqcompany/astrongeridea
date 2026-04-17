@@ -88,7 +88,7 @@ export const Stats8 = (props: Layout518Props) => {
     <section
       id="relume"
       ref={containerRef}
-      className="relative py-16 md:py-24 lg:h-[250vh] lg:py-0"
+      className="relative py-16 md:py-24 lg:h-[350vh] lg:py-0"
     >
       <div className="mx-auto w-[90vw] lg:sticky lg:top-0 lg:flex lg:h-screen lg:w-full lg:items-center lg:justify-center lg:overflow-hidden">
         <div className="grid grid-cols-1 gap-y-6 md:gap-y-8 lg:h-[90vh] lg:w-[90vw] lg:grid-cols-[55vw_35vw] lg:gap-y-0">
@@ -130,7 +130,7 @@ const HeroContent = ({
   buttons,
 }: Pick<Props, "tagline" | "heading" | "description" | "buttons" | "image">) => (
   <>
-    <div className="relative z-10 max-w-md text-left">
+    <div className="relative z-10 max-w-xl text-left px-8 lg:px-12">
       <h2 className="mb-5 text-5xl font-bold text-text-alternative md:mb-6 md:text-7xl lg:text-8xl">
         {heading}
       </h2>
@@ -170,9 +170,11 @@ const AnimatedCard = ({
   index: number;
   scrollYProgress: MotionValue<number>;
 }) => {
+  const startDelay = index * 0.15;
+  const slideIn = 0.15 + index * 0.25;
   const x = useTransform(
     scrollYProgress,
-    [0, index * 0.01, 0.2 + index * 0.5, 1],
+    [0, startDelay, slideIn, 1],
     ["100%", "100%", "0%", "0%"],
   );
 

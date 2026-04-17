@@ -24,6 +24,7 @@ type TabProps = {
   description: string;
   image?: ImageProps;
   video?: VideoProps;
+  buttons?: ButtonProps[];
 };
 
 type Props = {
@@ -46,7 +47,7 @@ export const Layout495 = (props: Layout495Props) => {
   return (
     <section id="relume" className="px-[5%] py-16 md:py-24 lg:py-28">
       <div className="container">
-        <div className="mx-auto mb-12 max-w-lg text-center md:mb-18 lg:mb-20">
+        <div className="mx-auto mb-12 max-w-xl text-center md:mb-18 lg:mb-20">
           <p className="mb-3 font-semibold md:mb-4">{tagline}</p>
           <h1 className="mb-5 text-5xl font-bold md:mb-6 md:text-7xl lg:text-8xl">{heading}</h1>
           <p className="md:text-md">{description}</p>
@@ -68,7 +69,7 @@ export const Layout495 = (props: Layout495Props) => {
                   "flex cursor-pointer items-center gap-4 border-b border-border-primary py-6",
                   {
                     "opacity-100": activeTab === index,
-                    "opacity-25": activeTab !== index,
+                    "opacity-50": activeTab !== index,
                   },
                 )}
               >
@@ -86,6 +87,15 @@ export const Layout495 = (props: Layout495Props) => {
                     className="overflow-hidden"
                   >
                     <p className="mt-3 md:mt-4">{tab.description}</p>
+                    {tab.buttons && tab.buttons.length > 0 && (
+                      <div className="mt-4 flex flex-wrap items-center gap-4">
+                        {tab.buttons.map((button, btnIndex) => (
+                          <Button key={btnIndex} {...button}>
+                            {button.title}
+                          </Button>
+                        ))}
+                      </div>
+                    )}
                   </motion.div>
                 </div>
               </div>
@@ -160,6 +170,7 @@ export const Layout495Defaults: Props = {
       heading: "Startups & Scale-ups",
       description:
         "You have a product hypothesis and runway to build. Before you commit, make sure you're building the right thing in the right sequence.",
+      buttons: [{ title: "Learn More" }],
       image: {
         src: "/assets/case-studies-all.avif",
         alt: "Startups and scale-ups",
@@ -173,6 +184,7 @@ export const Layout495Defaults: Props = {
       heading: "Product Organizations",
       description:
         "Your product is growing but coherence is degrading. More design investment isn't fixing it. The sequence needs to change.",
+      buttons: [{ title: "Learn More" }],
       image: {
         src: "/assets/case-study-estateguru.avif",
         alt: "Product organizations",
@@ -186,6 +198,7 @@ export const Layout495Defaults: Props = {
       heading: "Agencies & Partners",
       description:
         "You have a client project that needs strategic product depth your team can't provide in-house.",
+      buttons: [{ title: "Learn More" }],
       image: {
         src: "/assets/poster-case-study-euvic.jpg",
         alt: "Agencies and delivery partners",
