@@ -33,8 +33,8 @@ export default function Home() {
         <Testimonial1 />
       </div>
 
-      {/* Stats — gradient red */}
-      <div className="section-cta">
+      {/* Stats — Layout518 with gradient hero + sliding cards */}
+      <div className="section-white">
         <Stats8 />
       </div>
 
