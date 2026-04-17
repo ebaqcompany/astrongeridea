@@ -1,12 +1,11 @@
+"use client";
+import { Button, Input } from "@relume_io/relume-ui";
+import type { ButtonProps } from "@relume_io/relume-ui";
 import { FaXTwitter } from "react-icons/fa6";
 import {
-  BiLogoFacebookCircle,
-  BiLogoInstagram,
   BiLogoLinkedinSquare,
-  BiLogoYoutube,
 } from "react-icons/bi";
-import { Button } from "@relume_io/relume-ui";
-import type { ButtonProps } from "@relume_io/relume-ui";
+import { useState } from "react";
 
 type ImageProps = {
   url?: string;
@@ -19,81 +18,99 @@ type Links = {
   url: string;
 };
 
+type ColumnLinks = {
+  title: string;
+  links: Links[];
+};
+
 type SocialMediaLinks = {
   url: string;
   icon: React.ReactNode;
 };
 
-type ColumnLinks = {
-  links: Links[];
+type FooterLink = {
+  title: string;
+  url: string;
 };
 
 type Props = {
   logo: ImageProps;
-  heading: string;
-  description: string;
-  buttons: ButtonProps[];
+  newsletterHeading: string;
+  newsletterDescription: string;
+  inputPlaceholder?: string;
+  button: ButtonProps;
+  termsAndConditions: string;
   columnLinks: ColumnLinks[];
   socialMediaLinks: SocialMediaLinks[];
   footerText?: string;
-  footerImages: ImageProps[];
+  footerLinks: FooterLink[];
 };
 
-export type Footer12Props = React.ComponentPropsWithoutRef<"section"> & Partial<Props>;
+export type Footer5Props = React.ComponentPropsWithoutRef<"section"> & Partial<Props>;
 
-export const Footer12 = (props: Footer12Props) => {
+export const Footer12 = (props: Footer5Props) => {
   const {
     logo,
-    heading,
-    description,
+    newsletterHeading,
+    newsletterDescription,
+    inputPlaceholder,
+    button,
+    termsAndConditions,
     columnLinks,
     socialMediaLinks,
     footerText,
-    footerImages,
-    buttons,
+    footerLinks,
   } = {
-    ...Footer12Defaults,
+    ...Footer5Defaults,
     ...props,
   };
+
+  const [emailInput, setEmailInput] = useState<string>("");
+  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    console.log({
+      emailInput,
+    });
+  };
+
   return (
     <footer id="relume" className="px-[5%] py-12 md:py-18 lg:py-20">
       <div className="container">
-        <div className="border-b border-border-primary">
-          <div className="mb-12 grid grid-cols-1 gap-x-[8vw] gap-y-12 md:mb-18 md:gap-y-16 lg:mb-20 lg:grid-cols-[1fr_0.5fr] lg:gap-y-20">
-            <div className="rb-6 max-w-md">
-              <h1 className="mb-5 text-6xl font-bold md:mb-6 md:text-9xl lg:text-10xl">
-                {heading}
-              </h1>
-              <p>{description}</p>
-              <div className="mt-6 flex flex-wrap gap-4 md:mt-8">
-                {buttons.map((button, index) => (
-                  <Button key={index} {...button}>
-                    {button.title}
-                  </Button>
+        <div className="rb-12 mb-12 grid grid-cols-1 items-start gap-x-8 gap-y-10 sm:grid-cols-3 md:mb-18 md:gap-y-12 lg:mb-20 lg:grid-cols-6">
+          <a
+            href={logo.url}
+            className="sm:col-start-1 sm:col-end-4 sm:row-start-1 sm:row-end-2 lg:col-start-auto lg:col-end-auto lg:row-start-auto lg:row-end-auto"
+          >
+            <img src={logo.src} alt={logo.alt} className="h-10 w-auto" />
+          </a>
+          {columnLinks.map((column, index) => (
+            <div key={index} className="flex flex-col items-start justify-start">
+              <h2 className="mb-3 font-medium md:mb-4">{column.title}</h2>
+              <ul>
+                {column.links.map((link, linkIndex) => (
+                  <li key={linkIndex} className="py-2 text-sm">
+                    <a href={link.url} className="flex items-center gap-3">
+                      {link.title}
+                    </a>
+                  </li>
                 ))}
-              </div>
+              </ul>
             </div>
-            <div className="grid grid-cols-1 items-start gap-x-6 gap-y-5 sm:grid-cols-2 md:gap-x-8 md:gap-y-4">
-              {columnLinks.map((column, index) => (
-                <ul key={index}>
-                  {column.links.map((link, linkIndex) => (
-                    <li key={linkIndex} className="py-2 text-sm font-medium">
-                      <a href={link.url}>{link.title}</a>
-                    </li>
-                  ))}
-                </ul>
+          ))}
+        </div>
+        <div className="h-px w-full bg-white/20" />
+        <div className="flex flex-col-reverse items-start pb-4 pt-6 text-sm md:justify-start md:pb-0 md:pt-8 lg:flex-row lg:items-center lg:justify-between">
+          <div className="flex flex-col-reverse items-start md:flex-row md:gap-6 lg:items-center">
+            <p className="mt-8 md:mt-0">{footerText}</p>
+            <div className="grid grid-flow-row grid-cols-[max-content] justify-center gap-y-4 md:grid-flow-col md:justify-center md:gap-x-6 md:gap-y-0 lg:text-left">
+              {footerLinks.map((link, index) => (
+                <p key={index} className="underline">
+                  <a href={link.url}>{link.title}</a>
+                </p>
               ))}
             </div>
           </div>
-          <div className="rb-6 col-span-1 flex flex-col items-start justify-between pb-6 sm:flex-row sm:items-center md:pb-8 lg:col-span-2">
-            <a href={logo.url}>
-              <img src={logo.src} alt={logo.alt} className="h-10 w-auto mb-6 inline-block sm:mb-0" />
-            </a>
-          </div>
-        </div>
-        <div className="flex flex-col-reverse items-start justify-between pb-4 pt-6 text-sm md:flex-row md:items-center md:pb-0 md:pt-8">
-          <p className="mt-5 md:mt-0">{footerText}</p>
-          <div className="grid grid-flow-col grid-cols-[max-content] items-start justify-start gap-x-3">
+          <div className="mb-8 flex items-center justify-center gap-3 lg:mb-0">
             {socialMediaLinks.map((link, index) => (
               <a key={index} href={link.url}>
                 {link.icon}
@@ -106,24 +123,36 @@ export const Footer12 = (props: Footer12Props) => {
   );
 };
 
-export const Footer12Defaults: Props = {
+export const Footer5Defaults: Props = {
   logo: {
     url: "/",
     src: "/logo-light.svg",
     alt: "A Stronger Idea Design",
   },
-  heading: "Let's talk.",
-  description:
-    "Partnering with startups, scale-ups, agencies, and product organizations to design exceptional digital products, scalable UX/UI systems, and results-driven teams.\n\nhello@astrongeridea.design",
-  buttons: [{ title: "Let's Talk" }],
+  newsletterHeading: "Let's talk.",
+  newsletterDescription: "hello@astrongeridea.design",
+  inputPlaceholder: "Enter your email",
+  button: {
+    title: "Subscribe",
+    variant: "secondary",
+    size: "sm",
+  },
+  termsAndConditions: `
+  <p class='text-xs'>
+    By subscribing you agree to our
+    <a href='#' class='underline'>Privacy Policy</a>.
+  </p>
+  `,
   columnLinks: [
     {
+      title: "Method",
       links: [
-        { title: "Method", url: "/method/market-inward" },
+        { title: "Market Inward", url: "/method/market-inward" },
         { title: "How It Works", url: "#" },
       ],
     },
     {
+      title: "Services",
       links: [
         { title: "Product Strategy", url: "/how/product-strategy" },
         { title: "Product UX Design", url: "/how/product-ux-design" },
@@ -131,16 +160,24 @@ export const Footer12Defaults: Props = {
         { title: "AI Product Design", url: "/how/ai-product-design" },
         { title: "Discovery Sprint", url: "/how/discovery-sprint" },
         { title: "Project Engagements", url: "/how/project-engagements" },
-        { title: "Fractional Design Leadership", url: "/how/fractional-design-leadership" },
+        { title: "Fractional Leadership", url: "/how/fractional-design-leadership" },
       ],
     },
     {
+      title: "Company",
       links: [
-        { title: "Clients", url: "#" },
         { title: "Case Studies", url: "/case-studies" },
         { title: "Insights", url: "/insights" },
         { title: "About", url: "/about" },
         { title: "Contact", url: "#" },
+      ],
+    },
+    {
+      title: "Clients",
+      links: [
+        { title: "Startups & Scale-ups", url: "/who/startups" },
+        { title: "Product Organizations", url: "/who/product-organizations" },
+        { title: "Agencies & Partners", url: "/who/agencies" },
       ],
     },
   ],
@@ -149,26 +186,8 @@ export const Footer12Defaults: Props = {
     { url: "#", icon: <FaXTwitter className="size-6 p-0.5" /> },
   ],
   footerText: "Copyright \u00A9 A Stronger Idea, LLC 2025 All rights reserved",
-  footerImages: [
-    {
-      src: "/assets/testimonial-jonathan-warenne.avif",
-      alt: "Jonathan Chichoni Warenne",
-    },
-    {
-      src: "/assets/testimonial-greg-bebenek.avif",
-      alt: "Greg Bebenek",
-    },
-    {
-      src: "/assets/testimonial-marek-juda.avif",
-      alt: "Marek Juda",
-    },
-    {
-      src: "/assets/logo-flowbird.avif",
-      alt: "Flowbird",
-    },
-    {
-      src: "/assets/logo-estateguru.avif",
-      alt: "EstateGuru",
-    },
+  footerLinks: [
+    { title: "Privacy Policy", url: "#" },
+    { title: "Terms of Service", url: "#" },
   ],
 };

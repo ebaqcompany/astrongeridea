@@ -58,7 +58,7 @@ export const Layout351 = (props: Layout351Props) => {
           <h1 className="mb-5 text-5xl font-bold md:mb-6 md:text-7xl lg:text-8xl">{heading}</h1>
           <p className="md:text-md">{description}</p>
         </div>
-        <div className="flex w-full flex-col overflow-hidden border-b border-l border-r border-border-primary lg:h-[90vh] lg:flex-row lg:border-r-0 lg:border-t">
+        <div className="flex w-full flex-col overflow-hidden border-b border-l border-r border-border-primary rounded-2xl lg:h-[90vh] lg:flex-row lg:border-r-0 lg:border-t">
           {features.map((feature, index) => (
             <FeatureCard
               key={index}

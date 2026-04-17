@@ -77,7 +77,7 @@ export const Portfolio23 = (props: Portfolio23Props) => {
                 key={index}
                 ref={refs[index]}
                 style={style}
-                className="grid grid-cols-1 gap-x-20 gap-y-6 border border-border-primary p-6 md:grid-cols-[3fr_4fr] md:gap-y-20 md:p-8 lg:p-12"
+                className="grid grid-cols-1 gap-x-20 gap-y-6 border border-border-primary rounded-2xl p-6 md:grid-cols-[3fr_4fr] md:gap-y-20 md:p-8 lg:p-12"
               >
                 <div className="flex flex-col justify-between">
                   <div>

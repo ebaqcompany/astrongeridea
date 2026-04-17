@@ -65,7 +65,7 @@ const PricingPlan = ({ plan }: { plan: PricingPlan }) => (
         <div className="text-right">
           <h1 className="text-6xl font-light md:text-9xl lg:text-10xl">
             {plan.price}
-            <span className="text-2xl font-light md:text-3xl md:leading-[1.3] lg:text-4xl">/mo</span>
+            <span className="text-2xl font-light md:text-3xl md:leading-[1.3] lg:text-4xl ml-1">/mo</span>
           </h1>
           <p className="mt-2 font-medium">{plan.discount}</p>
         </div>
@@ -76,7 +76,7 @@ const PricingPlan = ({ plan }: { plan: PricingPlan }) => (
         {plan.features.map((feature, index) => (
           <div key={index} className="flex self-start">
             <div className="mr-4 flex-none self-start">
-              <BiCheck className="size-6" />
+              <BiCheck className="size-6 text-[#E04834]" />
             </div>
             <p>{feature}</p>
           </div>

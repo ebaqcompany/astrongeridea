@@ -2,6 +2,7 @@
 
 import { Navbar2 } from "@/components/Navbar";
 import { Header3 } from "@/components/Hero";
+import { Testimonial1 } from "@/components/HeroTestimonial";
 import { Stats8 } from "@/components/Stats";
 import { Timeline9 } from "@/components/Timeline";
 import { Layout351 } from "@/components/Features";
@@ -25,6 +26,11 @@ export default function Home() {
       {/* Hero — white */}
       <div className="section-white">
         <Header3 />
+      </div>
+
+      {/* Hero Testimonial — gray */}
+      <div className="section-gray">
+        <Testimonial1 />
       </div>
 
       {/* Stats — gradient red */}
@@ -59,8 +65,8 @@ export default function Home() {
         <Cta7 />
       </div>
 
-      {/* Case Studies — white */}
-      <div className="section-white">
+      {/* Case Studies — gray for card contrast */}
+      <div className="section-gray">
         <Layout409 />
       </div>
 

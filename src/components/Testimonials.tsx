@@ -58,7 +58,7 @@ export const Testimonial21 = (props: Testimonial21Props) => {
 };
 
 const TestimonialCard = ({ testimonial }: { testimonial: Testimonial }) => (
-  <div className="mr-8 flex w-[25rem] min-w-[25rem] flex-none flex-col items-start justify-between border border-border-primary p-6 md:p-8">
+  <div className="mr-8 flex w-[25rem] min-w-[25rem] flex-none flex-col items-start justify-between bg-[#f0f0f0] border-none rounded-2xl p-6 md:p-8">
     <div className="mb-5 flex md:mb-6">
       {Array(testimonial.numberOfStars)
         .fill(null)
