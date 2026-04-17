@@ -56,9 +56,6 @@ const PricingPlan = ({ plan }: { plan: PricingPlan }) => (
     <div>
       <div className="flex items-start justify-between">
         <div>
-          <div className="rb-4 mb-4 flex flex-col items-start justify-end">
-            <img src={plan.icon.src} alt={plan.icon.alt} className="size-12" />
-          </div>
           <h5 className="mb-2 text-xl font-bold md:text-2xl">{plan.planName}</h5>
           <p>{plan.description}</p>
         </div>
