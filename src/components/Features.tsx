@@ -1,195 +1,276 @@
 "use client";
 
-import { useState } from "react";
-import { motion } from "framer-motion";
-import { useMediaQuery } from "@relume_io/relume-ui";
+import React, { useState, useEffect, useCallback, useRef } from "react";
+import { RxChevronRight } from "react-icons/rx";
+import { Button } from "@relume_io/relume-ui";
+import { Tabs, TabsList, TabsTrigger } from "@relume_io/relume-ui";
+import type { ButtonProps } from "@relume_io/relume-ui";
 
 type ImageProps = {
   src: string;
   alt?: string;
 };
 
-type Feature = {
-  columnText: string;
-  verticalText: string;
-  horizontalText: string;
-  heading: string;
-  description: string;
+type Section = {
+  id: string;
+  anchorTrigger: string;
   image: ImageProps;
-  video?: string;
-};
-
-type FeatureWithState = Feature & {
-  isActive: boolean;
-  setIsActive: () => void;
-};
-
-type Props = {
   tagline: string;
   heading: string;
   description: string;
-  features: Feature[];
+  buttons: ButtonProps[];
 };
 
-export type Layout351Props = React.ComponentPropsWithoutRef<"section"> & Partial<Props>;
+type ObservedSectionProps = {
+  section: Section;
+  index: number;
+  onIntersect: (index: number) => void;
+  children: React.ReactNode;
+};
 
-export const Layout351 = (props: Layout351Props) => {
-  const { tagline, heading, description, features } = {
-    ...Layout351Defaults,
+type Props = {
+  sections: Section[];
+};
+
+export type Layout350Props = React.ComponentPropsWithoutRef<"section"> & Partial<Props>;
+
+export const Layout351 = (props: Layout350Props) => {
+  const { sections } = {
+    ...Layout350Defaults,
     ...props,
   };
 
-  const [activeIndex, setActiveIndex] = useState<number | null>(0);
-
-  const handleSetIsActive = (index: number) => {
-    setActiveIndex((prevIndex) => {
-      if (prevIndex === index && features.filter((_, i) => i === prevIndex).length === 1) {
-        return prevIndex;
-      }
-      return prevIndex === index ? null : index;
-    });
-  };
+  const { activeSection, currentSection, scrollToSection, handleIntersection } =
+    useSectionNavigation(sections);
 
   return (
     <section id="relume" className="px-[5%] py-16 md:py-24 lg:py-28">
       <div className="container">
-        <div className="rb-12 mb-12 w-full max-w-lg md:mb-18 lg:mb-20">
-          <p className="mb-3 font-semibold md:mb-4">{tagline}</p>
-          <h1 className="mb-5 text-5xl font-bold md:mb-6 md:text-7xl lg:text-8xl">{heading}</h1>
-          <p className="md:text-md">{description}</p>
-        </div>
-        <div className="flex w-full flex-col overflow-hidden border-b border-l border-r border-border-primary rounded-2xl lg:h-[90vh] lg:flex-row lg:border-r-0 lg:border-t">
-          {features.map((feature, index) => (
-            <FeatureCard
-              key={index}
-              isActive={activeIndex === index}
-              setIsActive={() => handleSetIsActive(index)}
-              {...feature}
-            />
-          ))}
+        <div className="grid grid-cols-1 gap-x-12 gap-y-12 md:grid-cols-2 md:gap-y-16 lg:gap-x-20">
+          <div className="grid items-start gap-12 md:flex md:flex-col md:gap-0">
+            <Tabs
+              value={activeSection}
+              onValueChange={scrollToSection}
+              className="sticky top-24 z-10 hidden md:block"
+            >
+              <TabsList className="flex w-full gap-x-1 border border-border-primary bg-background-primary p-1">
+                {sections.map((section) => (
+                  <TabsTrigger
+                    key={section.id}
+                    value={section.id}
+                    className="whitespace-nowrap px-5 py-2 underline data-[state=active]:border data-[state=active]:border-border-primary data-[state=inactive]:border-transparent data-[state=active]:bg-transparent data-[state=active]:text-neutral-black"
+                  >
+                    {section.anchorTrigger}
+                  </TabsTrigger>
+                ))}
+              </TabsList>
+            </Tabs>
+
+            {sections.map((section, index) => (
+              <ObservedSection
+                key={section.id}
+                section={section}
+                index={index}
+                onIntersect={handleIntersection}
+              >
+                <ContentSection section={section} />
+              </ObservedSection>
+            ))}
+          </div>
+
+          <div className="sticky top-0 hidden h-screen flex-col items-center justify-center md:flex">
+            <img src={currentSection.image.src} alt={currentSection.image.alt} />
+          </div>
         </div>
       </div>
     </section>
   );
 };
 
-const FeatureCard = ({ isActive, setIsActive, ...feature }: FeatureWithState) => {
-  const isMobile = useMediaQuery("(max-width: 991px)");
-  const CardContent = motion.div;
+const getInitialActiveSection = (sections: Section[]): string => {
+  if (typeof window === "undefined") return sections[0].id;
+
+  const hash = window.location.hash.slice(1);
+  const matchingSection = sections.find((section) => section.id === hash);
+  return matchingSection?.id ?? sections[0].id;
+};
+
+const scrollToElement = (elementId: string) => {
+  const element = document.getElementById(elementId);
+  if (!element) return;
+
+  element.scrollIntoView({
+    behavior: "smooth",
+    block: "center",
+  });
+};
+
+const useSectionNavigation = (sections: Section[]) => {
+  const [activeSection, setActiveSection] = useState(() => getInitialActiveSection(sections));
+
+  const scrollToSection = useCallback((sectionId: string) => {
+    scrollToElement(sectionId);
+    window.history.pushState(null, "", `#${sectionId}`);
+  }, []);
+
+  const handleIntersection = useCallback(
+    (index: number) => {
+      setActiveSection(sections[index].id);
+    },
+    [sections],
+  );
+
+  useEffect(() => {
+    const handleHashChange = () => {
+      const hash = window.location.hash.slice(1);
+      if (sections.some((section) => section.id === hash)) {
+        scrollToSection(hash);
+      }
+    };
+
+    if (window.location.hash) {
+      handleHashChange();
+    }
+
+    window.addEventListener("hashchange", handleHashChange);
+    return () => window.removeEventListener("hashchange", handleHashChange);
+  }, [sections, scrollToSection]);
+
+  const currentSection = sections.find((section) => section.id === activeSection) ?? sections[0];
+
+  return {
+    activeSection,
+    currentSection,
+    scrollToSection,
+    handleIntersection,
+  };
+};
+
+const ObservedSection = ({ section, index, onIntersect, children }: ObservedSectionProps) => {
+  const sectionRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (!sectionRef.current) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          onIntersect(index);
+        }
+      },
+      { threshold: 0.5 },
+    );
+
+    observer.observe(sectionRef.current);
+    return () => observer.disconnect();
+  }, [index, onIntersect]);
+
   return (
-    <motion.div
-      className="flex flex-col justify-start overflow-hidden bg-white lg:h-[90vh] lg:min-w-20 lg:flex-row lg:border-r lg:border-border-primary"
-      onClick={setIsActive}
-      initial={false}
-      animate={{
-        width: isMobile ? "100%" : isActive ? "100%" : "5rem",
-      }}
-      transition={{ duration: 0.3, ease: "easeInOut" }}
-    >
-      <div className="relative flex h-16 w-full min-w-full cursor-pointer items-center justify-center border-t border-border-primary py-8 md:h-20 lg:h-[90vh] lg:w-20 lg:min-w-20 lg:flex-col lg:justify-between lg:border-none">
-        <p className="absolute left-6 whitespace-nowrap text-xl font-bold md:left-10 md:text-2xl lg:relative lg:left-0 text-[#E04834]">
-          {feature.columnText}
-        </p>
-        <h2 className="hidden [writing-mode:vertical-rl] lg:mx-auto lg:block lg:rotate-180 lg:text-2xl lg:font-bold text-[#E04834]">
-          {feature.verticalText}
-        </h2>
-        <p className="text-xl font-bold md:text-2xl lg:hidden text-[#E04834]">{feature.horizontalText}</p>
-      </div>
-      <CardContent
-        className="w-full overflow-hidden lg:h-full lg:w-auto lg:min-w-[200vw] lg:overflow-auto"
-        initial={false}
-        animate={{
-          height: isActive ? "auto" : "0px",
-        }}
-        transition={{ duration: 0.3, ease: "easeInOut" }}
-      >
-        <div className="flex h-full flex-col px-6 pb-8 pt-4 md:px-10 md:pb-12 md:pt-12 lg:w-[40rem] lg:px-12 lg:pb-16 lg:pt-16">
-          <h3 className="mb-5 text-4xl font-bold leading-[1.2] md:mb-6 md:text-5xl lg:text-6xl">
-            {feature.heading}
-          </h3>
-          <p className="md:text-md">{feature.description}</p>
-          <div className="rt-8 mt-8 h-80 md:mt-10 md:h-[25rem] lg:mt-12">
-            {feature.video ? (
-              <video
-                className="size-full object-cover rounded-lg"
-                autoPlay
-                muted
-                loop
-                playsInline
-              >
-                <source src={feature.video} type="video/mp4" />
-              </video>
-            ) : (
-              <img
-                src={feature.image.src}
-                alt={feature.image.alt}
-                className="size-full object-cover"
-              />
-            )}
-          </div>
-        </div>
-      </CardContent>
-    </motion.div>
+    <div id={section.id} ref={sectionRef}>
+      {children}
+    </div>
   );
 };
 
-export const Layout351Defaults: Props = {
-  tagline: "HOW WE HELP",
-  heading: "Four disciplines.\nOne methodology.",
-  description: "Every engagement applies Market Inward to a specific layer of the product system.",
+const ContentSection = ({ section }: { section: Section }) => (
+  <div className="flex flex-col items-start justify-center md:h-screen">
+    <p className="mb-3 font-semibold md:mb-4">{section.tagline}</p>
+    <h2 className="mb-5 text-5xl font-bold md:mb-6 md:text-7xl lg:text-8xl">{section.heading}</h2>
+    <p className="md:text-md">{section.description}</p>
+    <div className="mt-6 flex items-center gap-x-4 md:mt-8">
+      {section.buttons.map((button, index) => (
+        <Button key={index} {...button}>
+          {button.title}
+        </Button>
+      ))}
+    </div>
+    <div className="mt-10 md:hidden">
+      <img src={section.image.src} alt={section.image.alt} />
+    </div>
+  </div>
+);
 
-  features: [
+export const Layout350Defaults = {
+  sections: [
     {
-      columnText: "01",
-      verticalText: "Product Strategy",
-      horizontalText: "Product Strategy",
-      heading: "Know what to build before you build it.",
-      description:
-        "Ecosystem mapping, validated insight, and a strategic foundation before a single screen is drawn.",
+      id: "product-strategy",
+      anchorTrigger: "Strategy",
       image: {
         src: "/assets/poster-research-user-testing.jpg",
         alt: "Product Strategy",
       },
-      video: "/assets/video-research-user-testing.mp4",
+      tagline: "01 — Product Strategy",
+      heading: "Know what to build before you build it.",
+      description:
+        "Ecosystem mapping, validated insight, and a strategic foundation before a single screen is drawn.",
+      buttons: [
+        {
+          title: "Learn More",
+          variant: "link",
+          size: "link",
+          iconRight: <RxChevronRight />,
+        },
+      ],
     },
     {
-      columnText: "02",
-      verticalText: "Product UX Design",
-      horizontalText: "Product UX Design",
-      heading: "Design for the workflow, not just the screen.",
-      description:
-        "User experience designed from workflow architecture outward. Coherent at the system level.",
+      id: "product-ux-design",
+      anchorTrigger: "UX Design",
       image: {
         src: "/assets/poster-uiux.jpg",
         alt: "Product UX Design",
       },
-      video: "/assets/video-uiux.mp4",
+      tagline: "02 — Product UX Design",
+      heading: "Design for the workflow, not just the screen.",
+      description:
+        "User experience designed from workflow architecture outward. Coherent at the system level.",
+      buttons: [
+        {
+          title: "Learn More",
+          variant: "link",
+          size: "link",
+          iconRight: <RxChevronRight />,
+        },
+      ],
     },
     {
-      columnText: "03",
-      verticalText: "Product Systems",
-      horizontalText: "Product Systems",
-      heading: "The design system follows the product system.",
-      description:
-        "Design architecture that scales with the product. Not a component library layered over entropy.",
+      id: "product-systems",
+      anchorTrigger: "Systems",
       image: {
         src: "/assets/poster-team-design-ops.jpg",
         alt: "Product Systems",
       },
-      video: "/assets/video-team-design-ops.mp4",
+      tagline: "03 — Product Systems",
+      heading: "The design system follows the product system.",
+      description:
+        "Design architecture that scales with the product. Not a component library layered over entropy.",
+      buttons: [
+        {
+          title: "Learn More",
+          variant: "link",
+          size: "link",
+          iconRight: <RxChevronRight />,
+        },
+      ],
     },
     {
-      columnText: "04",
-      verticalText: "AI Product Design",
-      horizontalText: "AI Product Design",
-      heading: "AI amplifies the methodology. It doesn't replace it.",
-      description:
-        "When products incorporate AI, systems thinking becomes more important, not less.",
+      id: "ai-product-design",
+      anchorTrigger: "AI Design",
       image: {
         src: "/assets/poster-marketing-ecommerce.jpg",
         alt: "AI Product Design",
       },
-      video: "/assets/video-marketing-ecommerce.mp4",
+      tagline: "04 — AI Product Design",
+      heading: "AI amplifies the methodology. It doesn't replace it.",
+      description:
+        "When products incorporate AI, systems thinking becomes more important, not less.",
+      buttons: [
+        {
+          title: "Learn More",
+          variant: "link",
+          size: "link",
+          iconRight: <RxChevronRight />,
+        },
+      ],
     },
   ],
 };
