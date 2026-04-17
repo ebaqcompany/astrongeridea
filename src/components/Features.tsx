@@ -207,8 +207,8 @@ export const Layout350Defaults = {
       buttons: [
         {
           title: "Learn More",
-          variant: "link",
-          size: "link",
+          variant: "link" as const,
+          size: "link" as const,
           iconRight: <RxChevronRight />,
         },
       ],
@@ -227,8 +227,8 @@ export const Layout350Defaults = {
       buttons: [
         {
           title: "Learn More",
-          variant: "link",
-          size: "link",
+          variant: "link" as const,
+          size: "link" as const,
           iconRight: <RxChevronRight />,
         },
       ],
@@ -247,8 +247,8 @@ export const Layout350Defaults = {
       buttons: [
         {
           title: "Learn More",
-          variant: "link",
-          size: "link",
+          variant: "link" as const,
+          size: "link" as const,
           iconRight: <RxChevronRight />,
         },
       ],
@@ -267,8 +267,8 @@ export const Layout350Defaults = {
       buttons: [
         {
           title: "Learn More",
-          variant: "link",
-          size: "link",
+          variant: "link" as const,
+          size: "link" as const,
           iconRight: <RxChevronRight />,
         },
       ],
