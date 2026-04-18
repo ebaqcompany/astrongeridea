@@ -246,6 +246,8 @@ a[class*="p-0"] {
 /* Primary: gradient fill, fully rounded, white text */
 [data-button-variant="primary"],
 button.bg-background-alternative,
+a.bg-background-alternative,
+.bg-background-alternative,
 .button-primary {
   background: linear-gradient(160deg, #FF5744, #C0392B) !important;
   color: white !important;
@@ -254,6 +256,8 @@ button.bg-background-alternative,
 }
 [data-button-variant="primary"]:hover,
 button.bg-background-alternative:hover,
+a.bg-background-alternative:hover,
+.bg-background-alternative:hover,
 .button-primary:hover {
   opacity: 0.9;
   transform: translateY(-1px);
