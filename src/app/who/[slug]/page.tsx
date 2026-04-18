@@ -9,7 +9,76 @@ import { Portfolio11 } from "@/components/SelectedWork";
 import { Cta7 } from "@/components/Cta";
 import { Footer12 } from "@/components/Footer";
 import { ChallengeCards } from "@/components/ChallengeCards";
-import { clientPages, startupPricing, startupMetrics } from "./clientData";
+import {
+  clientPages,
+  startupPricing,
+  startupMetrics,
+  productOrgChallenges,
+  productOrgPricing,
+  productOrgMetrics,
+  agencyChallenges,
+  agencyPricing,
+  agencyMetrics,
+} from "./clientData";
+
+const challengeCardsData: Record<string, { tagline: string; heading: string; cards: typeof productOrgChallenges.cards } | undefined> = {
+  "product-organizations": productOrgChallenges,
+  agencies: agencyChallenges,
+};
+
+const pricingData: Record<string, { tagline: string; heading: string; description: string; pricingPlans: typeof startupPricing }> = {
+  startups: {
+    tagline: "Stage-Appropriate Design",
+    heading: "Design for every phase",
+    description: "Different funding stages have different design needs. Here's how we help at each stage of your journey.",
+    pricingPlans: startupPricing,
+  },
+  "product-organizations": {
+    tagline: "Standard Solutions",
+    heading: "Scalable design solutions",
+    description: "Different challenges require different approaches. Here's how we help product organizations succeed.",
+    pricingPlans: productOrgPricing,
+  },
+  agencies: {
+    tagline: "Partnership Models",
+    heading: "Flexible partnership models",
+    description: "Different agencies need different models. Here's how we work together.",
+    pricingPlans: agencyPricing,
+  },
+};
+
+const metricsData: Record<string, { label: string; heading: string; metrics: typeof startupMetrics }> = {
+  startups: {
+    label: "Results",
+    heading: "Startup & Scale-Up Success Metrics",
+    metrics: startupMetrics,
+  },
+  "product-organizations": {
+    label: "Results",
+    heading: "Product Organization Success Metrics",
+    metrics: productOrgMetrics,
+  },
+  agencies: {
+    label: "Results",
+    heading: "Agency Partnership Success Metrics",
+    metrics: agencyMetrics,
+  },
+};
+
+const ctaHeadings: Record<string, { first: string; second: string }> = {
+  startups: {
+    first: "Let's talk about your challenges.",
+    second: "Let's make your runway longer.",
+  },
+  "product-organizations": {
+    first: "Let's talk about your challenges.",
+    second: "Let's talk about your challenges.",
+  },
+  agencies: {
+    first: "Let's talk about your challenges.",
+    second: "Real partnerships delivering real results",
+  },
+};
 
 export default function ClientPage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = use(params);
@@ -19,7 +88,10 @@ export default function ClientPage({ params }: { params: Promise<{ slug: string 
     return <div className="p-20 text-center text-2xl">Page not found</div>;
   }
 
-  const isStartups = slug === "startups";
+  const challengeProps = challengeCardsData[slug];
+  const pricing = pricingData[slug];
+  const metrics = metricsData[slug];
+  const cta = ctaHeadings[slug] ?? { first: "Let's talk about your challenges.", second: "The first conversation is a diagnosis, not a pitch." };
 
   return (
     <>
@@ -38,11 +110,9 @@ export default function ClientPage({ params }: { params: Promise<{ slug: string 
       </div>
 
       {/* Challenge cards — expandable accordion */}
-      {isStartups && (
-        <div className="section-white">
-          <ChallengeCards />
-        </div>
-      )}
+      <div className="section-white">
+        <ChallengeCards {...(challengeProps ?? {})} />
+      </div>
 
       {/* Who We Help — reuse from homepage */}
       <div className="section-white">
@@ -52,7 +122,7 @@ export default function ClientPage({ params }: { params: Promise<{ slug: string 
       {/* CTA */}
       <div className="section-dark">
         <Cta7
-          heading={isStartups ? "Let's talk about your challenges." : "The first conversation is a diagnosis, not a pitch."}
+          heading={cta.first}
           buttons={[
             { title: "Schedule a discovery call" },
             { title: "See engagement options", variant: "secondary" as const },
@@ -60,29 +130,29 @@ export default function ClientPage({ params }: { params: Promise<{ slug: string 
         />
       </div>
 
-      {/* Pricing by stage — startups only */}
-      {isStartups && (
+      {/* Pricing */}
+      {pricing && (
         <div className="section-gray">
           <Pricing13
-            tagline="Stage-Appropriate Design"
-            heading="Design for every phase"
-            description="Different funding stages have different design needs. Here's how we help at each stage of your journey."
-            pricingPlans={startupPricing}
+            tagline={pricing.tagline}
+            heading={pricing.heading}
+            description={pricing.description}
+            pricingPlans={pricing.pricingPlans}
           />
         </div>
       )}
 
-      {/* Success Metrics — startups only */}
-      {isStartups && (
+      {/* Success Metrics */}
+      {metrics && (
         <div className="section-white">
           <section className="px-[5%] py-16 md:py-24 lg:py-28">
             <div className="container">
               <div className="mb-12 md:mb-18 max-w-xl">
-                <p className="mb-3 font-semibold md:mb-4">Results</p>
-                <h2 className="mb-5 text-5xl md:text-7xl lg:text-8xl">Startup & Scale-Up Success Metrics</h2>
+                <p className="mb-3 font-semibold md:mb-4">{metrics.label}</p>
+                <h2 className="mb-5 text-5xl md:text-7xl lg:text-8xl">{metrics.heading}</h2>
               </div>
               <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
-                {startupMetrics.map((metric, index) => (
+                {metrics.metrics.map((metric, index) => (
                   <div key={index} className="rounded-2xl border border-border-primary bg-white p-6 md:p-8">
                     <h3 className="mb-4 text-2xl md:text-3xl">{metric.title}</h3>
                     <ul className="mb-6 space-y-2">
@@ -107,7 +177,7 @@ export default function ClientPage({ params }: { params: Promise<{ slug: string 
       {/* CTA */}
       <div className="section-dark">
         <Cta7
-          heading={isStartups ? "Let's make your runway longer." : "The first conversation is a diagnosis, not a pitch."}
+          heading={cta.second}
           buttons={[
             { title: "Schedule a discovery call" },
           ]}
