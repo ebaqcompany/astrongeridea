@@ -8,7 +8,8 @@ import { Pricing13 } from "@/components/Pricing";
 import { Portfolio11 } from "@/components/SelectedWork";
 import { Cta7 } from "@/components/Cta";
 import { Footer12 } from "@/components/Footer";
-import { clientPages, startupChallengesPlaceholder, startupPricing, startupMetrics } from "./clientData";
+import { ChallengeCards } from "@/components/ChallengeCards";
+import { clientPages, startupPricing, startupMetrics } from "./clientData";
 
 export default function ClientPage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = use(params);
@@ -36,18 +37,10 @@ export default function ClientPage({ params }: { params: Promise<{ slug: string 
         />
       </div>
 
-      {/* Challenge cards — TODO: waiting for Relume accordion/expand component */}
+      {/* Challenge cards — expandable accordion */}
       {isStartups && (
-        <div className="section-gray">
-          <section className="px-[5%] py-16 md:py-24 lg:py-28">
-            <div className="container">
-              <div className="mb-12 md:mb-18">
-                <p className="mb-3 font-semibold md:mb-4">Startup reality</p>
-                <h2 className="text-5xl md:text-7xl lg:text-8xl">5 Startup & Scale-Up Challenges</h2>
-              </div>
-              <p className="text-neutral">Expandable challenge cards component will be added here.</p>
-            </div>
-          </section>
+        <div className="section-white">
+          <ChallengeCards />
         </div>
       )}
 
