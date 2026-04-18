@@ -115,7 +115,7 @@ export const ChallengeCards = (props: ChallengeCardsProps) => {
 
                         {card.stat && (
                           <div className="rounded-2xl p-6 md:p-8" style={{ background: "linear-gradient(160deg, #FF5744, #C0392B)" }}>
-                            <p className="mb-1 font-mono text-3xl font-light text-white md:text-4xl">{card.stat}</p>
+                            <p className="mb-1 font-heading text-3xl font-light text-white md:text-4xl">{card.stat}</p>
                             {card.statDescription && (
                               <p className="mb-4 text-sm text-white/80">{card.statDescription}</p>
                             )}
