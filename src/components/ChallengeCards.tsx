@@ -103,33 +103,34 @@ export const ChallengeCards = (props: ChallengeCardsProps) => {
                         </div>
                       </div>
 
-                      {/* Results */}
-                      <div className="mt-8 border-t border-border-primary pt-6">
-                        <div className="mb-3 flex items-center gap-2">
-                          <LuTarget className="size-5 text-[#E04834]" />
-                          <h3 className="text-lg md:text-xl">Results</h3>
+                      {/* Results + Stat — side by side */}
+                      <div className="mt-8 grid grid-cols-1 gap-8 border-t border-border-primary pt-6 md:grid-cols-2">
+                        <div>
+                          <div className="mb-3 flex items-center gap-2">
+                            <LuTarget className="size-5 text-[#E04834]" />
+                            <h3 className="text-lg md:text-xl">Results</h3>
+                          </div>
+                          <p className="text-sm text-neutral">{card.results}</p>
                         </div>
-                        <p className="text-sm text-neutral">{card.results}</p>
-                      </div>
 
-                      {/* Stat + links */}
-                      {card.stat && (
-                        <div className="mt-8 rounded-2xl bg-[#ebe8e6] p-6 md:p-8">
-                          <p className="mb-1 font-mono text-3xl font-light text-[#E04834] md:text-4xl">{card.stat}</p>
-                          {card.statDescription && (
-                            <p className="mb-4 text-sm text-[#E04834]">{card.statDescription}</p>
-                          )}
-                          {card.links && card.links.length > 0 && (
-                            <div className="flex flex-wrap gap-6 pt-2">
-                              {card.links.map((link, i) => (
-                                <a key={i} href={link.url} target="_blank" rel="noopener noreferrer" className="text-sm text-[#E04834] underline">
-                                  {link.title}
-                                </a>
-                              ))}
-                            </div>
-                          )}
-                        </div>
-                      )}
+                        {card.stat && (
+                          <div className="rounded-2xl p-6 md:p-8" style={{ background: "linear-gradient(160deg, #FF5744, #C0392B)" }}>
+                            <p className="mb-1 font-mono text-3xl font-light text-white md:text-4xl">{card.stat}</p>
+                            {card.statDescription && (
+                              <p className="mb-4 text-sm text-white/80">{card.statDescription}</p>
+                            )}
+                            {card.links && card.links.length > 0 && (
+                              <div className="flex flex-wrap gap-6 pt-2">
+                                {card.links.map((link, i) => (
+                                  <a key={i} href={link.url} target="_blank" rel="noopener noreferrer" className="text-sm text-white underline">
+                                    {link.title}
+                                  </a>
+                                ))}
+                              </div>
+                            )}
+                          </div>
+                        )}
+                      </div>
                     </div>
                   </motion.div>
                 )}
@@ -176,6 +177,8 @@ export const ChallengeCardsDefaults: Props = {
         "You get 20+ years of design leadership across fintech, mobility, and SaaS through flexible engagements—Discovery Sprints, projects, or retainers—to fit your stage and budget.",
       results:
         "Enterprise-quality design that increases investor confidence and user adoption—without burning runway on expensive hires.",
+      stat: "$200K+",
+      statDescription: "average cost of a senior full-time design hire — saved through flexible engagement models",
     },
     {
       number: 3,
@@ -224,6 +227,8 @@ export const ChallengeCardsDefaults: Props = {
         "We've scaled UX teams across multiple organizations and can build your capabilities, create systems, or provide fractional leadership tailored to your stage.",
       results:
         "Design capabilities that grow with your business—without the trial-and-error of figuring it out yourself.",
+      stat: "MVP → Series C",
+      statDescription: "scalable design capabilities at every stage without hiring full-time",
     },
   ],
 };
