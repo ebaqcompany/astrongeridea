@@ -1,7 +1,7 @@
 "use client";
 
-import { useRef, useEffect, useState } from "react";
-import { motion, AnimatePresence, useScroll, useMotionValueEvent } from "framer-motion";
+import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import { LuSearch, LuLightbulb, LuTarget } from "react-icons/lu";
 
 type ExternalLink = {
@@ -35,60 +35,40 @@ export const ChallengeCards = (props: ChallengeCardsProps) => {
     ...props,
   };
 
-  const containerRef = useRef<HTMLDivElement>(null);
   const [activeIndex, setActiveIndex] = useState<number>(0);
 
-  const { scrollYProgress } = useScroll({
-    target: containerRef,
-    offset: ["start start", "end end"],
-  });
-
-  useMotionValueEvent(scrollYProgress, "change", (latest) => {
-    const totalCards = cards.length;
-    const newIndex = Math.min(
-      Math.floor(latest * totalCards),
-      totalCards - 1
-    );
-    setActiveIndex(newIndex);
-  });
-
   return (
-    <>
-      {/* Section intro banner — outside scroll container */}
-      <section className="px-[5%] py-16 md:py-24 lg:pb-12">
-        <div className="container">
-          <div className="grid grid-cols-1 gap-6 md:grid-cols-[2fr_1fr] md:gap-8">
-            <div className="flex flex-col justify-end rounded-2xl p-8 md:p-12 lg:p-16" style={{ background: "linear-gradient(160deg, #FF5744, #C0392B)" }}>
-              <p className="mb-3 text-sm font-medium uppercase tracking-wider text-white/80 md:mb-4">{tagline}</p>
-              <h2 className="text-4xl text-white md:text-6xl lg:text-7xl">{heading}</h2>
-            </div>
-            <div className="hidden overflow-hidden rounded-2xl md:block">
-              <img
-                src="/assets/startups-hero.avif"
-                alt="Startup challenges"
-                className="size-full object-cover"
-              />
-            </div>
+    <section className="px-[5%] py-16 md:py-24 lg:py-28">
+      <div className="container">
+        {/* Section intro banner */}
+        <div className="mb-12 grid grid-cols-1 gap-6 md:mb-18 md:grid-cols-[2fr_1fr] md:gap-8">
+          <div className="flex flex-col justify-end rounded-2xl p-8 md:p-12 lg:p-16" style={{ background: "linear-gradient(160deg, #FF5744, #C0392B)" }}>
+            <p className="mb-3 text-sm font-medium uppercase tracking-wider text-white/80 md:mb-4">{tagline}</p>
+            <h2 className="text-4xl text-white md:text-6xl lg:text-7xl">{heading}</h2>
+          </div>
+          <div className="hidden overflow-hidden rounded-2xl md:block">
+            <img
+              src="/assets/startups-hero.avif"
+              alt="Startup challenges"
+              className="size-full object-cover"
+            />
           </div>
         </div>
-      </section>
 
-      {/* Scroll-hijack accordion */}
-      <section ref={containerRef} className="relative" style={{ height: `${cards.length * 120}vh` }}>
-        <div className="sticky top-0 h-screen px-[5%] py-8 flex items-start overflow-y-auto">
-          <div className="container my-auto">
-            <div className="flex flex-col gap-2">
+        {/* Click accordion */}
+        <div className="flex flex-col gap-4">
           {cards.map((card, index) => (
             <div
               key={index}
-              className="rounded-2xl bg-[#f5f3f2] overflow-hidden transition-all duration-500"
+              onClick={() => setActiveIndex(activeIndex === index ? -1 : index)}
+              className="cursor-pointer rounded-2xl bg-[#f5f3f2] overflow-hidden transition-all duration-300"
             >
               {/* Header — always visible */}
-              <div className={`flex items-center gap-4 transition-all duration-300 ${activeIndex === index ? 'p-6 md:p-8' : 'px-6 py-3 md:px-8 md:py-4'}`}>
+              <div className="flex items-center gap-4 p-6 md:p-8">
                 <span className="flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-full bg-[#E04834] text-sm font-medium text-white">
                   {card.number}
                 </span>
-                <h3 className={`transition-all duration-300 ${activeIndex === index ? 'text-xl md:text-2xl' : 'text-base md:text-lg text-neutral'}`}>{card.heading}</h3>
+                <h3 className="text-xl md:text-2xl">{card.heading}</h3>
               </div>
 
               {/* Expandable content */}
@@ -157,11 +137,9 @@ export const ChallengeCards = (props: ChallengeCardsProps) => {
               </AnimatePresence>
             </div>
           ))}
-            </div>
-          </div>
         </div>
-      </section>
-    </>
+      </div>
+    </section>
   );
 };
 
@@ -199,8 +177,6 @@ export const ChallengeCardsDefaults: Props = {
         "You get 20+ years of design leadership across fintech, mobility, and SaaS through flexible engagements—Discovery Sprints, projects, or retainers—to fit your stage and budget.",
       results:
         "Enterprise-quality design that increases investor confidence and user adoption—without burning runway on expensive hires.",
-      stat: "$200K+",
-      statDescription: "average cost of a senior full-time design hire — saved through flexible engagement models",
     },
     {
       number: 3,
@@ -249,8 +225,6 @@ export const ChallengeCardsDefaults: Props = {
         "We've scaled UX teams across multiple organizations and can build your capabilities, create systems, or provide fractional leadership tailored to your stage.",
       results:
         "Design capabilities that grow with your business—without the trial-and-error of figuring it out yourself.",
-      stat: "MVP → Series C",
-      statDescription: "scalable design capabilities at every stage without hiring full-time",
     },
   ],
 };
