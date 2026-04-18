@@ -3,11 +3,9 @@
 import { Navbar2 } from "@/components/Navbar";
 import { Header62 } from "@/components/ServiceHero";
 import { Layout495 } from "@/components/Audience";
-import { Team1 } from "@/components/TeamBio";
+import { Layout1 } from "@/components/CaseStudyCard";
 import { Cta7 } from "@/components/Cta";
 import { Footer12 } from "@/components/Footer";
-import { BiLogoLinkedinSquare } from "react-icons/bi";
-import { FaXTwitter } from "react-icons/fa6";
 
 export default function AboutPage() {
   return (
@@ -97,33 +95,14 @@ export default function AboutPage() {
         </section>
       </div>
 
-      {/* Founder Section — Team1 Relume Component */}
+      {/* Founder — using Layout1 as a bio section */}
       <div className="section-gray">
-        <Team1
+        <Layout1
           tagline="The Founder"
           heading="Eric Tomlinson"
-          description="I founded ASID to practice a specific kind of product design -- one that starts with the full system before it touches a single screen."
-          teamMembers={[
-            {
-              image: {
-                src: "/assets/eric-tomlinson.avif",
-                alt: "Eric Tomlinson",
-              },
-              name: "Eric Tomlinson",
-              jobTitle: "Founder & Principal Designer",
-              description:
-                "Twenty-five years of building complex products taught me that the methodology matters more than the tools. Across roles at PayPal, Flowbird Group, Estate Guru, and KIRU, I have led large-scale redesigns, unified fragmented product ecosystems, and introduced design systems and DesignOps practices that reduced development friction and improved organizational UX maturity.",
-              socialLinks: [
-                { href: "https://www.linkedin.com/in/erictomlinson/", icon: <BiLogoLinkedinSquare className="size-6" /> },
-                { href: "https://erictomlinson.com", icon: <FaXTwitter className="size-6 p-0.5" /> },
-              ],
-            },
-          ]}
-          footer={{
-            heading: "Want to work together?",
-            description: "Every product problem I have been brought in to solve turns out to have the same root cause. The design started with the feature instead of the ecosystem.",
-            button: { title: "Schedule a Discovery Call" },
-          }}
+          description="I founded ASID to practice a specific kind of product design — one that starts with the full system before it touches a single screen. Twenty-five years of building complex products taught me that the methodology matters more than the tools. Across roles at PayPal, Flowbird Group, Estate Guru, and KIRU, I have led large-scale redesigns, unified fragmented product ecosystems, and introduced design systems and DesignOps practices that reduced development friction and improved organizational UX maturity."
+          buttons={[{ title: "Connect on LinkedIn", variant: "secondary" as const }]}
+          image={{ src: "/assets/eric-tomlinson.avif", alt: "Eric Tomlinson — Founder & Principal Designer" }}
         />
       </div>
 
