@@ -53,26 +53,31 @@ export const ChallengeCards = (props: ChallengeCardsProps) => {
   });
 
   return (
-    <section ref={containerRef} className="relative" style={{ height: `${cards.length * 100}vh` }}>
-      <div className="sticky top-0 min-h-screen px-[5%] py-16 md:py-24 lg:py-28">
+    <>
+      {/* Section intro banner — outside scroll container */}
+      <section className="px-[5%] py-16 md:py-24 lg:pb-12">
         <div className="container">
-        {/* Section intro banner */}
-        <div className="mb-12 grid grid-cols-1 gap-6 md:mb-18 md:grid-cols-[2fr_1fr] md:gap-8">
-          <div className="flex flex-col justify-end rounded-2xl p-8 md:p-12 lg:p-16" style={{ background: "linear-gradient(160deg, #FF5744, #C0392B)" }}>
-            <p className="mb-3 text-sm font-medium uppercase tracking-wider text-white/80 md:mb-4">{tagline}</p>
-            <h2 className="text-4xl text-white md:text-6xl lg:text-7xl">{heading}</h2>
-          </div>
-          <div className="hidden overflow-hidden rounded-2xl md:block">
-            <img
-              src="/assets/startups-hero.avif"
-              alt="Startup challenges"
-              className="size-full object-cover"
-            />
+          <div className="grid grid-cols-1 gap-6 md:grid-cols-[2fr_1fr] md:gap-8">
+            <div className="flex flex-col justify-end rounded-2xl p-8 md:p-12 lg:p-16" style={{ background: "linear-gradient(160deg, #FF5744, #C0392B)" }}>
+              <p className="mb-3 text-sm font-medium uppercase tracking-wider text-white/80 md:mb-4">{tagline}</p>
+              <h2 className="text-4xl text-white md:text-6xl lg:text-7xl">{heading}</h2>
+            </div>
+            <div className="hidden overflow-hidden rounded-2xl md:block">
+              <img
+                src="/assets/startups-hero.avif"
+                alt="Startup challenges"
+                className="size-full object-cover"
+              />
+            </div>
           </div>
         </div>
+      </section>
 
-        {/* Expandable cards */}
-        <div className="flex flex-col gap-4">
+      {/* Scroll-hijack accordion */}
+      <section ref={containerRef} className="relative" style={{ height: `${cards.length * 100}vh` }}>
+        <div className="sticky top-0 min-h-screen px-[5%] py-8 flex items-center">
+          <div className="container">
+            <div className="flex flex-col gap-4">
           {cards.map((card, index) => (
             <div
               key={index}
@@ -152,10 +157,11 @@ export const ChallengeCards = (props: ChallengeCardsProps) => {
               </AnimatePresence>
             </div>
           ))}
+            </div>
+          </div>
         </div>
-        </div>
-      </div>
-    </section>
+      </section>
+    </>
   );
 };
 
