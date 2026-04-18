@@ -2,6 +2,7 @@
 
 import { Navbar2 } from "@/components/Navbar";
 import { Header62 } from "@/components/ServiceHero";
+import { Contact1 } from "@/components/ContactForm";
 import { Cta7 } from "@/components/Cta";
 import { Footer12 } from "@/components/Footer";
 
@@ -22,8 +23,7 @@ export default function ContactPage() {
         />
       </div>
 
-      {/* What to Expect + Contact Form Placeholder */}
-      {/* TODO: Needs a contact form component (Contact1 or similar from Relume) with name, email, company, and message fields */}
+      {/* What to Expect */}
       <div className="section-gray">
         <section className="px-[5%] py-16 md:py-24 lg:py-28">
           <div className="container">
@@ -75,6 +75,16 @@ export default function ContactPage() {
             </div>
           </div>
         </section>
+      </div>
+
+      {/* Contact Form */}
+      <div className="section-white">
+        <Contact1
+          tagline="Send a Message"
+          heading="Contact us"
+          description="Fill out the form below and we will get back to you within one business day."
+          button={{ title: "Send Message" }}
+        />
       </div>
 
       {/* CTA */}

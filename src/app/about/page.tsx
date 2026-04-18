@@ -3,8 +3,11 @@
 import { Navbar2 } from "@/components/Navbar";
 import { Header62 } from "@/components/ServiceHero";
 import { Layout495 } from "@/components/Audience";
+import { Team1 } from "@/components/TeamBio";
 import { Cta7 } from "@/components/Cta";
 import { Footer12 } from "@/components/Footer";
+import { BiLogoLinkedinSquare } from "react-icons/bi";
+import { FaXTwitter } from "react-icons/fa6";
 
 export default function AboutPage() {
   return (
@@ -94,27 +97,34 @@ export default function AboutPage() {
         </section>
       </div>
 
-      {/* Founder Section */}
-      {/* TODO: Needs a dedicated bio/team component for the founder section with photo, links, and detailed background */}
+      {/* Founder Section — Team1 Relume Component */}
       <div className="section-gray">
-        <section className="px-[5%] py-16 md:py-24 lg:py-28">
-          <div className="container max-w-3xl">
-            <p className="mb-3 font-semibold md:mb-4">The Founder</p>
-            <h2 className="mb-5 text-4xl md:text-5xl lg:text-6xl">Eric Tomlinson</h2>
-            <p className="mb-6 md:text-md">
-              I founded ASID to practice a specific kind of product design -- one that starts with the full system before it touches a single screen.
-            </p>
-            <p className="mb-6 text-sm text-neutral">
-              Every product problem I have been brought in to solve -- features that don't get used, workflows that confuse experienced users, systems that break as they scale -- turns out to have the same root cause. The design started with the feature instead of the ecosystem it was meant to live in.
-            </p>
-            <p className="mb-6 text-sm text-neutral">
-              The outside-in approach reverses that sequence. Product ecosystem first. Workflow systems second. Feature systems third. It sounds obvious when you say it. It is surprisingly rare in practice.
-            </p>
-            <p className="text-sm text-neutral">
-              Twenty-five years of building complex products taught me that the methodology matters more than the tools. Across roles at PayPal, Flowbird Group, Estate Guru, and KIRU, I have led large-scale redesigns, unified fragmented product ecosystems, and introduced design systems and DesignOps practices that reduced development friction and improved organizational UX maturity.
-            </p>
-          </div>
-        </section>
+        <Team1
+          tagline="The Founder"
+          heading="Eric Tomlinson"
+          description="I founded ASID to practice a specific kind of product design -- one that starts with the full system before it touches a single screen."
+          teamMembers={[
+            {
+              image: {
+                src: "https://d22po4pjz3o32e.cloudfront.net/placeholder-image.svg",
+                alt: "Eric Tomlinson",
+              },
+              name: "Eric Tomlinson",
+              jobTitle: "Founder & Principal Designer",
+              description:
+                "Twenty-five years of building complex products taught me that the methodology matters more than the tools. Across roles at PayPal, Flowbird Group, Estate Guru, and KIRU, I have led large-scale redesigns, unified fragmented product ecosystems, and introduced design systems and DesignOps practices that reduced development friction and improved organizational UX maturity.",
+              socialLinks: [
+                { href: "#", icon: <BiLogoLinkedinSquare className="size-6" /> },
+                { href: "#", icon: <FaXTwitter className="size-6 p-0.5" /> },
+              ],
+            },
+          ]}
+          footer={{
+            heading: "Want to work together?",
+            description: "Every product problem I have been brought in to solve turns out to have the same root cause. The design started with the feature instead of the ecosystem.",
+            button: { title: "Schedule a Discovery Call" },
+          }}
+        />
       </div>
 
       {/* Partners / Who We Help */}
