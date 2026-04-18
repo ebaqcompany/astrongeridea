@@ -106,7 +106,7 @@ export default function AboutPage() {
           teamMembers={[
             {
               image: {
-                src: "https://d22po4pjz3o32e.cloudfront.net/placeholder-image.svg",
+                src: "/assets/eric-tomlinson.avif",
                 alt: "Eric Tomlinson",
               },
               name: "Eric Tomlinson",
@@ -114,8 +114,8 @@ export default function AboutPage() {
               description:
                 "Twenty-five years of building complex products taught me that the methodology matters more than the tools. Across roles at PayPal, Flowbird Group, Estate Guru, and KIRU, I have led large-scale redesigns, unified fragmented product ecosystems, and introduced design systems and DesignOps practices that reduced development friction and improved organizational UX maturity.",
               socialLinks: [
-                { href: "#", icon: <BiLogoLinkedinSquare className="size-6" /> },
-                { href: "#", icon: <FaXTwitter className="size-6 p-0.5" /> },
+                { href: "https://www.linkedin.com/in/erictomlinson/", icon: <BiLogoLinkedinSquare className="size-6" /> },
+                { href: "https://erictomlinson.com", icon: <FaXTwitter className="size-6 p-0.5" /> },
               ],
             },
           ]}

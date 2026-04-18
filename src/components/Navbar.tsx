@@ -195,15 +195,7 @@ export const Navbar2Defaults: Props = {
         { title: "AI Product Design", url: "/how/ai-product-design" },
       ],
     },
-    {
-      title: "Pricing",
-      url: "#",
-      subMenuLinks: [
-        { title: "Discovery Sprint", url: "/how/discovery-sprint" },
-        { title: "Project Engagements", url: "/how/project-engagements" },
-        { title: "Fractional Design Leadership", url: "/how/fractional-design-leadership" },
-      ],
-    },
+    { title: "Pricing", url: "/pricing" },
     {
       title: "Clients",
       url: "#",
