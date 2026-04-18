@@ -2,6 +2,12 @@
 
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { LuSearch, LuLightbulb, LuTarget } from "react-icons/lu";
+
+type ExternalLink = {
+  title: string;
+  url: string;
+};
 
 type ChallengeCard = {
   number: number;
@@ -10,6 +16,9 @@ type ChallengeCard = {
   solution: string;
   youNeed: string;
   results: string;
+  stat?: string;
+  statDescription?: string;
+  links?: ExternalLink[];
 };
 
 type Props = {
@@ -45,6 +54,8 @@ export const ChallengeCards = (props: ChallengeCardsProps) => {
             />
           </div>
         </div>
+
+        {/* Expandable cards */}
         <div className="flex flex-col gap-4">
           {cards.map((card, index) => (
             <div
@@ -77,20 +88,48 @@ export const ChallengeCards = (props: ChallengeCardsProps) => {
                       {/* Two columns: You need + Our solution */}
                       <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
                         <div>
-                          <p className="mb-2 text-sm font-medium">You need</p>
+                          <div className="mb-3 flex items-center gap-2">
+                            <LuSearch className="size-5 text-[#E04834]" />
+                            <h3 className="text-lg md:text-xl">You need</h3>
+                          </div>
                           <p className="text-sm text-neutral">{card.youNeed}</p>
                         </div>
                         <div>
-                          <p className="mb-2 text-sm font-medium">Our solution</p>
+                          <div className="mb-3 flex items-center gap-2">
+                            <LuLightbulb className="size-5 text-[#E04834]" />
+                            <h3 className="text-lg md:text-xl">Our solution</h3>
+                          </div>
                           <p className="text-sm text-neutral">{card.solution}</p>
                         </div>
                       </div>
 
                       {/* Results */}
                       <div className="mt-8 border-t border-border-primary pt-6">
-                        <p className="mb-2 text-sm font-medium">Results</p>
+                        <div className="mb-3 flex items-center gap-2">
+                          <LuTarget className="size-5 text-[#E04834]" />
+                          <h3 className="text-lg md:text-xl">Results</h3>
+                        </div>
                         <p className="text-sm text-neutral">{card.results}</p>
                       </div>
+
+                      {/* Stat + links */}
+                      {card.stat && (
+                        <div className="mt-8 rounded-2xl bg-[#ebe8e6] p-6 md:p-8">
+                          <p className="mb-1 font-mono text-3xl font-light text-[#E04834] md:text-4xl">{card.stat}</p>
+                          {card.statDescription && (
+                            <p className="mb-4 text-sm text-[#E04834]">{card.statDescription}</p>
+                          )}
+                          {card.links && card.links.length > 0 && (
+                            <div className="flex flex-wrap gap-6 pt-2">
+                              {card.links.map((link, i) => (
+                                <a key={i} href={link.url} target="_blank" rel="noopener noreferrer" className="text-sm text-[#E04834] underline">
+                                  {link.title}
+                                </a>
+                              ))}
+                            </div>
+                          )}
+                        </div>
+                      )}
                     </div>
                   </motion.div>
                 )}
@@ -118,12 +157,19 @@ export const ChallengeCardsDefaults: Props = {
         "A 2-week Discovery Sprint using workshops, interviews, analysis, and prototypes to validate your concept and give you clear direction before full development.",
       results:
         "Reduce development risk by 40%+ and move forward with confidence—or pivot before it's too late.",
+      stat: "42%",
+      statDescription: "of startups fail due to no market need (CB Insights)",
+      links: [
+        { title: "CB Insights", url: "https://www.cbinsights.com/research/startup-failure-reasons-top/" },
+        { title: "Startup Dev Kit", url: "https://startupdevkit.com/" },
+        { title: "Engenesis Platform", url: "https://engenesis.com/" },
+      ],
     },
     {
       number: 2,
       heading: "Quality design on a startup budget",
       problem:
-        "You can't afford a $200K+ senior designer full-time, but junior designers lack the strategic experience to make decisions that affect your survival.",
+        "You can't afford a $200K+ senior designer full-time, but junior designers lack the strategic experience to make decisions that affect your survival. You need enterprise-quality work at startup-friendly terms.",
       youNeed:
         "Senior-level design expertise from day one—without the cost, complexity, or commitment of permanent hires.",
       solution:
@@ -142,6 +188,12 @@ export const ChallengeCardsDefaults: Props = {
         "We prioritize ruthlessly based on user needs and business goals, then deliver high-quality design through proven workflows refined over 15+ years. No waste, no guessing.",
       results:
         "Reduce development risk by 40%+ and move forward with confidence—or pivot before it's too late.",
+      stat: "Building the wrong product is a primary reason startups fail",
+      links: [
+        { title: "CB Insights", url: "https://www.cbinsights.com/research/startup-failure-reasons-top/" },
+        { title: "Inc.com", url: "https://www.inc.com/" },
+        { title: "Founders Forum Group", url: "https://foundersforum.eu/" },
+      ],
     },
     {
       number: 4,
@@ -154,6 +206,12 @@ export const ChallengeCardsDefaults: Props = {
         "We build investor-ready products—research-validated, precisely designed, and backed by measurable early results. We know what investors want because we've helped startups get funded.",
       results:
         "Polished products that increase investor confidence and improve your chances of securing the funding you need.",
+      stat: "Investors fund traction, not just ideas",
+      links: [
+        { title: "Startups.com", url: "https://www.startups.com/" },
+        { title: "Investor Hunt", url: "https://investorhunt.co/" },
+        { title: "Focused for Business", url: "https://focusedforbusiness.com/" },
+      ],
     },
     {
       number: 5,
