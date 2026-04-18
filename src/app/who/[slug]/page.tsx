@@ -34,7 +34,7 @@ export default function ClientPage({ params }: { params: Promise<{ slug: string 
       {/* Middle sections — waiting for Relume components */}
 
       {/* CTA */}
-      <div className="section-cta">
+      <div className="section-dark">
         <Cta7 />
       </div>
 

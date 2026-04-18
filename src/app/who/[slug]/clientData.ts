@@ -9,9 +9,9 @@ export const clientPages: Record<string, ClientPageData> = {
   "startups": {
     slug: "startups",
     eyebrow: "Startups & Scale-ups",
-    heading: "Prove your vision before the runway runs out.",
+    heading: "We Want You To Succeed.",
     description:
-      "Every startup must prove its vision before the runway runs out. We help you move from idea to investor-ready product with less risk, higher quality, and real momentum.",
+      "Every startup faces the same pressure: proving your vision works before the runway runs out. The answer is less risk, higher quality, and the momentum to move from idea to investor-ready, fast enough to raise, launch, and scale.",
   },
   "product-organizations": {
     slug: "product-organizations",
