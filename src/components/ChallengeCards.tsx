@@ -1,7 +1,7 @@
 "use client";
 
-import { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { useRef, useEffect, useState } from "react";
+import { motion, AnimatePresence, useScroll, useMotionValueEvent } from "framer-motion";
 import { LuSearch, LuLightbulb, LuTarget } from "react-icons/lu";
 
 type ExternalLink = {
@@ -35,11 +35,27 @@ export const ChallengeCards = (props: ChallengeCardsProps) => {
     ...props,
   };
 
+  const containerRef = useRef<HTMLDivElement>(null);
   const [activeIndex, setActiveIndex] = useState<number>(0);
 
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ["start start", "end end"],
+  });
+
+  useMotionValueEvent(scrollYProgress, "change", (latest) => {
+    const totalCards = cards.length;
+    const newIndex = Math.min(
+      Math.floor(latest * totalCards),
+      totalCards - 1
+    );
+    setActiveIndex(newIndex);
+  });
+
   return (
-    <section className="px-[5%] py-16 md:py-24 lg:py-28">
-      <div className="container">
+    <section ref={containerRef} className="relative" style={{ height: `${cards.length * 100}vh` }}>
+      <div className="sticky top-0 min-h-screen px-[5%] py-16 md:py-24 lg:py-28">
+        <div className="container">
         {/* Section intro banner */}
         <div className="mb-12 grid grid-cols-1 gap-6 md:mb-18 md:grid-cols-[2fr_1fr] md:gap-8">
           <div className="flex flex-col justify-end rounded-2xl p-8 md:p-12 lg:p-16" style={{ background: "linear-gradient(160deg, #FF5744, #C0392B)" }}>
@@ -60,8 +76,7 @@ export const ChallengeCards = (props: ChallengeCardsProps) => {
           {cards.map((card, index) => (
             <div
               key={index}
-              onClick={() => setActiveIndex(activeIndex === index ? -1 : index)}
-              className="cursor-pointer rounded-2xl bg-[#f5f3f2] overflow-hidden transition-all duration-300"
+              className="rounded-2xl bg-[#f5f3f2] overflow-hidden transition-all duration-300"
             >
               {/* Header — always visible */}
               <div className="flex items-center gap-4 p-6 md:p-8">
@@ -89,14 +104,14 @@ export const ChallengeCards = (props: ChallengeCardsProps) => {
                       <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
                         <div>
                           <div className="mb-3 flex items-center gap-2">
-                            <LuSearch className="size-5 text-[#E04834]" />
+                            <LuSearch className="size-7 text-[#E04834]" />
                             <h3 className="text-lg md:text-xl">You need</h3>
                           </div>
                           <p className="text-sm text-neutral">{card.youNeed}</p>
                         </div>
                         <div>
                           <div className="mb-3 flex items-center gap-2">
-                            <LuLightbulb className="size-5 text-[#E04834]" />
+                            <LuLightbulb className="size-7 text-[#E04834]" />
                             <h3 className="text-lg md:text-xl">Our solution</h3>
                           </div>
                           <p className="text-sm text-neutral">{card.solution}</p>
@@ -107,7 +122,7 @@ export const ChallengeCards = (props: ChallengeCardsProps) => {
                       <div className="mt-8 grid grid-cols-1 gap-8 border-t border-border-primary pt-6 md:grid-cols-2">
                         <div>
                           <div className="mb-3 flex items-center gap-2">
-                            <LuTarget className="size-5 text-[#E04834]" />
+                            <LuTarget className="size-7 text-[#E04834]" />
                             <h3 className="text-lg md:text-xl">Results</h3>
                           </div>
                           <p className="text-sm text-neutral">{card.results}</p>
@@ -137,6 +152,7 @@ export const ChallengeCards = (props: ChallengeCardsProps) => {
               </AnimatePresence>
             </div>
           ))}
+        </div>
         </div>
       </div>
     </section>
