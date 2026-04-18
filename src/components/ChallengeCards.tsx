@@ -39,7 +39,7 @@ export const ChallengeCards = (props: ChallengeCardsProps) => {
           </div>
           <div className="hidden overflow-hidden rounded-2xl md:block">
             <img
-              src="/assets/poster-research-user-testing.jpg"
+              src="/assets/startups-hero.avif"
               alt="Startup challenges"
               className="size-full object-cover"
             />
