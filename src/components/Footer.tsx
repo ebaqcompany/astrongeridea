@@ -148,7 +148,7 @@ export const Footer5Defaults: Props = {
       title: "Method",
       links: [
         { title: "Market Inward", url: "/method/market-inward" },
-        { title: "How It Works", url: "#" },
+        { title: "How It Works", url: "/process" },
       ],
     },
     {
@@ -169,7 +169,7 @@ export const Footer5Defaults: Props = {
         { title: "Case Studies", url: "/case-studies" },
         { title: "Insights", url: "/insights" },
         { title: "About", url: "/about" },
-        { title: "Contact", url: "#" },
+        { title: "Contact", url: "/contact" },
       ],
     },
     {
