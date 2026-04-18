@@ -16,7 +16,7 @@ export const Header62 = (props: Header62Props) => {
   };
   return (
     <section id="relume" className="px-[5%] py-16 md:py-24 lg:py-28">
-      <div className="container max-w-xl text-center">
+      <div className="container max-w-xxl text-center">
         <p className="mb-3 font-semibold md:mb-4">{tagline}</p>
         <h1 className="mb-5 text-display md:mb-6">{heading}</h1>
         <p className="md:text-md">{description}</p>
