@@ -101,7 +101,7 @@ export default function AboutPage() {
           tagline="The Founder"
           heading="Eric Tomlinson"
           description="I founded ASID to practice a specific kind of product design — one that starts with the full system before it touches a single screen. Twenty-five years of building complex products taught me that the methodology matters more than the tools. Across roles at PayPal, Flowbird Group, Estate Guru, and KIRU, I have led large-scale redesigns, unified fragmented product ecosystems, and introduced design systems and DesignOps practices that reduced development friction and improved organizational UX maturity."
-          buttons={[{ title: "Connect on LinkedIn", variant: "secondary" as const }]}
+          buttons={[{ title: "Connect on LinkedIn", url: "https://www.linkedin.com/in/erictomlinson/" }]}
           image={{ src: "/assets/eric-tomlinson.avif", alt: "Eric Tomlinson — Founder & Principal Designer" }}
         />
       </div>

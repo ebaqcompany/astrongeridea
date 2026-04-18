@@ -53,8 +53,16 @@ export const Layout495 = (props: Layout495Props) => {
           <p className="md:text-md">{description}</p>
           <div className="mt-6 flex flex-wrap items-center justify-center gap-4 md:mt-8">
             {buttons.map((button, index) => (
-              <Button key={index} {...button}>
-                {button.title}
+              <Button key={index} {...button} asChild>
+                <a href={
+                  button.title?.toLowerCase().includes("schedule") || button.title?.toLowerCase().includes("discovery")
+                    ? "https://calendly.com/eric-astrongeridea/project_discussion"
+                    : button.title?.toLowerCase().includes("engagement")
+                    ? "/pricing"
+                    : "#"
+                }>
+                  {button.title}
+                </a>
               </Button>
             ))}
           </div>
@@ -89,11 +97,19 @@ export const Layout495 = (props: Layout495Props) => {
                     <p className="mt-3 md:mt-4">{tab.description}</p>
                     {tab.buttons && tab.buttons.length > 0 && (
                       <div className="mt-4 flex flex-wrap items-center gap-4">
-                        {tab.buttons.map((button, btnIndex) => (
-                          <Button key={btnIndex} {...button}>
-                            {button.title}
-                          </Button>
-                        ))}
+                        {tab.buttons.map((button, btnIndex) => {
+                          const tabUrls: Record<string, string> = {
+                            "Startups & Scale-ups": "/who/startups",
+                            "Product Organizations": "/who/product-organizations",
+                            "Agencies & Partners": "/who/agencies",
+                          };
+                          const href = tabUrls[tab.heading] || "#";
+                          return (
+                            <Button key={btnIndex} {...button} asChild>
+                              <a href={href}>{button.title}</a>
+                            </Button>
+                          );
+                        })}
                       </div>
                     )}
                   </motion.div>

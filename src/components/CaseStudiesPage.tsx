@@ -50,7 +50,9 @@ export const Portfolio7 = (props: Portfolio7Props) => {
           ))}
         </div>
         <footer className="mt-12 flex justify-center md:mt-18 lg:mt-20">
-          <Button {...button}>{button.title}</Button>
+          <Button {...button} asChild>
+            <a href="https://calendly.com/eric-astrongeridea/project_discussion">{button.title}</a>
+          </Button>
         </footer>
       </div>
     </section>
@@ -92,7 +94,7 @@ const caseStudies: ProjectProps[] = [
       src: "/assets/poster-case-study-flowbird.jpg",
       alt: "Flowbird Park Detroit case study",
     },
-    url: "#",
+    url: "/case-studies",
     button: {
       title: "View project",
       variant: "link" as const,
@@ -113,7 +115,7 @@ const caseStudies: ProjectProps[] = [
       src: "/assets/poster-case-study-estateguru.jpg",
       alt: "EstateGuru Financial Advisor Dashboard case study",
     },
-    url: "#",
+    url: "/case-studies",
     button: {
       title: "View project",
       variant: "link" as const,
@@ -133,7 +135,7 @@ const caseStudies: ProjectProps[] = [
       src: "/assets/poster-case-study-flowbird-hub.jpg",
       alt: "Flowbird Urban Management Dashboard Hub case study",
     },
-    url: "#",
+    url: "/case-studies",
     button: {
       title: "View project",
       variant: "link" as const,
@@ -154,7 +156,7 @@ const caseStudies: ProjectProps[] = [
       src: "/assets/poster-case-study-feathers.jpg",
       alt: "Feathers Vintage eCommerce website case study",
     },
-    url: "#",
+    url: "/case-studies",
     button: {
       title: "View project",
       variant: "link" as const,
@@ -174,7 +176,7 @@ const caseStudies: ProjectProps[] = [
       src: "/assets/poster-case-study-euvic.jpg",
       alt: "Euvic AlterDomus Financial Dashboard case study",
     },
-    url: "#",
+    url: "/case-studies",
     button: {
       title: "View project",
       variant: "link" as const,

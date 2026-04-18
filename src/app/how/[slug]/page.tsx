@@ -91,7 +91,7 @@ export default function ServicePage({ params }: { params: Promise<{ slug: string
           tagline={data.caseStudy.eyebrow}
           heading={data.caseStudy.heading}
           description={data.caseStudy.description}
-          buttons={[{ title: data.caseStudy.buttonText }]}
+          buttons={[{ title: data.caseStudy.buttonText, url: "/case-studies" }]}
           image={{ src: data.caseStudy.image || "/assets/poster-case-study-flowbird.jpg", alt: data.caseStudy.heading }}
         />
       </div>

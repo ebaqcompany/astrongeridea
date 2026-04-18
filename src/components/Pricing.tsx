@@ -81,8 +81,10 @@ const PricingPlan = ({ plan }: { plan: PricingPlan }) => (
       </div>
     </div>
     <div>
-      <Button {...plan.button} className="w-full">
-        {plan.button.title}
+      <Button {...plan.button} className="w-full" asChild>
+        <a href="https://calendly.com/eric-astrongeridea/project_discussion">
+          {plan.button.title}
+        </a>
       </Button>
     </div>
   </div>

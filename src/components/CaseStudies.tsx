@@ -122,8 +122,8 @@ const FeatureSectionContent = ({
       <p>{featureSection.description}</p>
       <div className="mt-6 flex items-center gap-x-4 md:mt-8">
         {featureSection.buttons.map((button, index) => (
-          <Button key={index} {...button}>
-            {button.title}
+          <Button key={index} {...button} asChild>
+            <a href="/case-studies">{button.title}</a>
           </Button>
         ))}
       </div>
@@ -150,7 +150,7 @@ export const Layout409Defaults: Props = {
       description:
         "Five distinct user types. Real-time operational requirements. City-level stakes. 200K+ monthly transactions. 4.6 App Store rating.",
       buttons: [
-        { title: "Read Case Study", variant: "secondary" },
+        { title: "Read Case Study" },
         {
           title: "View Details",
           variant: "link",
@@ -169,7 +169,7 @@ export const Layout409Defaults: Props = {
       description:
         "Where workflow errors have legal consequences and every design decision carries operational weight. 35% task completion improvement. 50% reduction in user errors.",
       buttons: [
-        { title: "Read Case Study", variant: "secondary" },
+        { title: "Read Case Study" },
         {
           title: "View Details",
           variant: "link",
@@ -188,7 +188,7 @@ export const Layout409Defaults: Props = {
       description:
         "Where design decisions carry compliance risk and the consequences of getting it wrong are measurable. 150+ funds onboarded. $20B maximum AUM per fund.",
       buttons: [
-        { title: "Read Case Study", variant: "secondary" },
+        { title: "Read Case Study" },
         {
           title: "View Details",
           variant: "link",

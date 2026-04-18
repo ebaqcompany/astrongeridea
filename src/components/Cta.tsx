@@ -9,6 +9,20 @@ type Props = {
 
 export type Cta7Props = React.ComponentPropsWithoutRef<"section"> & Partial<Props>;
 
+const CALENDLY_URL = "https://calendly.com/eric-astrongeridea/project_discussion";
+
+function getButtonUrl(title?: string): string {
+  if (!title) return CALENDLY_URL;
+  const t = title.toLowerCase();
+  if (t.includes("schedule") || t.includes("discovery call") || t.includes("let's talk") || t.includes("start a conversation") || t.includes("book")) return CALENDLY_URL;
+  if (t.includes("case stud") || t.includes("view case")) return "/case-studies";
+  if (t.includes("engagement") || t.includes("pricing")) return "/pricing";
+  if (t.includes("process") || t.includes("our process")) return "/process";
+  if (t.includes("services") || t.includes("about services") || t.includes("read more about services")) return "/how/product-strategy";
+  if (t.includes("method")) return "/method/market-inward";
+  return CALENDLY_URL;
+}
+
 export const Cta7 = (props: Cta7Props) => {
   const { heading, description, buttons } = {
     ...Cta7Defaults,
@@ -27,8 +41,10 @@ export const Cta7 = (props: Cta7Props) => {
         </div>
         <div className="flex items-center justify-start gap-4">
           {buttons.map((button, index) => (
-            <Button key={index} {...button}>
-              {button.title}
+            <Button key={index} {...button} asChild>
+              <a href={getButtonUrl(button.title)}>
+                {button.title}
+              </a>
             </Button>
           ))}
         </div>

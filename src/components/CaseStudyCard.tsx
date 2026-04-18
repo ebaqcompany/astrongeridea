@@ -7,11 +7,13 @@ type ImageProps = {
   alt?: string;
 };
 
+type ButtonWithUrl = ButtonProps & { url?: string };
+
 type Props = {
   tagline: string;
   heading: string;
   description: string;
-  buttons: ButtonProps[];
+  buttons: ButtonWithUrl[];
   image: ImageProps;
 };
 
@@ -33,11 +35,15 @@ export const Layout1 = (props: Layout1Props) => {
             </h1>
             <p className="md:text-md">{description}</p>
             <div className="mt-6 flex flex-wrap items-center gap-4 md:mt-8">
-              {buttons.map((button, index) => (
-                <Button key={index} {...button}>
-                  {button.title}
-                </Button>
-              ))}
+              {buttons.map((button, index) => {
+                const { url, ...btnProps } = button;
+                const href = url || (button.title?.toLowerCase().includes("case study") || button.title?.toLowerCase().includes("view") ? "/case-studies" : "https://calendly.com/eric-astrongeridea/project_discussion");
+                return (
+                  <Button key={index} {...btnProps} asChild>
+                    <a href={href}>{button.title}</a>
+                  </Button>
+                );
+              })}
             </div>
           </div>
           <div>

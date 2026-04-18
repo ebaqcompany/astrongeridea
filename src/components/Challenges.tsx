@@ -97,8 +97,8 @@ export const Portfolio23 = (props: Portfolio23Props) => {
                   <div className="mt-6 md:mt-8 md:text-md">{project.description}</div>
                   <div className="mt-6 flex flex-wrap items-center gap-4 md:mt-8">
                     {project.buttons.map((button, index) => (
-                      <Button key={index} {...button}>
-                        {button.title}
+                      <Button key={index} {...button} asChild>
+                        <a href="/case-studies">{button.title}</a>
                       </Button>
                     ))}
                   </div>

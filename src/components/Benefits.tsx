@@ -12,6 +12,7 @@ type SectionProps = {
   heading: string;
   description: string;
   buttons: ButtonProps[];
+  url?: string;
 };
 
 type Props = {
@@ -31,9 +32,11 @@ export const Layout232 = (props: Layout232Props) => {
               <h3 className="mb-3 text-xl font-bold md:mb-4 md:text-2xl">{section.heading}</h3>
               <p>{section.description}</p>
               <div className="mt-6 flex flex-wrap items-center gap-4 md:mt-8">
-                {section.buttons.map((button, index) => (
-                  <Button key={index} {...button}>
-                    {button.title}
+                {section.buttons.map((button, btnIndex) => (
+                  <Button key={btnIndex} {...button} asChild>
+                    <a href={section.url || "/case-studies"}>
+                      {button.title}
+                    </a>
                   </Button>
                 ))}
               </div>
@@ -63,6 +66,7 @@ export const Layout232Defaults: Props = {
           iconRight: <RxChevronRight />,
         },
       ],
+      url: "/case-studies",
     },
     {
       image: {
@@ -80,6 +84,7 @@ export const Layout232Defaults: Props = {
           iconRight: <RxChevronRight />,
         },
       ],
+      url: "/case-studies",
     },
     {
       image: {
@@ -97,6 +102,7 @@ export const Layout232Defaults: Props = {
           iconRight: <RxChevronRight />,
         },
       ],
+      url: "/case-studies",
     },
     {
       image: {
@@ -114,6 +120,7 @@ export const Layout232Defaults: Props = {
           iconRight: <RxChevronRight />,
         },
       ],
+      url: "/case-studies",
     },
     {
       image: {
@@ -131,6 +138,7 @@ export const Layout232Defaults: Props = {
           iconRight: <RxChevronRight />,
         },
       ],
+      url: "/case-studies",
     },
     {
       image: {
@@ -148,6 +156,7 @@ export const Layout232Defaults: Props = {
           iconRight: <RxChevronRight />,
         },
       ],
+      url: "/case-studies",
     },
   ],
 };

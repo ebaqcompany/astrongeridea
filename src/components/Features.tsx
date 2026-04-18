@@ -180,8 +180,8 @@ const ContentSection = ({ section }: { section: Section }) => (
     <p className="md:text-md">{section.description}</p>
     <div className="mt-6 flex items-center gap-x-4 md:mt-8">
       {section.buttons.map((button, index) => (
-        <Button key={index} {...button}>
-          {button.title}
+        <Button key={index} {...button} asChild>
+          <a href={`/how/${section.id}`}>{button.title}</a>
         </Button>
       ))}
     </div>

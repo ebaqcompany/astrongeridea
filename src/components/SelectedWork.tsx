@@ -50,7 +50,9 @@ export const Portfolio11 = (props: Portfolio11Props) => {
           ))}
         </div>
         <footer className="mt-12 flex justify-center md:mt-18 lg:mt-20">
-          <Button {...button}>{button.title}</Button>
+          <Button {...button} asChild>
+            <a href="/case-studies">{button.title}</a>
+          </Button>
         </footer>
       </div>
     </section>
@@ -91,7 +93,7 @@ const project = {
     src: "https://d22po4pjz3o32e.cloudfront.net/placeholder-image-landscape.svg",
     alt: "Relume placeholder image",
   },
-  url: "#",
+  url: "/case-studies",
   button: {
     title: "View project",
     variant: "link" as const,

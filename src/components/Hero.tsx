@@ -28,8 +28,10 @@ export const Header3 = (props: Header3Props) => {
             <p className="md:text-md">{description}</p>
             <div className="mt-6 flex flex-wrap gap-4 md:mt-8">
               {buttons.map((button, index) => (
-                <Button key={index} {...button}>
-                  {button.title}
+                <Button key={index} {...button} asChild>
+                  <a href={button.title === "Start a conversation" ? "https://calendly.com/eric-astrongeridea/project_discussion" : "/case-studies"}>
+                    {button.title}
+                  </a>
                 </Button>
               ))}
             </div>

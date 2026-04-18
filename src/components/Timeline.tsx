@@ -48,8 +48,12 @@ export const Timeline9 = (props: Timeline9Props) => {
               <p className="md:text-md">{description}</p>
               <div className="mt-6 flex items-center justify-center gap-x-4 md:mt-8">
                 {buttons.map((button, index) => (
-                  <Button key={index} {...button}>
-                    {button.title}
+                  <Button key={index} {...button} asChild>
+                    <a href={
+                      button.title?.toLowerCase().includes("method") ? "/method/market-inward"
+                      : button.title?.toLowerCase().includes("conversation") || button.title?.toLowerCase().includes("schedule") ? "https://calendly.com/eric-astrongeridea/project_discussion"
+                      : "#"
+                    }>{button.title}</a>
                   </Button>
                 ))}
               </div>
@@ -143,8 +147,12 @@ const TimelineContent = ({
     <p>{item.description}</p>
     <div className="mt-6 flex flex-wrap items-center gap-4 md:mt-8">
       {item.buttons.map((button, index) => (
-        <Button key={index} {...button}>
-          {button.title}
+        <Button key={index} {...button} asChild>
+          <a href={
+            button.title?.toLowerCase().includes("method") ? "/method/market-inward"
+            : button.title?.toLowerCase().includes("conversation") || button.title?.toLowerCase().includes("schedule") ? "https://calendly.com/eric-astrongeridea/project_discussion"
+            : "#"
+          }>{button.title}</a>
         </Button>
       ))}
     </div>
@@ -157,7 +165,7 @@ export const Timeline9Defaults: Props = {
   description:
     "Market Inward sequences every decision from the outermost layer in. The market defines the opportunity. The ecosystem defines what it requires. The product delivers it.",
   buttons: [
-    { title: "See Our Method", variant: "secondary" },
+    { title: "See Our Method" },
     {
       title: "Start a Conversation",
       variant: "link",

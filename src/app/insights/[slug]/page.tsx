@@ -66,8 +66,8 @@ export default function InsightArticlePage() {
           }}
           socialMediaLinks={[
             { url: "#", icon: <BiLinkAlt className="size-6" /> },
-            { url: "#", icon: <BiLogoLinkedinSquare className="size-6" /> },
-            { url: "#", icon: <FaXTwitter className="size-6 p-0.5" /> },
+            { url: "https://www.linkedin.com/in/erictomlinson/", icon: <BiLogoLinkedinSquare className="size-6" /> },
+            { url: "https://x.com/astrongeridea", icon: <FaXTwitter className="size-6 p-0.5" /> },
           ]}
           image={{
             src: "https://d22po4pjz3o32e.cloudfront.net/placeholder-image.svg",

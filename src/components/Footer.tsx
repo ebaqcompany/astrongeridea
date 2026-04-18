@@ -182,8 +182,8 @@ export const Footer5Defaults: Props = {
     },
   ],
   socialMediaLinks: [
-    { url: "#", icon: <BiLogoLinkedinSquare className="size-6" /> },
-    { url: "#", icon: <FaXTwitter className="size-6 p-0.5" /> },
+    { url: "https://www.linkedin.com/in/erictomlinson/", icon: <BiLogoLinkedinSquare className="size-6" /> },
+    { url: "https://x.com/astrongeridea", icon: <FaXTwitter className="size-6 p-0.5" /> },
   ],
   footerText: "Copyright \u00A9 A Stronger Idea, LLC 2025 All rights reserved",
   footerLinks: [

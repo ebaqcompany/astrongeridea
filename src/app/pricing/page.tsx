@@ -51,11 +51,21 @@ const Layout1 = ({
             <p className="mb-6 md:text-md">{description}</p>
             {children}
             <div className="mt-6 flex flex-wrap items-center gap-4 md:mt-8">
-              {buttons.map((button, index) => (
-                <Button key={index} {...button}>
-                  {button.title}
-                </Button>
-              ))}
+              {buttons.map((button, index) => {
+                const t = button.title?.toLowerCase() || "";
+                const href = t.includes("schedule") || t.includes("discovery call") || t.includes("let's talk") || t.includes("book")
+                  ? "https://calendly.com/eric-astrongeridea/project_discussion"
+                  : t.includes("case stud") ? "/case-studies"
+                  : t.includes("method") ? "/method/market-inward"
+                  : t.includes("services") || t.includes("about our services") ? "/how/product-strategy"
+                  : t.includes("about eric") ? "/about"
+                  : "https://calendly.com/eric-astrongeridea/project_discussion";
+                return (
+                  <Button key={index} {...button} asChild>
+                    <a href={href}>{button.title}</a>
+                  </Button>
+                );
+              })}
             </div>
           </div>
           <div>

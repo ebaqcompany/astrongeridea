@@ -113,9 +113,8 @@ export const Team1Defaults: Props = {
       description:
         "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique.",
       socialLinks: [
-        { href: "#", icon: <BiLogoLinkedinSquare className="size-6" /> },
-        { href: "#", icon: <FaXTwitter className="size-6 p-0.5" /> },
-        { href: "#", icon: <BiLogoDribbble className="size-6" /> },
+        { href: "https://www.linkedin.com/in/erictomlinson/", icon: <BiLogoLinkedinSquare className="size-6" /> },
+        { href: "https://x.com/astrongeridea", icon: <FaXTwitter className="size-6 p-0.5" /> },
       ],
     },
   ],
