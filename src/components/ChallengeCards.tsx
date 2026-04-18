@@ -74,21 +74,21 @@ export const ChallengeCards = (props: ChallengeCardsProps) => {
       </section>
 
       {/* Scroll-hijack accordion */}
-      <section ref={containerRef} className="relative" style={{ height: `${cards.length * 100}vh` }}>
-        <div className="sticky top-0 min-h-screen px-[5%] py-8 flex items-center">
-          <div className="container">
-            <div className="flex flex-col gap-4">
+      <section ref={containerRef} className="relative" style={{ height: `${cards.length * 120}vh` }}>
+        <div className="sticky top-0 h-screen px-[5%] py-8 flex items-start overflow-y-auto">
+          <div className="container my-auto">
+            <div className="flex flex-col gap-2">
           {cards.map((card, index) => (
             <div
               key={index}
-              className="rounded-2xl bg-[#f5f3f2] overflow-hidden transition-all duration-300"
+              className="rounded-2xl bg-[#f5f3f2] overflow-hidden transition-all duration-500"
             >
               {/* Header — always visible */}
-              <div className="flex items-center gap-4 p-6 md:p-8">
+              <div className={`flex items-center gap-4 transition-all duration-300 ${activeIndex === index ? 'p-6 md:p-8' : 'px-6 py-3 md:px-8 md:py-4'}`}>
                 <span className="flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-full bg-[#E04834] text-sm font-medium text-white">
                   {card.number}
                 </span>
-                <h3 className="text-xl md:text-2xl">{card.heading}</h3>
+                <h3 className={`transition-all duration-300 ${activeIndex === index ? 'text-xl md:text-2xl' : 'text-base md:text-lg text-neutral'}`}>{card.heading}</h3>
               </div>
 
               {/* Expandable content */}
