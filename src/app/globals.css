@@ -219,8 +219,12 @@ h5, h6 {
 button:not(.gap-1):not([class*="gap-1"]):not([class*="p-0"]):not([class*="h-auto"]),
 [role="button"],
 a[class*="Button"],
-a[class*="button"] {
+a[class*="button"],
+a.bg-background-alternative,
+a[class*="border-border"],
+a.inline-flex:not([class*="gap-1"]):not([class*="p-0"]) {
   border-radius: 9999px !important;
+  cursor: pointer !important;
 }
 
 /* Link-variant buttons — NEVER pill, ALWAYS inline-flex with icon */
@@ -306,7 +310,7 @@ button[data-state] > svg {
 
 /* ===== LINKS & SOCIAL ICONS HOVER ===== */
 
-a:hover {
+a:not(.bg-background-alternative):not([class*="border-border"]):not(.inline-flex):hover {
   color: var(--color-primary) !important;
   transition: color 0.2s ease;
 }
