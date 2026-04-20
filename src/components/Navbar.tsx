@@ -67,7 +67,7 @@ export const Navbar2 = (props: Navbar2Props) => {
             <div>
               {buttons.map((button, index) => (
                 <Button key={index} className="w-full px-4 py-1" {...button} asChild>
-                  <a href="https://calendly.com/eric-astrongeridea/project_discussion">
+                  <a href="/contact">
                     {button.title}
                   </a>
                 </Button>
@@ -127,7 +127,7 @@ export const Navbar2 = (props: Navbar2Props) => {
         <div className="hidden justify-self-end lg:block">
           {buttons.map((button, index) => (
             <Button key={index} className="px-6 py-2" {...button} asChild>
-              <a href="https://calendly.com/eric-astrongeridea/project_discussion">
+              <a href="/contact">
                 {button.title}
               </a>
             </Button>

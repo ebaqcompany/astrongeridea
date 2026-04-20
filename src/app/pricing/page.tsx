@@ -112,20 +112,6 @@ export default function PricingPage() {
         />
       </div>
 
-      {/* Pricing Cards */}
-      <div className="section-gray">
-        <Pricing13 />
-      </div>
-
-      {/* CTA — bridge */}
-      <div className="section-dark">
-        <Cta7
-          heading="Not sure which model fits? Let's sort it out with a call."
-          description="No pressure. No obligation. Just clarity."
-          buttons={[{ title: "Let's talk about your project" }]}
-        />
-      </div>
-
       {/* ── Detailed Pricing Sections ─────────────────────── */}
 
       {/* Discovery Sprint */}

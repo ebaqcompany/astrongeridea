@@ -44,9 +44,9 @@ export const Portfolio7 = (props: Portfolio7Props) => {
           <h2 className="mb-5 text-5xl font-bold md:mb-6 md:text-7xl lg:text-8xl">{heading}</h2>
           <p className="md:text-md">{description}</p>
         </header>
-        <div className="grid grid-cols-1 gap-y-12 md:gap-y-16 lg:gap-y-20">
+        <div className="grid grid-cols-1 gap-y-12 md:grid-cols-3 md:gap-x-8 md:gap-y-16 lg:gap-y-20">
           {projects.map((project, index) => (
-            <Project key={index} {...project} />
+            <Project key={index} index={index} {...project} />
           ))}
         </div>
         <footer className="mt-12 flex justify-center md:mt-18 lg:mt-20">
@@ -59,8 +59,8 @@ export const Portfolio7 = (props: Portfolio7Props) => {
   );
 };
 
-const Project: React.FC<ProjectProps> = ({ title, description, image, url, button, tags }) => (
-  <article className="max-w-lg even:ml-auto">
+const Project: React.FC<ProjectProps & { index: number }> = ({ title, description, image, url, button, tags, index }) => (
+  <article className={`md:col-span-2 ${index % 2 === 0 ? 'md:col-start-1' : 'md:col-start-2'}`}>
     <div className="mb-5 md:mb-6">
       <a href={url}>
         <img src={image.src} className="w-full object-cover rounded-2xl" alt={image.alt} />
