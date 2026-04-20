@@ -18,10 +18,8 @@ import { Footer12 } from "@/components/Footer";
 export default function Home() {
   return (
     <>
-      {/* Navbar — white */}
-      <div className="section-white">
-        <Navbar2 />
-      </div>
+      {/* Navbar — white, sticky */}
+      <Navbar2 />
 
       {/* Hero — white */}
       <div className="section-white">
@@ -49,8 +47,8 @@ export default function Home() {
           heading="The first conversation is a diagnosis, not a pitch."
           description=""
           buttons={[
-            { title: "Schedule a discovery call" },
-            { title: "See engagement options", variant: "secondary" },
+            { title: "See the Method" },
+            { title: "Schedule discovery call", variant: "secondary" },
           ]}
         />
       </div>

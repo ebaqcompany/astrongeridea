@@ -46,27 +46,27 @@ export const Layout351 = (props: Layout350Props) => {
   return (
     <section id="relume" className="px-[5%] py-16 md:py-24 lg:py-28">
       <div className="container">
+        <Tabs
+          value={activeSection}
+          onValueChange={scrollToSection}
+          className="sticky top-20 z-10 mb-12 hidden md:flex md:justify-end"
+        >
+          <TabsList className="flex gap-x-1 bg-transparent p-1">
+            {sections.map((section) => (
+              <TabsTrigger
+                key={section.id}
+                value={section.id}
+                className="whitespace-nowrap px-5 py-2 rounded-full text-neutral data-[state=active]:bg-white data-[state=active]:text-neutral-black data-[state=inactive]:border data-[state=inactive]:border-border-primary data-[state=inactive]:bg-transparent"
+                style={{ textDecoration: 'none' }}
+              >
+                {section.anchorTrigger}
+              </TabsTrigger>
+            ))}
+          </TabsList>
+        </Tabs>
+
         <div className="grid grid-cols-1 gap-x-12 gap-y-12 md:grid-cols-2 md:gap-y-16 lg:gap-x-20">
           <div className="grid items-start gap-12 md:flex md:flex-col md:gap-0">
-            <Tabs
-              value={activeSection}
-              onValueChange={scrollToSection}
-              className="sticky top-24 z-10 hidden md:block"
-            >
-              <TabsList className="flex w-full gap-x-1 bg-transparent p-1">
-                {sections.map((section) => (
-                  <TabsTrigger
-                    key={section.id}
-                    value={section.id}
-                    className="whitespace-nowrap px-5 py-2 rounded-full text-neutral data-[state=active]:bg-white data-[state=active]:text-neutral-black data-[state=inactive]:border data-[state=inactive]:border-border-primary data-[state=inactive]:bg-transparent"
-                    style={{ textDecoration: 'none' }}
-                  >
-                    {section.anchorTrigger}
-                  </TabsTrigger>
-                ))}
-              </TabsList>
-            </Tabs>
-
             {sections.map((section, index) => (
               <ObservedSection
                 key={section.id}

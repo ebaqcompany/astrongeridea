@@ -1,6 +1,5 @@
 "use client";
 
-import { BiSolidStar } from "react-icons/bi";
 import useEmblaCarousel from "embla-carousel-react";
 import AutoScroll from "embla-carousel-auto-scroll";
 
@@ -59,13 +58,6 @@ export const Testimonial21 = (props: Testimonial21Props) => {
 
 const TestimonialCard = ({ testimonial }: { testimonial: Testimonial }) => (
   <div className="mr-8 flex w-[25rem] min-w-[25rem] flex-none flex-col items-start justify-between bg-[#f0f0f0] border-none rounded-2xl p-6 md:p-8">
-    <div className="mb-5 flex md:mb-6">
-      {Array(testimonial.numberOfStars)
-        .fill(null)
-        .map((_, starIndex) => (
-          <BiSolidStar key={starIndex} className="size-6" />
-        ))}
-    </div>
     <blockquote className="md:text-md">{testimonial.quote}</blockquote>
     <div className="mt-5 flex w-full flex-col items-start gap-4 md:mt-6 md:w-auto md:flex-row md:items-center">
       <div>

@@ -3,7 +3,7 @@
 import { Button, useMediaQuery } from "@relume_io/relume-ui";
 import type { ButtonProps } from "@relume_io/relume-ui";
 import { MotionValue, useMotionValue, motion, useScroll, useTransform } from "framer-motion";
-import { useRef } from "react";
+import { useRef, useCallback } from "react";
 import { RxChevronRight } from "react-icons/rx";
 import clsx from "clsx";
 import React from "react";
@@ -19,6 +19,7 @@ type FeatureSectionProps = {
   description: string;
   buttons: ButtonProps[];
   image: ImageProps;
+  video?: string;
 };
 
 type Props = {
@@ -60,7 +61,7 @@ export const Layout409 = (props: Layout409Props) => {
   return (
     <section id="relume" className="px-[5%] py-16 md:py-24 lg:py-28">
       <div className="container">
-        <div className="mx-auto mb-12 w-full max-w-xl text-center md:mb-18 lg:mb-20">
+        <div className="mx-auto mb-12 w-full max-w-xxl text-center md:mb-18 lg:mb-20">
           <p className="mb-3 font-semibold md:mb-4">{tagline}</p>
           <h1 className="mb-5 text-5xl font-bold md:mb-6 md:text-7xl lg:text-8xl">{heading}</h1>
           <p className="md:text-md">{description}</p>
@@ -104,6 +105,47 @@ const FeatureSection = ({
   );
 };
 
+const HoverVideoImage = ({ image, video }: { image: ImageProps; video?: string }) => {
+  const videoRef = useRef<HTMLVideoElement>(null);
+
+  const handleMouseEnter = useCallback(() => {
+    if (videoRef.current) {
+      videoRef.current.currentTime = 0;
+      videoRef.current.play().catch(() => {});
+    }
+  }, []);
+
+  const handleMouseLeave = useCallback(() => {
+    if (videoRef.current) {
+      videoRef.current.pause();
+    }
+  }, []);
+
+  if (!video) {
+    return <img src={image.src} alt={image.alt} className="size-full object-cover rounded-2xl" />;
+  }
+
+  return (
+    <div
+      className="relative size-full overflow-hidden rounded-2xl"
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
+    >
+      <img src={image.src} alt={image.alt} className="size-full object-cover" />
+      <video
+        ref={videoRef}
+        src={video}
+        muted
+        playsInline
+        loop
+        className="absolute inset-0 size-full object-cover opacity-0 hover:opacity-100 transition-opacity duration-300"
+        onMouseEnter={(e) => { (e.target as HTMLVideoElement).style.opacity = "1"; }}
+        onMouseLeave={(e) => { (e.target as HTMLVideoElement).style.opacity = "0"; }}
+      />
+    </div>
+  );
+};
+
 const FeatureSectionContent = ({
   isEven,
   ...featureSection
@@ -121,7 +163,9 @@ const FeatureSectionContent = ({
       </h2>
       <p>{featureSection.description}</p>
       <div className="mt-6 flex items-center gap-x-4 md:mt-8">
-        {featureSection.buttons.map((button, index) => (
+        {featureSection.buttons
+          .filter((button) => button.title !== "View Details")
+          .map((button, index) => (
           <Button key={index} {...button} asChild>
             <a href="/case-studies">{button.title}</a>
           </Button>
@@ -130,11 +174,11 @@ const FeatureSectionContent = ({
     </div>
     <div
       className={clsx(
-        "order-last flex flex-col items-center justify-center",
+        "order-last flex flex-col items-center justify-center overflow-hidden rounded-2xl",
         isEven ? "md:order-last" : "md:order-first",
       )}
     >
-      <img src={featureSection.image.src} alt={featureSection.image.alt} />
+      <HoverVideoImage image={featureSection.image} video={featureSection.video} />
     </div>
   </React.Fragment>
 );
@@ -151,12 +195,6 @@ export const Layout409Defaults: Props = {
         "Five distinct user types. Real-time operational requirements. City-level stakes. 200K+ monthly transactions. 4.6 App Store rating.",
       buttons: [
         { title: "Read Case Study" },
-        {
-          title: "View Details",
-          variant: "link",
-          size: "link",
-          iconRight: <RxChevronRight />,
-        },
       ],
       image: {
         src: "/assets/poster-case-study-flowbird.jpg",
@@ -170,12 +208,6 @@ export const Layout409Defaults: Props = {
         "Where workflow errors have legal consequences and every design decision carries operational weight. 35% task completion improvement. 50% reduction in user errors.",
       buttons: [
         { title: "Read Case Study" },
-        {
-          title: "View Details",
-          variant: "link",
-          size: "link",
-          iconRight: <RxChevronRight />,
-        },
       ],
       image: {
         src: "/assets/poster-case-study-estateguru.jpg",
@@ -189,12 +221,6 @@ export const Layout409Defaults: Props = {
         "Where design decisions carry compliance risk and the consequences of getting it wrong are measurable. 150+ funds onboarded. $20B maximum AUM per fund.",
       buttons: [
         { title: "Read Case Study" },
-        {
-          title: "View Details",
-          variant: "link",
-          size: "link",
-          iconRight: <RxChevronRight />,
-        },
       ],
       image: {
         src: "/assets/poster-case-study-euvic.jpg",

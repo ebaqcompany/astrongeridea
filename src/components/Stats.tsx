@@ -88,7 +88,7 @@ export const Stats8 = (props: Layout518Props) => {
     <section
       id="relume"
       ref={containerRef}
-      className="relative py-16 md:py-24 lg:h-[350vh] lg:py-0"
+      className="relative py-16 md:py-24 lg:h-[200vh] lg:py-0"
     >
       <div className="mx-auto w-[90vw] lg:sticky lg:top-0 lg:flex lg:h-screen lg:w-full lg:items-center lg:justify-center lg:overflow-hidden">
         <div className="grid grid-cols-1 gap-y-6 md:gap-y-8 lg:h-[90vh] lg:w-[90vw] lg:grid-cols-[55vw_35vw] lg:gap-y-0">

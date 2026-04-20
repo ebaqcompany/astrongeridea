@@ -76,7 +76,7 @@ export const Footer12 = (props: Footer5Props) => {
   return (
     <footer id="relume" className="px-[5%] py-12 md:py-18 lg:py-20">
       <div className="container">
-        <div className="rb-12 mb-12 grid grid-cols-1 items-start gap-x-8 gap-y-10 sm:grid-cols-3 md:mb-18 md:gap-y-12 lg:mb-20 lg:grid-cols-6">
+        <div className="rb-12 mb-12 grid grid-cols-1 items-start gap-x-8 gap-y-10 sm:grid-cols-3 md:mb-18 md:gap-y-12 lg:mb-20 lg:grid-cols-7">
           <a
             href={logo.url}
             className="sm:col-start-1 sm:col-end-4 sm:row-start-1 sm:row-end-2 lg:col-start-auto lg:col-end-auto lg:row-start-auto lg:row-end-auto"
@@ -161,6 +161,15 @@ export const Footer5Defaults: Props = {
         { title: "Discovery Sprint", url: "/how/discovery-sprint" },
         { title: "Project Engagements", url: "/how/project-engagements" },
         { title: "Fractional Leadership", url: "/how/fractional-design-leadership" },
+      ],
+    },
+    {
+      title: "Pricing",
+      links: [
+        { title: "Discovery Sprint", url: "/pricing#discovery-sprint" },
+        { title: "Project Engagements", url: "/pricing#project-engagements" },
+        { title: "Monthly Retainer", url: "/pricing#monthly-retainer" },
+        { title: "Fractional Leadership", url: "/pricing#fractional-leadership" },
       ],
     },
     {

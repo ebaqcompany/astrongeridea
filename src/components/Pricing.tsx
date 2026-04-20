@@ -56,13 +56,13 @@ const PricingPlan = ({ plan }: { plan: PricingPlan }) => (
     <div>
       <div className="flex items-start justify-between">
         <div>
-          <h5 className="mb-2 text-xl font-bold md:text-2xl">{plan.planName}</h5>
+          <h5 className="mb-2 text-2xl font-bold md:text-3xl lg:text-4xl">{plan.planName}</h5>
           <p>{plan.description}</p>
         </div>
         <div className="text-right">
-          <h1 className="text-6xl font-light md:text-9xl lg:text-10xl">
+          <h1 className="text-4xl font-light md:text-5xl lg:text-6xl">
             {plan.price}
-            <span className="text-2xl font-light md:text-3xl md:leading-[1.3] lg:text-4xl ml-1">/mo</span>
+            <span className="text-xl font-light md:text-2xl md:leading-[1.3] lg:text-3xl ml-1">/mo</span>
           </h1>
           <p className="mt-2 font-medium">{plan.discount}</p>
         </div>
