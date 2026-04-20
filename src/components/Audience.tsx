@@ -47,10 +47,10 @@ export const Layout495 = (props: Layout495Props) => {
   return (
     <section id="relume" className="px-[5%] py-16 md:py-24 lg:py-28">
       <div className="container">
-        <div className="mx-auto mb-12 max-w-xl text-center md:mb-18 lg:mb-20">
+        <div className="mx-auto mb-12 text-center md:mb-18 lg:mb-20">
           <p className="mb-3 font-semibold md:mb-4">{tagline}</p>
-          <h1 className="mb-5 text-5xl font-bold md:mb-6 md:text-7xl lg:text-8xl">{heading}</h1>
-          <p className="md:text-md">{description}</p>
+          <h1 className="mb-5 text-5xl font-bold md:mb-6 md:text-7xl lg:text-8xl max-w-xxl mx-auto">{heading}</h1>
+          <p className="md:text-md max-w-xl mx-auto">{description}</p>
           <div className="mt-6 flex flex-wrap items-center justify-center gap-4 md:mt-8">
             {buttons.map((button, index) => (
               <Button key={index} {...button} asChild>
