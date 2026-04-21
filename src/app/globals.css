@@ -301,6 +301,26 @@ a.bg-background-alternative > *,
   z-index: 1;
 }
 
+/* Checkbox — reset all button styling */
+button[role="checkbox"],
+[role="checkbox"] {
+  border-radius: 4px !important;
+  width: 1.125rem !important;
+  height: 1.125rem !important;
+  min-width: 1.125rem !important;
+  max-width: 1.125rem !important;
+  padding: 0 !important;
+  overflow: visible !important;
+  position: static !important;
+  transform: none !important;
+  background: transparent !important;
+  flex-shrink: 0 !important;
+}
+button[role="checkbox"]::before,
+[role="checkbox"]::before {
+  display: none !important;
+}
+
 /* Secondary: 1px border with primary color, fully rounded, bestia hover */
 [data-button-variant="secondary"],
 .button-secondary {
