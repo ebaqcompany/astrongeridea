@@ -301,22 +301,11 @@ a.bg-background-alternative > *,
   z-index: 1;
 }
 
-/* Checkbox — reset all button styling */
-button[role="checkbox"],
+/* Checkbox — undo global button styles */
 [role="checkbox"] {
-  border-radius: 4px !important;
-  width: 1.125rem !important;
-  height: 1.125rem !important;
-  min-width: 1.125rem !important;
-  max-width: 1.125rem !important;
-  padding: 0 !important;
+  border-radius: 2px !important;
   overflow: visible !important;
-  position: static !important;
-  transform: none !important;
-  background: transparent !important;
-  flex-shrink: 0 !important;
 }
-button[role="checkbox"]::before,
 [role="checkbox"]::before {
   display: none !important;
 }
