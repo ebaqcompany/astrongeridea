@@ -216,8 +216,8 @@ h5, h6 {
 
 /* ===== ALL BUTTONS ROUNDED (except link-style buttons) ===== */
 
-button:not(.gap-1):not([class*="gap-1"]):not([class*="p-0"]):not([class*="h-auto"]),
-[role="button"],
+button:not(.gap-1):not([class*="gap-1"]):not([class*="p-0"]):not([class*="h-auto"]):not([role="checkbox"]):not([data-state]),
+[role="button"]:not([role="checkbox"]):not([data-state="checked"]):not([data-state="unchecked"]),
 a[class*="Button"],
 a[class*="button"],
 a.bg-background-alternative,
