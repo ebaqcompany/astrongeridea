@@ -37,7 +37,7 @@ export const Pricing13 = (props: Pricing13Props) => {
       <div className="container">
         <div className="mx-auto mb-12 text-center md:mb-18 lg:mb-20">
           <p className="mb-3 font-semibold md:mb-4">{tagline}</p>
-          <h2 className="rb-5 mb-5 text-5xl font-bold md:mb-6 md:text-7xl lg:text-8xl max-w-xxl mx-auto">
+          <h2 className="rb-5 mb-5 text-5xl font-bold md:mb-6 md:text-7xl lg:text-8xl max-w-[40rem] mx-auto">
             {heading}
           </h2>
           <p className="md:text-md max-w-xl mx-auto">{description}</p>
