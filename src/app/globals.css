@@ -139,6 +139,14 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+/* All images get rounded corners */
+img:not([class*="rounded-full"]):not([class*="logo"]) {
+  border-radius: 0.75rem;
+}
+video {
+  border-radius: 0.75rem;
+}
+
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-heading);
   font-weight: 200 !important;

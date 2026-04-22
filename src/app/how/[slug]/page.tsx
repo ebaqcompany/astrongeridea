@@ -95,7 +95,7 @@ export default function ServicePage({ params }: { params: Promise<{ slug: string
       </div>
 
       {/* CTA */}
-      <div className="section-cta">
+      <div className="section-dark">
         <Cta7 />
       </div>
 

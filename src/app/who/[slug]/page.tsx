@@ -112,11 +112,6 @@ export default function ClientPage({ params }: { params: Promise<{ slug: string 
         <ChallengeCards {...(challengeProps ?? {})} />
       </div>
 
-      {/* Who We Help — reuse from homepage */}
-      <div className="section-white">
-        <Layout495 />
-      </div>
-
       {/* CTA */}
       <div className="section-dark">
         <Cta7
@@ -166,11 +161,6 @@ export default function ClientPage({ params }: { params: Promise<{ slug: string 
           </section>
         </div>
       )}
-
-      {/* Who We Help again */}
-      <div className="section-gray">
-        <Layout495 />
-      </div>
 
       {/* CTA */}
       <div className="section-dark">

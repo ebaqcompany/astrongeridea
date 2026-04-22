@@ -217,7 +217,6 @@ export const Navbar2Defaults: Props = {
         { title: "AI Product Design", url: "/how/ai-product-design" },
       ],
     },
-    { title: "Pricing", url: "/pricing" },
     {
       title: "Clients",
       url: "#",
@@ -235,6 +234,7 @@ export const Navbar2Defaults: Props = {
         { title: "Insights", url: "/insights" },
       ],
     },
+    { title: "Pricing", url: "/pricing" },
     { title: "About", url: "/about" },
   ],
   buttons: [

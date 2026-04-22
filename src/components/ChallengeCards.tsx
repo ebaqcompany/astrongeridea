@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { LuSearch, LuLightbulb, LuTarget } from "react-icons/lu";
+import { LuSearch, LuLightbulb, LuTarget, LuChevronDown } from "react-icons/lu";
 
 type ExternalLink = {
   title: string;
@@ -68,7 +68,13 @@ export const ChallengeCards = (props: ChallengeCardsProps) => {
                 <span className="flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-full bg-[#E04834] text-sm font-medium text-white">
                   {card.number}
                 </span>
-                <h3 className="text-xl md:text-2xl">{card.heading}</h3>
+                <h3 className="flex-1 text-xl md:text-2xl">{card.heading}</h3>
+                <motion.div
+                  animate={{ rotate: activeIndex === index ? 180 : 0 }}
+                  transition={{ duration: 0.3 }}
+                >
+                  <LuChevronDown className="size-6 flex-shrink-0" />
+                </motion.div>
               </div>
 
               {/* Expandable content */}
