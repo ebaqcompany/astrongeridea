@@ -317,11 +317,11 @@ a.bg-background-alternative:hover::after,
   opacity: 1;
 }
 
-/* Secondary + any bordered button: arrow on hover */
+/* Secondary + any bordered button: arrow on hover (exclude primary) */
 [data-button-variant="secondary"]::after,
 .button-secondary::after,
-a.border-border-primary::after,
-button.border-border-primary::after {
+a.border-border-primary:not(.bg-background-alternative)::after,
+button.border-border-primary:not(.bg-background-alternative)::after {
   content: "";
   position: absolute;
   right: 1em;
@@ -337,8 +337,8 @@ button.border-border-primary::after {
 }
 [data-button-variant="secondary"]:hover::after,
 .button-secondary:hover::after,
-a.border-border-primary:hover::after,
-button.border-border-primary:hover::after {
+a.border-border-primary:not(.bg-background-alternative):hover::after,
+button.border-border-primary:not(.bg-background-alternative):hover::after {
   opacity: 1;
 }
 
