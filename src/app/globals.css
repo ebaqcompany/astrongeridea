@@ -141,7 +141,12 @@ body {
 
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-heading);
-  font-weight: 200;
+  font-weight: 200 !important;
+}
+
+/* Override Relume font-bold on headings */
+h1.font-bold, h2.font-bold, h3.font-bold, h4.font-bold, h5.font-bold, h6.font-bold {
+  font-weight: 200 !important;
 }
 
 /* Eyebrows/taglines — red, light monospaced, uppercase pill */
@@ -166,7 +171,7 @@ p.font-semibold {
   font-size: 4.5rem;
   line-height: 1.05;
   letter-spacing: -0.06em;
-  font-weight: 400;
+  font-weight: 200 !important;
 }
 @media (min-width: 768px) {
   .text-display {
@@ -274,15 +279,29 @@ a.bg-background-alternative::after,
 .button-primary::after,
 [data-button-variant="secondary"]::after,
 .button-secondary::after {
-  content: "→";
-  position: relative;
-  z-index: 1;
+  content: "";
   display: inline-block;
-  margin-left: 0;
   width: 0;
+  height: 1em;
+  margin-left: 0;
   opacity: 0;
   overflow: hidden;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12h14'/%3E%3Cpath d='m12 5 7 7-7 7'/%3E%3C/svg%3E");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  vertical-align: middle;
   transition: width 0.3s cubic-bezier(0.1, 0, 0.3, 1), margin-left 0.3s cubic-bezier(0.1, 0, 0.3, 1), opacity 0.3s ease;
+}
+/* Secondary buttons need dark arrow */
+[data-button-variant="secondary"]::after,
+.button-secondary::after {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%23E04834' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12h14'/%3E%3Cpath d='m12 5 7 7-7 7'/%3E%3C/svg%3E");
+}
+/* Secondary hover: arrow turns white */
+[data-button-variant="secondary"]:hover::after,
+.button-secondary:hover::after {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12h14'/%3E%3Cpath d='m12 5 7 7-7 7'/%3E%3C/svg%3E");
 }
 [data-button-variant="primary"]:hover::after,
 button.bg-background-alternative:hover::after,
