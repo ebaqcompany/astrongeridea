@@ -82,7 +82,7 @@ const PricingPlan = ({ plan }: { plan: PricingPlan }) => (
     </div>
     <div>
       <Button {...plan.button} className="w-full" asChild>
-        <a href="https://calendly.com/eric-astrongeridea/project_discussion">
+        <a href="https://calendly.com/eric-astrongeridea/project_discussion" target="_blank" rel="noopener noreferrer">
           {plan.button.title}
         </a>
       </Button>

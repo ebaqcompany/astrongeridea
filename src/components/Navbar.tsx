@@ -231,7 +231,6 @@ export const Navbar2Defaults: Props = {
       url: "#",
       subMenuLinks: [
         { title: "Case Studies", url: "/case-studies" },
-        { title: "Insights", url: "/insights" },
       ],
     },
     { title: "Pricing", url: "/pricing" },

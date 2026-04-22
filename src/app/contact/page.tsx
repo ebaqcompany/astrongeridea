@@ -62,7 +62,7 @@ export default function ContactPage() {
                   </div>
                   <div>
                     <a
-                      href="https://calendly.com/eric-astrongeridea/project_discussion"
+                      href="https://calendly.com/eric-astrongeridea/project_discussion" target="_blank" rel="noopener noreferrer"
                       className="inline-flex items-center justify-center rounded-full bg-gradient-to-br from-[#FF5744] to-[#C0392B] px-6 py-3 text-sm font-medium text-white transition-opacity hover:opacity-90"
                     >
                       Schedule a Discovery Call

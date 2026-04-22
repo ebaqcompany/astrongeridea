@@ -40,13 +40,17 @@ export const Cta7 = (props: Cta7Props) => {
           </div>
         </div>
         <div className="flex items-center justify-start gap-4">
-          {buttons.map((button, index) => (
+          {buttons.map((button, index) => {
+            const url = getButtonUrl(button.title);
+            const isExternal = url.startsWith("http");
+            return (
             <Button key={index} {...button} asChild>
-              <a href={getButtonUrl(button.title)}>
+              <a href={url} {...(isExternal ? { target: "_blank", rel: "noopener noreferrer" } : {})}>
                 {button.title}
               </a>
             </Button>
-          ))}
+            );
+          })}
         </div>
       </div>
     </section>

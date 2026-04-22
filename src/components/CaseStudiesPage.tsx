@@ -51,7 +51,7 @@ export const Portfolio7 = (props: Portfolio7Props) => {
         </div>
         <footer className="mt-12 flex justify-center md:mt-18 lg:mt-20">
           <Button {...button} asChild>
-            <a href="https://calendly.com/eric-astrongeridea/project_discussion">{button.title}</a>
+            <a href="https://calendly.com/eric-astrongeridea/project_discussion" target="_blank" rel="noopener noreferrer">{button.title}</a>
           </Button>
         </footer>
       </div>

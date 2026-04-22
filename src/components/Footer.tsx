@@ -173,7 +173,6 @@ export const Footer5Defaults: Props = {
       title: "Company",
       links: [
         { title: "Case Studies", url: "/case-studies" },
-        { title: "Insights", url: "/insights" },
         { title: "About", url: "/about" },
         { title: "Contact", url: "/contact" },
       ],
