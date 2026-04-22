@@ -31,6 +31,27 @@ export default function Home() {
         <Testimonial1 />
       </div>
 
+      {/* Quick stats below testimonial */}
+      <div className="section-gray">
+        <section className="px-[5%] pb-16 md:pb-24">
+          <div className="container">
+            <div className="grid grid-cols-2 gap-8 md:grid-cols-4">
+              {[
+                { value: "200K+", label: "Monthly transactions, Park Detroit" },
+                { value: "50%", label: "Reduction in user errors" },
+                { value: "$20B", label: "AUM on platforms designed" },
+                { value: "$124T", label: "Market served, EstateGuru" },
+              ].map((stat, i) => (
+                <div key={i} className="text-center">
+                  <p className="font-mono text-3xl font-light text-[#E04834] md:text-4xl">{stat.value}</p>
+                  <p className="mt-2 text-sm text-neutral">{stat.label}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+      </div>
+
       {/* Stats — Layout518 with gradient hero + sliding cards */}
       <div className="section-white">
         <Stats8 />
