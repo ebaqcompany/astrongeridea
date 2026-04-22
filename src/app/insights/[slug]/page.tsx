@@ -18,9 +18,7 @@ export default function InsightArticlePage() {
   if (!article) {
     return (
       <>
-        <div className="section-white">
-          <Navbar2 />
-        </div>
+        <Navbar2 />
         <div className="section-white">
           <section className="px-[5%] py-16 md:py-24 lg:py-28">
             <div className="container max-w-lg text-center">
@@ -43,9 +41,7 @@ export default function InsightArticlePage() {
   return (
     <>
       {/* Navbar */}
-      <div className="section-white">
-        <Navbar2 />
-      </div>
+      <Navbar2 />
 
       {/* Blog Post Header */}
       <div className="section-white">

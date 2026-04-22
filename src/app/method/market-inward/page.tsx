@@ -11,9 +11,7 @@ export default function MarketInwardPage() {
   return (
     <>
       {/* Navbar */}
-      <div className="section-white">
-        <Navbar2 />
-      </div>
+      <Navbar2 />
 
       {/* Hero */}
       <div className="section-white">

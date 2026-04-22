@@ -22,9 +22,7 @@ export default function ServicePage({ params }: { params: Promise<{ slug: string
   return (
     <>
       {/* Navbar */}
-      <div className="section-white">
-        <Navbar2 />
-      </div>
+      <Navbar2 />
 
       {/* Hero */}
       <div className="section-white">
