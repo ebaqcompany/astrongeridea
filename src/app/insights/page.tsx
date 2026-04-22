@@ -31,7 +31,7 @@ export default function InsightsPage() {
                 <Link
                   key={article.slug}
                   href={`/insights/${article.slug}`}
-                  className="flex flex-col rounded-2xl border border-border-primary bg-white p-6 transition-shadow hover:shadow-medium md:p-8"
+                  className="flex flex-col rounded-xl border border-border-primary bg-white p-6 transition-shadow hover:shadow-medium md:p-8"
                 >
                   <p className="mb-4 font-mono text-xs font-light uppercase tracking-wider text-primary">{article.tag}</p>
                   <h3 className="mb-3 text-xl md:text-2xl">{article.title}</h3>

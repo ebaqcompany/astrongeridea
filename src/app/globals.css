@@ -301,6 +301,36 @@ a.bg-background-alternative > *,
   z-index: 1;
 }
 
+/* Arrow on hover for primary and secondary buttons */
+[data-button-variant="primary"]::after,
+button.bg-background-alternative::after,
+a.bg-background-alternative::after,
+.bg-background-alternative::after,
+.button-primary::after,
+[data-button-variant="secondary"]::after,
+.button-secondary::after {
+  content: "→";
+  position: relative;
+  z-index: 1;
+  display: inline-block;
+  margin-left: 0;
+  width: 0;
+  opacity: 0;
+  overflow: hidden;
+  transition: width 0.3s cubic-bezier(0.1, 0, 0.3, 1), margin-left 0.3s cubic-bezier(0.1, 0, 0.3, 1), opacity 0.3s ease;
+}
+[data-button-variant="primary"]:hover::after,
+button.bg-background-alternative:hover::after,
+a.bg-background-alternative:hover::after,
+.bg-background-alternative:hover::after,
+.button-primary:hover::after,
+[data-button-variant="secondary"]:hover::after,
+.button-secondary:hover::after {
+  width: 1.2em;
+  margin-left: 0.5em;
+  opacity: 1;
+}
+
 /* Checkbox — undo ALL global button styles */
 button[role="checkbox"],
 button[role="checkbox"][data-state] {
