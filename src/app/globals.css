@@ -278,14 +278,7 @@ a.bg-background-alternative,
   background: linear-gradient(160deg, #FF5744, #C0392B) !important;
   color: white !important;
   border: none !important;
-  transition: transform 0.3s ease;
-}
-[data-button-variant="primary"]:hover,
-button.bg-background-alternative:hover,
-a.bg-background-alternative:hover,
-.bg-background-alternative:hover,
-.button-primary:hover {
-  transform: scale(1.03);
+  overflow: visible !important;
 }
 
 /* Arrow on hover for primary and secondary buttons */
@@ -312,9 +305,7 @@ a.bg-background-alternative::after,
 }
 /* Secondary buttons: dark arrow */
 [data-button-variant="secondary"]::after,
-.button-secondary::after,
-a.border-border-primary::after,
-button.border-border-primary::after {
+.button-secondary::after {
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%23111111' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12h14'/%3E%3Cpath d='m12 5 7 7-7 7'/%3E%3C/svg%3E");
 }
 [data-button-variant="primary"]:hover::after,
@@ -363,52 +354,24 @@ button[role="checkbox"]::before {
   display: none !important;
 }
 
-/* Secondary: 1px border, fully rounded */
+/* Secondary: 1px border, fully rounded, gray fill on hover */
 [data-button-variant="secondary"],
-.button-secondary,
-a.border-border-primary,
-button.border-border-primary {
+.button-secondary {
   background: transparent !important;
   border: 1px solid #e0e0e0 !important;
   color: var(--color-text-primary) !important;
-  transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease;
+  overflow: visible !important;
 }
 [data-button-variant="secondary"]:hover,
-.button-secondary:hover,
-a.border-border-primary:hover,
-button.border-border-primary:hover {
+.button-secondary:hover {
   background: #f0f0f0 !important;
   color: var(--color-text-primary) !important;
-  transform: scale(1.03);
-}
-[data-button-variant="secondary"]::before,
-.button-secondary::before {
-  content: "";
-  position: absolute;
-  width: 120%;
-  padding-bottom: 120%;
-  top: 50%;
-  left: 50%;
-  border-radius: 50%;
-  background: var(--color-primary);
-  transform: translate(-50%, -50%) scale(0);
-  transition: transform 0.5s cubic-bezier(0.1, 0, 0.3, 1);
   z-index: 0;
 }
 [data-button-variant="secondary"]:hover,
 .button-secondary:hover {
   color: white !important;
   transform: scale(1.05);
-  background: transparent !important;
-}
-[data-button-variant="secondary"]:hover::before,
-.button-secondary:hover::before {
-  transform: translate(-50%, -50%) scale(1);
-}
-[data-button-variant="secondary"] > *,
-.button-secondary > * {
-  position: relative;
-  z-index: 1;
 }
 
 /* ===== ACCORDION TRIGGER — spacing + chevron to far right ===== */
