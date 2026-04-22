@@ -140,7 +140,7 @@ body {
 }
 
 /* All images get rounded corners */
-img:not([class*="rounded-full"]):not([class*="logo"]) {
+img:not([class*="rounded-full"]):not([alt*="logo"]):not([alt*="Logo"]):not([src*="logo"]):not([class*="size-12"]):not([class*="size-16"]) {
   border-radius: 0.75rem;
 }
 video {
