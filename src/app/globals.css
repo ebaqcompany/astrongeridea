@@ -320,8 +320,12 @@ button[role="checkbox"][data-state] {
   appearance: none !important;
 }
 button[role="checkbox"][data-state="checked"] {
-  background: #1B2126 !important;
-  border-color: #1B2126 !important;
+  background: var(--color-primary) !important;
+  border-color: var(--color-primary) !important;
+}
+button[role="checkbox"] + label,
+button[role="checkbox"] ~ * {
+  padding-left: 0.5rem !important;
 }
 button[role="checkbox"]::before {
   display: none !important;
