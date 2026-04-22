@@ -301,12 +301,29 @@ a.bg-background-alternative > *,
   z-index: 1;
 }
 
-/* Checkbox — undo global button styles */
-[role="checkbox"] {
-  border-radius: 2px !important;
-  overflow: visible !important;
+/* Checkbox — undo ALL global button styles */
+button[role="checkbox"],
+button[role="checkbox"][data-state] {
+  all: revert !important;
+  width: 1.125rem !important;
+  height: 1.125rem !important;
+  min-width: 1.125rem !important;
+  border: 1px solid #e0e0e0 !important;
+  border-radius: 3px !important;
+  cursor: pointer !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  flex-shrink: 0 !important;
+  background: transparent !important;
+  padding: 0 !important;
+  appearance: none !important;
 }
-[role="checkbox"]::before {
+button[role="checkbox"][data-state="checked"] {
+  background: #1B2126 !important;
+  border-color: #1B2126 !important;
+}
+button[role="checkbox"]::before {
   display: none !important;
 }
 
