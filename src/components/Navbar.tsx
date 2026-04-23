@@ -112,7 +112,18 @@ export const Navbar2 = (props: Navbar2Props) => {
         >
           {navLinks.map((navLink, index) =>
             navLink.subMenuLinks && navLink.subMenuLinks.length > 0 ? (
-              <SubMenu key={index} navLink={navLink} isMobile={isMobile} />
+              isMobile ? (
+                <div key={index} className="py-2">
+                  <p className="py-2 text-md font-medium text-neutral">{navLink.title}</p>
+                  {navLink.subMenuLinks.map((sub, si) => (
+                    <a key={si} href={sub.url} className="block py-2 pl-4 text-sm">
+                      {sub.title}
+                    </a>
+                  ))}
+                </div>
+              ) : (
+                <SubMenu key={index} navLink={navLink} isMobile={isMobile} />
+              )
             ) : (
               <a
                 key={index}

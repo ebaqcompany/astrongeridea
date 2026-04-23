@@ -39,7 +39,7 @@ export const Cta7 = (props: Cta7Props) => {
             <p className="md:text-md">{description}</p>
           </div>
         </div>
-        <div className="flex items-center justify-start gap-4">
+        <div className="flex flex-col items-start gap-4 sm:flex-row sm:items-center">
           {buttons.map((button, index) => {
             const url = getButtonUrl(button.title);
             const isExternal = url.startsWith("http");

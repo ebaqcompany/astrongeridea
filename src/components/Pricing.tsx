@@ -54,7 +54,7 @@ export const Pricing13 = (props: Pricing13Props) => {
 const PricingPlan = ({ plan }: { plan: PricingPlan }) => (
   <div className="flex h-full flex-col justify-between border border-border-primary px-6 py-8 md:p-8 bg-white rounded-3xl">
     <div>
-      <div className="flex items-start justify-between">
+      <div className="flex flex-col gap-4 md:flex-row md:items-start md:justify-between">
         <div>
           <h5 className="mb-2 text-2xl font-bold md:text-3xl lg:text-4xl">{plan.planName}</h5>
           <p>{plan.description}</p>
