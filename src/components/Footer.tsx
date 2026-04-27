@@ -85,7 +85,7 @@ export const Footer12 = (props: Footer5Props) => {
           </a>
           {columnLinks.map((column, index) => (
             <div key={index} className="flex flex-col items-start justify-start">
-              <h2 className="mb-3 font-medium md:mb-4">{column.title}</h2>
+              <h2 className="footer-column-heading mb-3 font-medium md:mb-4">{column.title}</h2>
               <ul>
                 {column.links.map((link, linkIndex) => (
                   <li key={linkIndex} className="py-2 text-sm">

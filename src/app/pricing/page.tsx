@@ -60,9 +60,12 @@ const Layout1 = ({
                   : t.includes("services") || t.includes("about our services") ? "/how/product-strategy"
                   : t.includes("about eric") ? "/about"
                   : "https://calendly.com/eric-astrongeridea/project_discussion";
+                const isExternal = href.startsWith("http");
                 return (
                   <Button key={index} {...button} asChild>
-                    <a href={href}>{button.title}</a>
+                    <a href={href} {...(isExternal ? { target: "_blank", rel: "noopener noreferrer" } : {})}>
+                      {button.title}
+                    </a>
                   </Button>
                 );
               })}

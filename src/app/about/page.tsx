@@ -43,7 +43,7 @@ export default function AboutPage() {
                 </p>
                 <ul className="space-y-3 text-sm text-neutral">
                   <li><span className="font-medium text-foreground">Senior-Level Expertise:</span> Across strategy, UX/UI, and design operations.</li>
-                  <li><span className="font-medium text-foreground">Seamless Integration:</span> We adapt to your team's processes -- or lead our own -- without friction.</li>
+                  <li><span className="font-medium text-foreground">Seamless Integration:</span> We adapt to your team&apos;s processes -- or lead our own -- without friction.</li>
                   <li><span className="font-medium text-foreground">Purposeful AI Use:</span> To improve speed and insight without sacrificing quality.</li>
                   <li><span className="font-medium text-foreground">Flexible Partnership:</span> Serving startups, businesses, and agencies with equal focus and dedication.</li>
                 </ul>
@@ -114,6 +114,8 @@ export default function AboutPage() {
         <Cta7
           heading="Most design problems are architecture problems in disguise."
           buttons={[{ title: "Schedule a Discovery Call" }]}
+          headingWrapperClassName="w-full max-w-[48rem]"
+          headingClassName="mb-3 text-4xl font-bold leading-[1.2] md:mb-4 md:text-5xl lg:text-4xl xl:text-5xl"
         />
       </div>
 

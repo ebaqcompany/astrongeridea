@@ -5,7 +5,6 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Button, Dialog, DialogContent, DialogTrigger, VideoIframe } from "@relume_io/relume-ui";
 import type { ButtonProps } from "@relume_io/relume-ui";
-import { RxChevronRight } from "react-icons/rx";
 import { FaCirclePlay } from "react-icons/fa6";
 
 type ImageProps = {
@@ -60,7 +59,7 @@ export const Layout495 = (props: Layout495Props) => {
                     : button.title?.toLowerCase().includes("engagement")
                     ? "/pricing"
                     : "#"
-                }>
+                } {...(button.title?.toLowerCase().includes("schedule") || button.title?.toLowerCase().includes("discovery") ? { target: "_blank", rel: "noopener noreferrer" } : {})}>
                   {button.title}
                 </a>
               </Button>

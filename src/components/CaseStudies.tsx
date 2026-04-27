@@ -1,10 +1,9 @@
 "use client";
 
-import { Button, useMediaQuery } from "@relume_io/relume-ui";
+import { Button } from "@relume_io/relume-ui";
 import type { ButtonProps } from "@relume_io/relume-ui";
-import { MotionValue, useMotionValue, motion, useScroll, useTransform } from "framer-motion";
+import { MotionValue, motion, useScroll, useTransform } from "framer-motion";
 import { useRef, useCallback } from "react";
-import { RxChevronRight } from "react-icons/rx";
 import clsx from "clsx";
 import React from "react";
 
@@ -31,18 +30,6 @@ type Props = {
 
 export type Layout409Props = React.ComponentPropsWithoutRef<"section"> & Partial<Props>;
 
-const calculateScales = (totalSections: number, scrollYProgress: MotionValue<number>) => {
-  return Array.from({ length: totalSections }, (_, index) => {
-    const sectionFraction = 1 / totalSections;
-    const start = sectionFraction * index;
-    const end = sectionFraction * (index + 1);
-
-    return index < totalSections - 1
-      ? useTransform(scrollYProgress, [start, end], [1, 0.8])
-      : useMotionValue(1);
-  });
-};
-
 export const Layout409 = (props: Layout409Props) => {
   const { tagline, heading, description, featureSections } = {
     ...Layout409Defaults,
@@ -53,10 +40,8 @@ export const Layout409 = (props: Layout409Props) => {
 
   const { scrollYProgress } = useScroll({
     target: containerRef,
-    offset: ["start start", "end 60%"],
+    offset: ["start start", "end end"],
   });
-
-  const scales = calculateScales(featureSections.length, scrollYProgress);
 
   return (
     <section id="relume" className="px-[5%] py-16 md:py-24 lg:py-28">
@@ -66,9 +51,15 @@ export const Layout409 = (props: Layout409Props) => {
           <h1 className="mb-5 text-5xl font-bold md:mb-6 md:text-7xl lg:text-8xl max-w-[42rem] mx-auto">{heading}</h1>
           <p className="md:text-md max-w-xl mx-auto">{description}</p>
         </div>
-        <div ref={containerRef} className="sticky top-0 grid grid-cols-1 gap-6 md:gap-0">
+        <div ref={containerRef} className="relative grid grid-cols-1 gap-6 md:h-[320vh] md:gap-0">
           {featureSections.map((featureSection, index) => (
-            <FeatureSection key={index} {...featureSection} scale={scales[index]} index={index} />
+            <FeatureSection
+              key={index}
+              {...featureSection}
+              scrollYProgress={scrollYProgress}
+              index={index}
+              total={featureSections.length}
+            />
           ))}
         </div>
       </div>
@@ -77,30 +68,33 @@ export const Layout409 = (props: Layout409Props) => {
 };
 
 const FeatureSection = ({
-  scale,
+  scrollYProgress,
   index,
+  total,
   ...featureSection
 }: FeatureSectionProps & {
-  scale: MotionValue<number>;
+  scrollYProgress: MotionValue<number>;
   index: number;
+  total: number;
 }) => {
-  const isMobile = useMediaQuery("(max-width: 767px)");
   const isEven = index % 2 === 0;
+  const sectionFraction = 1 / total;
+  const start = sectionFraction * index;
+  const end = sectionFraction * (index + 1);
+  const scale = useTransform(scrollYProgress, [start, end], [1, index < total - 1 ? 0.88 : 1]);
+  const y = useTransform(scrollYProgress, [start, end], ["0vh", index < total - 1 ? "-4vh" : "0vh"]);
 
   return (
     <React.Fragment>
-      {isMobile ? (
-        <div className="static grid grid-cols-1 content-center overflow-hidden border border-border-primary bg-neutral-white rounded-2xl">
-          <FeatureSectionContent isEven={isEven} {...featureSection} />
-        </div>
-      ) : (
-        <motion.div
-          className="static grid grid-cols-1 content-center overflow-hidden border border-border-primary bg-neutral-white rounded-2xl md:sticky md:top-[10%] md:mb-[10vh] md:h-[80vh] md:grid-cols-2"
-          style={{ scale }}
-        >
-          <FeatureSectionContent isEven={isEven} {...featureSection} />
-        </motion.div>
-      )}
+      <div className="static grid grid-cols-1 content-center overflow-hidden border border-border-primary bg-neutral-white rounded-2xl md:hidden">
+        <FeatureSectionContent isEven={isEven} {...featureSection} />
+      </div>
+      <motion.div
+        className="hidden grid-cols-1 content-center overflow-hidden border border-border-primary bg-neutral-white rounded-2xl md:sticky md:top-[10vh] md:grid md:h-[80vh] md:grid-cols-2 md:gap-x-6 lg:gap-x-8"
+        style={{ scale, y, zIndex: index + 1 }}
+      >
+        <FeatureSectionContent isEven={isEven} {...featureSection} />
+      </motion.div>
     </React.Fragment>
   );
 };
@@ -127,7 +121,7 @@ const HoverVideoImage = ({ image, video }: { image: ImageProps; video?: string }
 
   return (
     <div
-      className="relative size-full overflow-hidden rounded-2xl"
+      className="group relative size-full overflow-hidden rounded-2xl"
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
     >
@@ -138,9 +132,8 @@ const HoverVideoImage = ({ image, video }: { image: ImageProps; video?: string }
         muted
         playsInline
         loop
-        className="absolute inset-0 size-full object-cover opacity-0 hover:opacity-100 transition-opacity duration-300"
-        onMouseEnter={(e) => { (e.target as HTMLVideoElement).style.opacity = "1"; }}
-        onMouseLeave={(e) => { (e.target as HTMLVideoElement).style.opacity = "0"; }}
+        preload="metadata"
+        className="absolute inset-0 size-full object-cover opacity-0 transition-opacity duration-300 group-hover:opacity-100"
       />
     </div>
   );
@@ -174,7 +167,7 @@ const FeatureSectionContent = ({
     </div>
     <div
       className={clsx(
-        "order-last flex flex-col items-center justify-center overflow-hidden rounded-2xl",
+        "order-last flex flex-col items-center justify-center overflow-hidden rounded-2xl p-0 md:m-3 lg:m-4",
         isEven ? "md:order-last" : "md:order-first",
       )}
     >
@@ -200,6 +193,7 @@ export const Layout409Defaults: Props = {
         src: "/assets/poster-case-study-flowbird.jpg",
         alt: "Flowbird civic technology case study",
       },
+      video: "/assets/video-case-study-flowbird.mp4",
     },
     {
       tagline: "FINANCIAL TECHNOLOGY",
@@ -213,6 +207,7 @@ export const Layout409Defaults: Props = {
         src: "/assets/poster-case-study-estateguru.jpg",
         alt: "EstateGuru financial technology case study",
       },
+      video: "/assets/video-case-study-estateguru.mp4",
     },
     {
       tagline: "INSTITUTIONAL FINANCE",
@@ -226,6 +221,7 @@ export const Layout409Defaults: Props = {
         src: "/assets/poster-case-study-euvic.jpg",
         alt: "Euvic institutional finance case study",
       },
+      video: "/assets/video-case-study-euvic.mp4",
     },
   ],
 };

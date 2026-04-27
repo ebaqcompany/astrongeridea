@@ -38,9 +38,12 @@ export const Layout1 = (props: Layout1Props) => {
               {buttons.map((button, index) => {
                 const { url, ...btnProps } = button;
                 const href = url || (button.title?.toLowerCase().includes("case study") || button.title?.toLowerCase().includes("view") ? "/case-studies" : "https://calendly.com/eric-astrongeridea/project_discussion");
+                const isExternal = href.startsWith("http");
                 return (
                   <Button key={index} {...btnProps} asChild>
-                    <a href={href}>{button.title}</a>
+                    <a href={href} {...(isExternal ? { target: "_blank", rel: "noopener noreferrer" } : {})}>
+                      {button.title}
+                    </a>
                   </Button>
                 );
               })}

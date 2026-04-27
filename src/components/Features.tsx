@@ -49,7 +49,7 @@ export const Layout351 = (props: Layout350Props) => {
         <Tabs
           value={activeSection}
           onValueChange={scrollToSection}
-          className="sticky top-20 z-10 mb-12 hidden md:flex md:justify-end"
+          className="sticky top-20 z-20 mb-12 hidden md:flex md:justify-end"
         >
           <TabsList className="flex gap-x-1 bg-transparent p-1">
             {sections.map((section) => (
@@ -79,21 +79,13 @@ export const Layout351 = (props: Layout350Props) => {
             ))}
           </div>
 
-          <div className="sticky top-0 hidden h-screen flex-col items-center justify-center md:flex">
-            <img src={currentSection.image.src} alt={currentSection.image.alt} />
+          <div className="sticky top-20 hidden h-[calc(100vh-5rem)] flex-col items-center justify-center md:flex">
+            <img src={currentSection.image.src} alt={currentSection.image.alt} className="max-h-[80vh] w-full object-cover" />
           </div>
         </div>
       </div>
     </section>
   );
-};
-
-const getInitialActiveSection = (sections: Section[]): string => {
-  if (typeof window === "undefined") return sections[0].id;
-
-  const hash = window.location.hash.slice(1);
-  const matchingSection = sections.find((section) => section.id === hash);
-  return matchingSection?.id ?? sections[0].id;
 };
 
 const scrollToElement = (elementId: string) => {
@@ -107,9 +99,10 @@ const scrollToElement = (elementId: string) => {
 };
 
 const useSectionNavigation = (sections: Section[]) => {
-  const [activeSection, setActiveSection] = useState(() => getInitialActiveSection(sections));
+  const [activeSection, setActiveSection] = useState(sections[0].id);
 
   const scrollToSection = useCallback((sectionId: string) => {
+    setActiveSection(sectionId);
     scrollToElement(sectionId);
     window.history.pushState(null, "", `#${sectionId}`);
   }, []);
@@ -124,8 +117,10 @@ const useSectionNavigation = (sections: Section[]) => {
   useEffect(() => {
     const handleHashChange = () => {
       const hash = window.location.hash.slice(1);
-      if (sections.some((section) => section.id === hash)) {
-        scrollToSection(hash);
+      const matchingSection = sections.find((section) => section.id === hash);
+      if (matchingSection) {
+        setActiveSection(matchingSection.id);
+        scrollToElement(matchingSection.id);
       }
     };
 
@@ -174,7 +169,7 @@ const ObservedSection = ({ section, index, onIntersect, children }: ObservedSect
 };
 
 const ContentSection = ({ section }: { section: Section }) => (
-  <div className="flex flex-col items-start justify-center md:h-screen">
+  <div className="flex flex-col items-start justify-center md:min-h-screen">
     <p className="mb-3 font-semibold md:mb-4">{section.tagline}</p>
     <h2 className="mb-5 text-5xl font-bold md:mb-6 md:text-7xl lg:text-8xl">{section.heading}</h2>
     <p className="md:text-md">{section.description}</p>

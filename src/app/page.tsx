@@ -62,18 +62,6 @@ export default function Home() {
         <Timeline9 />
       </div>
 
-      {/* CTA after method — dark */}
-      <div className="section-dark">
-        <Cta7
-          heading="The first conversation is a diagnosis, not a pitch."
-          description=""
-          buttons={[
-            { title: "See the Method" },
-            { title: "Schedule discovery call", variant: "secondary" },
-          ]}
-        />
-      </div>
-
       {/* Features — gray */}
       <div className="section-gray">
         <Layout351 />
@@ -94,14 +82,14 @@ export default function Home() {
         <Cta7 />
       </div>
 
-      {/* Benefits — gray */}
-      <div className="section-gray">
-        <Layout232 />
-      </div>
-
       {/* Audience — white */}
       <div className="section-white">
         <Layout495 />
+      </div>
+
+      {/* Benefits — gray */}
+      <div className="section-gray">
+        <Layout232 />
       </div>
 
       {/* CTA — gradient red */}

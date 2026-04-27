@@ -6,7 +6,6 @@ import type { ButtonProps } from "@relume_io/relume-ui";
 import { useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import type { MotionStyle } from "framer-motion";
-import { RxChevronRight } from "react-icons/rx";
 import clsx from "clsx";
 
 type TimelineCircleProps = {
@@ -46,17 +45,21 @@ export const Timeline9 = (props: Timeline9Props) => {
               <p className="mb-3 font-semibold md:mb-4">{tagline}</p>
               <h2 className="mb-5 text-5xl font-bold md:mb-6 md:text-7xl lg:text-8xl max-w-[56rem] mx-auto">{heading}</h2>
               <p className="md:text-md max-w-xl mx-auto">{description}</p>
-              <div className="mt-6 flex items-center justify-center gap-x-4 md:mt-8">
-                {buttons.map((button, index) => (
-                  <Button key={index} {...button} asChild>
-                    <a href={
-                      button.title?.toLowerCase().includes("method") ? "/method/market-inward"
-                      : button.title?.toLowerCase().includes("conversation") || button.title?.toLowerCase().includes("schedule") ? "https://calendly.com/eric-astrongeridea/project_discussion"
-                      : "#"
-                    }>{button.title}</a>
-                  </Button>
-                ))}
-              </div>
+              {buttons.length > 0 && (
+                <div className="mt-6 flex items-center justify-center gap-x-4 md:mt-8">
+                  {buttons.map((button, index) => {
+                    const href = getTimelineButtonHref(button.title);
+                    const isExternal = href.startsWith("http");
+                    return (
+                      <Button key={index} {...button} asChild>
+                        <a href={href} {...(isExternal ? { target: "_blank", rel: "noopener noreferrer" } : {})}>
+                          {button.title}
+                        </a>
+                      </Button>
+                    );
+                  })}
+                </div>
+              )}
             </div>
           </div>
           <div className="relative grid grid-cols-1 justify-items-center gap-12 md:gap-20">
@@ -121,11 +124,12 @@ const TimelineCircle = React.forwardRef<HTMLDivElement, TimelineCircleProps>(
       <motion.div
         ref={ref}
         style={backgroundColor}
-        className="z-20 mt-7 size-[0.9375rem] rounded-full shadow-[0_0_0_8px_white] md:mt-8"
+        className="relative z-20 mt-7 size-[0.9375rem] rounded-full shadow-[0_0_0_8px_white] md:mt-8"
       />
     </div>
   ),
 );
+TimelineCircle.displayName = "TimelineCircle";
 
 const TimelineContent = ({
   item,
@@ -145,34 +149,39 @@ const TimelineContent = ({
     </h3>
     <h4 className="mb-3 text-xl font-bold md:mb-4 md:text-2xl">{item.title}</h4>
     <p>{item.description}</p>
-    <div className="mt-6 flex flex-wrap items-center gap-4 md:mt-8">
-      {item.buttons.map((button, index) => (
-        <Button key={index} {...button} asChild>
-          <a href={
-            button.title?.toLowerCase().includes("method") ? "/method/market-inward"
-            : button.title?.toLowerCase().includes("conversation") || button.title?.toLowerCase().includes("schedule") ? "https://calendly.com/eric-astrongeridea/project_discussion"
-            : "#"
-          }>{button.title}</a>
-        </Button>
-      ))}
-    </div>
+    {item.buttons.length > 0 && (
+      <div className="mt-6 flex flex-wrap items-center gap-4 md:mt-8">
+        {item.buttons.map((button, index) => {
+          const href = getTimelineButtonHref(button.title);
+          const isExternal = href.startsWith("http");
+          return (
+            <Button key={index} {...button} asChild>
+              <a href={href} {...(isExternal ? { target: "_blank", rel: "noopener noreferrer" } : {})}>
+                {button.title}
+              </a>
+            </Button>
+          );
+        })}
+      </div>
+    )}
   </div>
 );
+
+const getTimelineButtonHref = (title?: string) => {
+  const normalized = title?.toLowerCase() ?? "";
+  if (normalized.includes("method")) return "/method/market-inward";
+  if (normalized.includes("conversation") || normalized.includes("schedule")) {
+    return "https://calendly.com/eric-astrongeridea/project_discussion";
+  }
+  return "#";
+};
 
 export const Timeline9Defaults: Props = {
   tagline: "THE METHOD",
   heading: "Design from the market inward, not the feature outward.",
   description:
     "Market Inward sequences every decision from the outermost layer in. The market defines the opportunity. The ecosystem defines what it requires. The product delivers it.",
-  buttons: [
-    { title: "See Our Method" },
-    {
-      title: "Start a Conversation",
-      variant: "link",
-      size: "link",
-      iconRight: <RxChevronRight />,
-    },
-  ],
+  buttons: [],
   timelineItems: [
     {
       heading: "01",

@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect, useRef } from "react";
-import { Button, useMediaQuery } from "@relume_io/relume-ui";
+import { Button } from "@relume_io/relume-ui";
 import type { ButtonProps } from "@relume_io/relume-ui";
 import { AnimatePresence, motion } from "framer-motion";
 import { RxChevronDown } from "react-icons/rx";
@@ -33,7 +33,7 @@ export const Navbar2 = (props: Navbar2Props) => {
   };
 
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const isMobile = useMediaQuery("(max-width: 991px)");
+  const [openMobileSubmenus, setOpenMobileSubmenus] = useState<Record<string, boolean>>({});
 
   const [hidden, setHidden] = useState(false);
   const lastScrollY = useRef(0);
@@ -58,9 +58,9 @@ export const Navbar2 = (props: Navbar2Props) => {
       className="sticky top-0 z-[999] flex w-full items-center border-b border-border-primary bg-background-primary lg:min-h-18 lg:px-[5%] transition-transform duration-300"
       style={{ transform: hidden ? "translateY(-100%)" : "translateY(0)" }}
     >
-      <div className="mx-auto size-full max-w-[1280px] lg:grid lg:grid-cols-[0.375fr_1fr_0.375fr] lg:items-center lg:justify-between lg:gap-4">
+      <div className="mx-auto size-full w-full max-w-[1440px] lg:grid lg:grid-cols-[max-content_minmax(0,1fr)_max-content] lg:items-center lg:gap-2 xl:gap-4">
         <div className="flex min-h-16 items-center justify-between px-[5%] md:min-h-18 lg:min-h-full lg:px-0">
-          <a href={logo.url}>
+          <a href={logo.url} className="flex shrink-0 items-center">
             <img src={logo.src} alt={logo.alt} className="h-10 w-auto" />
           </a>
           <div className="flex items-center gap-4 lg:hidden">
@@ -108,36 +108,72 @@ export const Navbar2 = (props: Navbar2Props) => {
           initial="close"
           exit="close"
           transition={{ duration: 0.4 }}
-          className="overflow-hidden px-[5%] text-center lg:flex lg:items-center lg:justify-center lg:px-0 lg:[--height-closed:auto] lg:[--height-open:auto]"
+          className="overflow-hidden px-[5%] text-left lg:flex lg:min-w-0 lg:items-center lg:justify-center lg:gap-x-2 lg:px-0 lg:text-center lg:[--height-closed:auto] lg:[--height-open:auto] xl:gap-x-3"
         >
           {navLinks.map((navLink, index) =>
             navLink.subMenuLinks && navLink.subMenuLinks.length > 0 ? (
-              isMobile ? (
-                <div key={index} className="py-2">
-                  <p className="py-2 text-md font-medium text-neutral">{navLink.title}</p>
-                  {navLink.subMenuLinks.map((sub, si) => (
-                    <a key={si} href={sub.url} className="block py-2 pl-4 text-sm">
-                      {sub.title}
-                    </a>
-                  ))}
+              <div key={index} className="contents">
+                <div className="border-b border-border-primary py-2 lg:hidden">
+                  <a
+                    href={navLink.url}
+                    className="flex w-full items-center justify-between py-3 text-left text-md font-medium text-neutral-black"
+                    onClick={(event) => {
+                      if (navLink.url === "#") event.preventDefault();
+                      setOpenMobileSubmenus((prev) => ({
+                        ...prev,
+                        [navLink.title]: !prev[navLink.title],
+                      }));
+                    }}
+                    aria-expanded={Boolean(openMobileSubmenus[navLink.title])}
+                  >
+                    <span>{navLink.title}</span>
+                    <motion.span
+                      animate={openMobileSubmenus[navLink.title] ? "rotated" : "initial"}
+                      variants={{
+                        rotated: { rotate: 180 },
+                        initial: { rotate: 0 },
+                      }}
+                      transition={{ duration: 0.2 }}
+                    >
+                      <RxChevronDown />
+                    </motion.span>
+                  </a>
+                  <AnimatePresence initial={false}>
+                    {openMobileSubmenus[navLink.title] && (
+                      <motion.div
+                        initial={{ height: 0, opacity: 0 }}
+                        animate={{ height: "auto", opacity: 1 }}
+                        exit={{ height: 0, opacity: 0 }}
+                        transition={{ duration: 0.25, ease: "easeInOut" }}
+                        className="overflow-hidden"
+                      >
+                        {navLink.subMenuLinks.map((sub, si) => (
+                          <a key={si} href={sub.url} className="block py-2 pl-4 text-left text-sm text-neutral">
+                            {sub.title}
+                          </a>
+                        ))}
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
                 </div>
-              ) : (
-                <SubMenu key={index} navLink={navLink} isMobile={isMobile} />
-              )
+                <div className="hidden lg:block">
+                  <SubMenu navLink={navLink} />
+                </div>
+              </div>
             ) : (
               <a
                 key={index}
                 href={navLink.url}
-                className="block py-3 text-md first:pt-7 lg:px-4 lg:py-2 lg:text-base first:lg:pt-2"
+                className="block border-b border-border-primary py-3 text-left text-md first:pt-7 lg:border-b-0 lg:px-2 lg:py-2 lg:text-center lg:text-sm first:lg:pt-2 xl:px-3 xl:text-base"
               >
                 {navLink.title}
               </a>
             ),
           )}
         </motion.div>
-        <div className="hidden justify-self-end lg:block">
+        <div className="hidden shrink-0 justify-self-end lg:block">
           {buttons.map((button, index) => (
-            <Button key={index} className="px-6 py-2" {...button} asChild>
+            <Button key={index} className="px-4 py-2 xl:px-5" {...button} asChild>
               <a href="/contact">
                 {button.title}
               </a>
@@ -149,17 +185,21 @@ export const Navbar2 = (props: Navbar2Props) => {
   );
 };
 
-const SubMenu = ({ navLink, isMobile }: { navLink: NavLink; isMobile: boolean }) => {
+const SubMenu = ({ navLink }: { navLink: NavLink }) => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 
   return (
     <section
-      onMouseEnter={() => !isMobile && setIsDropdownOpen(true)}
-      onMouseLeave={() => !isMobile && setIsDropdownOpen(false)}
+      onMouseEnter={() => setIsDropdownOpen(true)}
+      onMouseLeave={() => setIsDropdownOpen(false)}
     >
-      <button
-        className="flex w-full items-center justify-center gap-4 py-3 text-center text-md lg:w-auto lg:flex-none lg:justify-start lg:gap-2 lg:px-4 lg:py-2 lg:text-base"
-        onClick={() => setIsDropdownOpen((prev) => !prev)}
+      <a
+        href={navLink.url}
+        className="flex w-full items-center justify-center gap-4 py-3 text-center text-md lg:w-auto lg:flex-none lg:justify-start lg:gap-1 lg:px-2 lg:py-2 lg:text-sm xl:gap-2 xl:px-3 xl:text-base"
+        onClick={(event) => {
+          if (navLink.url === "#") event.preventDefault();
+          setIsDropdownOpen((prev) => !prev);
+        }}
       >
         <span>{navLink.title}</span>
         <motion.span
@@ -172,7 +212,7 @@ const SubMenu = ({ navLink, isMobile }: { navLink: NavLink; isMobile: boolean })
         >
           <RxChevronDown />
         </motion.span>
-      </button>
+      </a>
       {isDropdownOpen && (
         <AnimatePresence>
           <motion.nav
@@ -242,6 +282,7 @@ export const Navbar2Defaults: Props = {
       url: "#",
       subMenuLinks: [
         { title: "Case Studies", url: "/case-studies" },
+        { title: "Insights", url: "/insights" },
       ],
     },
     { title: "Pricing", url: "/pricing" },

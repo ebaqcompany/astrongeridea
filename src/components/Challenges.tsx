@@ -39,8 +39,6 @@ export const Portfolio23 = (props: Portfolio23Props) => {
     ...props,
   };
 
-  const refs = projects.map(() => useRef(null));
-
   return (
     <section id="relume" className="px-[5%] py-16 md:py-24 lg:py-28">
       <div className="container">
@@ -50,72 +48,76 @@ export const Portfolio23 = (props: Portfolio23Props) => {
           <p className="md:text-md">{description}</p>
         </header>
         <div className="grid grid-cols-1 gap-6 md:gap-12 lg:gap-20">
-          {projects.map((project, index) => {
-            const { scrollYProgress } = useScroll({
-              target: refs[index],
-              offset: ["start end", "end start"],
-            });
-
-            const scale = useTransform(
-              scrollYProgress,
-              [0, 0.2, 0.7, 0.9, 1],
-              [0.9, 1, 1, 0.95, 0.9],
-            );
-            const opacity = useTransform(
-              scrollYProgress,
-              [0, 0.2, 0.7, 0.9, 0.95],
-              [0, 1, 1, 0.5, 0],
-            );
-
-            const style: MotionStyleWithValues = {
-              scale,
-              opacity,
-            };
-
-            return (
-              <motion.div
-                key={index}
-                ref={refs[index]}
-                style={style}
-                className="grid grid-cols-1 gap-x-20 gap-y-6 border border-border-primary rounded-2xl p-6 md:grid-cols-[3fr_4fr] md:gap-y-20 md:p-8 lg:p-12"
-              >
-                <div className="flex flex-col justify-between">
-                  <div>
-                    <h3 className="text-4xl font-bold leading-[1.2] md:text-5xl lg:text-6xl">
-                      {project.heading}
-                    </h3>
-                    <div className="mt-3 flex flex-wrap gap-2 md:mt-4">
-                      {project.tags.map((tag, tagIndex) => (
-                        <li key={tagIndex} className="flex">
-                          <div className="inline-flex border border-neutral-lightest bg-neutral-lightest px-2 py-1 text-sm font-semibold text-text-primary">
-                            {tag}
-                          </div>
-                        </li>
-                      ))}
-                    </div>
-                  </div>
-                  <div className="mt-6 md:mt-8 md:text-md">{project.description}</div>
-                  <div className="mt-6 flex flex-wrap items-center gap-4 md:mt-8">
-                    {project.buttons.map((button, index) => (
-                      <Button key={index} {...button} asChild>
-                        <a href="/case-studies">{button.title}</a>
-                      </Button>
-                    ))}
-                  </div>
-                </div>
-                <div>
-                  <img
-                    src={project.image.src}
-                    alt={project.image.alt}
-                    className="aspect-[3/2] w-full object-cover"
-                  />
-                </div>
-              </motion.div>
-            );
-          })}
+          {projects.map((project, index) => (
+            <ProjectCard key={index} project={project} />
+          ))}
         </div>
       </div>
     </section>
+  );
+};
+
+const ProjectCard = ({ project }: { project: Project }) => {
+  const ref = useRef<HTMLDivElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ["start end", "end start"],
+  });
+
+  const scale = useTransform(
+    scrollYProgress,
+    [0, 0.2, 0.7, 0.9, 1],
+    [0.9, 1, 1, 0.95, 0.9],
+  );
+  const opacity = useTransform(
+    scrollYProgress,
+    [0, 0.2, 0.7, 0.9, 0.95],
+    [0, 1, 1, 0.5, 0],
+  );
+
+  const style: MotionStyleWithValues = {
+    scale,
+    opacity,
+  };
+
+  return (
+    <motion.div
+      ref={ref}
+      style={style}
+      className="relative grid grid-cols-1 gap-x-20 gap-y-6 border border-border-primary rounded-2xl p-6 md:grid-cols-[3fr_4fr] md:gap-y-20 md:p-8 lg:p-12"
+    >
+      <div className="flex flex-col justify-between">
+        <div>
+          <h3 className="text-4xl font-bold leading-[1.2] md:text-5xl lg:text-6xl">
+            {project.heading}
+          </h3>
+          <div className="mt-3 flex flex-wrap gap-2 md:mt-4">
+            {project.tags.map((tag, tagIndex) => (
+              <li key={tagIndex} className="flex">
+                <div className="inline-flex border border-neutral-lightest bg-neutral-lightest px-2 py-1 text-sm font-semibold text-text-primary">
+                  {tag}
+                </div>
+              </li>
+            ))}
+          </div>
+        </div>
+        <div className="mt-6 md:mt-8 md:text-md">{project.description}</div>
+        <div className="mt-6 flex flex-wrap items-center gap-4 md:mt-8">
+          {project.buttons.map((button, index) => (
+            <Button key={index} {...button} asChild>
+              <a href="/case-studies">{button.title}</a>
+            </Button>
+          ))}
+        </div>
+      </div>
+      <div>
+        <img
+          src={project.image.src}
+          alt={project.image.alt}
+          className="aspect-[3/2] w-full object-cover"
+        />
+      </div>
+    </motion.div>
   );
 };
 

@@ -2,7 +2,6 @@
 
 import { Navbar2 } from "@/components/Navbar";
 import { Header62 } from "@/components/ServiceHero";
-import { Stats8 } from "@/components/Stats";
 import { Layout495 } from "@/components/Audience";
 import { Cta7 } from "@/components/Cta";
 import { Footer12 } from "@/components/Footer";
@@ -29,7 +28,7 @@ export default function MarketInwardPage() {
             <h2 className="mb-5 text-4xl md:text-5xl lg:text-6xl">Most products are designed from the inside out.</h2>
             <p className="mb-4 text-xl text-neutral">Features first. Systems discovered later. Incoherence appears.</p>
             <p className="md:text-md text-neutral">
-              Products don't fail at launch. They fail at the kickoff meeting -- when the team starts building before they understand what the market and their users actually need. What follows is atrophy. Each decision made without a validated foundation pulls the product slightly further from coherence.
+              Products don&apos;t fail at launch. They fail at the kickoff meeting -- when the team starts building before they understand what the market and their users actually need. What follows is atrophy. Each decision made without a validated foundation pulls the product slightly further from coherence.
             </p>
           </div>
         </section>
@@ -77,7 +76,7 @@ export default function MarketInwardPage() {
       <div className="section-gray">
         <section className="px-[5%] py-16 md:py-24 lg:py-28">
           <div className="container max-w-3xl text-center">
-            <h2 className="mb-5 text-4xl md:text-5xl lg:text-6xl">It doesn't end at launch.</h2>
+            <h2 className="mb-5 text-4xl md:text-5xl lg:text-6xl">It doesn&apos;t end at launch.</h2>
             <p className="md:text-md text-neutral">
               The market responds. Users behave. Those signals refine the ecosystem map, update the workflows, improve the product. The market that informed the design at the beginning continues to inform it at every stage after.
             </p>
