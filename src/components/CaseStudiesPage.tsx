@@ -3,6 +3,7 @@
 import { Button } from "@relume_io/relume-ui";
 import type { ButtonProps } from "@relume_io/relume-ui";
 import { RxChevronRight } from "react-icons/rx";
+import { MotionValue, motion, useScroll, useTransform } from "framer-motion";
 import { useCallback, useRef } from "react";
 
 type ImageProps = {
@@ -40,6 +41,13 @@ export const Portfolio7 = (props: Portfolio7Props) => {
     ...Portfolio7Defaults,
     ...props,
   };
+
+  const containerRef = useRef<HTMLDivElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ["start start", "end end"],
+  });
+
   return (
     <section id="relume" className="px-[5%] py-16 md:py-24 lg:py-28">
       <div className="container">
@@ -48,9 +56,15 @@ export const Portfolio7 = (props: Portfolio7Props) => {
           <h2 className="mb-5 text-5xl font-bold md:mb-6 md:text-7xl lg:text-8xl">{heading}</h2>
           <p className="md:text-md">{description}</p>
         </header>
-        <div className="grid grid-cols-1 gap-y-10 md:gap-y-16 lg:gap-y-24">
+        <div ref={containerRef} className="relative grid grid-cols-1 gap-y-10 md:h-[520vh] md:gap-y-0">
           {projects.map((project, index) => (
-            <Project key={index} index={index} {...project} />
+            <Project
+              key={index}
+              index={index}
+              total={projects.length}
+              scrollYProgress={scrollYProgress}
+              {...project}
+            />
           ))}
         </div>
         <footer className="mt-12 flex justify-center md:mt-18 lg:mt-20">
@@ -98,9 +112,52 @@ const HoverPreview = ({ image, video }: { image: ImageProps; video?: string }) =
   );
 };
 
-const Project: React.FC<ProjectProps & { index: number }> = ({ title, description, image, video, url, button, tags, index }) => (
-  <article className="grid grid-cols-1 overflow-hidden rounded-lg border border-border-primary bg-white md:grid-cols-2">
-    <a href={url} className={index % 2 === 0 ? "md:order-first" : "md:order-last"}>
+const Project = ({
+  scrollYProgress,
+  index,
+  total,
+  ...project
+}: ProjectProps & {
+  scrollYProgress: MotionValue<number>;
+  index: number;
+  total: number;
+}) => {
+  const sectionFraction = 1 / total;
+  const start = sectionFraction * index;
+  const end = sectionFraction * (index + 1);
+  const scale = useTransform(scrollYProgress, [start, end], [1, index < total - 1 ? 0.9 : 1]);
+  const y = useTransform(scrollYProgress, [start, end], ["0vh", index < total - 1 ? "-4vh" : "0vh"]);
+
+  return (
+    <>
+      <article className="grid grid-cols-1 overflow-hidden rounded-lg border border-border-primary bg-white md:hidden">
+        <ProjectContent index={index} {...project} />
+      </article>
+      <motion.article
+        className="hidden grid-cols-1 overflow-hidden rounded-lg border border-border-primary bg-white md:sticky md:top-[10vh] md:grid md:h-[80vh] md:grid-cols-2"
+        style={{ scale, y, zIndex: index + 1 }}
+      >
+        <ProjectContent index={index} {...project} />
+      </motion.article>
+    </>
+  );
+};
+
+const ProjectContent: React.FC<ProjectProps & { index: number }> = ({
+  title,
+  description,
+  image,
+  video,
+  url,
+  button,
+  tags,
+  index,
+}) => (
+  <>
+    <a
+      href={url}
+      className={`${index % 2 === 0 ? "md:order-first" : "md:order-last"} flex h-full items-center justify-center p-4 md:p-6`}
+    >
       <HoverPreview image={image} video={video} />
     </a>
     <div className="flex min-h-[24rem] flex-col justify-center p-6 md:p-8 lg:p-12">
@@ -122,7 +179,7 @@ const Project: React.FC<ProjectProps & { index: number }> = ({ title, descriptio
         <a href={url}>{button.title}</a>
       </Button>
     </div>
-  </article>
+  </>
 );
 
 const caseStudies: ProjectProps[] = [

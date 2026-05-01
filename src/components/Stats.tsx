@@ -38,10 +38,10 @@ export const Stats8 = (props: Layout518Props) => {
     offset: ["start start", "end end"],
   });
 
-  const heroWidth = useTransform(scrollYProgress, [0, 0.5, 1], ["100vw", "58vw", "58vw"]);
-  const heroHeight = useTransform(scrollYProgress, [0, 0.5, 1], ["100vh", "90vh", "90vh"]);
+  const heroWidth = useTransform(scrollYProgress, [0, 0.5, 1], ["100vw", "52vw", "52vw"]);
+  const heroHeight = useTransform(scrollYProgress, [0, 0.5, 1], ["100vh", "78vh", "78vh"]);
   const heroX = useTransform(scrollYProgress, [0, 0.5, 1], ["0vw", "5vw", "5vw"]);
-  const heroY = useTransform(scrollYProgress, [0, 0.5, 1], ["0vh", "5vh", "5vh"]);
+  const heroY = useTransform(scrollYProgress, [0, 0.5, 1], ["0vh", "11vh", "11vh"]);
   const heroRadius = useTransform(scrollYProgress, [0, 0.5, 1], ["0px", "16px", "16px"]);
   const cardsXPosition = useTransform(scrollYProgress, [0, 0.18, 0.96, 1], ["120%", "120%", "0%", "0%"]);
   const motionHeroStyles = {
@@ -98,7 +98,7 @@ export const Stats8 = (props: Layout518Props) => {
             </motion.div>
             <motion.div
               style={motionCardsStyles}
-              className="absolute right-[5vw] top-1/2 z-20 grid h-[82vh] w-[34vw] -translate-y-1/2 grid-cols-1 content-center gap-y-6"
+              className="absolute right-[5vw] top-[11vh] z-20 grid h-[78vh] w-[34vw] grid-cols-1 gap-y-6"
             >
               {cards.map((card, index) => (
                 <AnimatedCard
